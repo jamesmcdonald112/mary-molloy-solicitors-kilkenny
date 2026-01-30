@@ -1,0 +1,61 @@
+---
+import companyLogo from "../assets/logo/companyLogo.svg?raw";
+
+import hamburgerMenu from "../assets/navbar/hambugerMenu.svg?raw";
+
+import { firm } from "../config/firm";
+
+const { companyName, county } = firm;
+---
+
+<header
+  class="sticky top-0 inset-x-0 z-50 bg-header text-textOnDark border-b border-headerBorder shadow-lg"
+  data-header
+>
+  <nav
+    aria-label="Global"
+    class="flex mx-auto max-w-7xl items-center justify-between px-6 py-2 lg:px-10"
+  >
+    <!-- LOGO -->
+    <div class="flex lg:flex-1">
+      <a href="/" class="inline-flex items-center gap-2 p-1.5 -m-1.5">
+        <span
+          set:html={companyLogo}
+          class="h-18 w-auto text-accent [&_svg]:h-full [&_svg]:w-full"
+        />
+        <div class="flex flex-col leading-tight">
+          <span class="font-bold text-lg">{companyName}</span>
+          <span>{county}</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- MODAL BUTTON -->
+    <button
+      type="button"
+      class="cursor-pointer grid place-items-center border border-border rounded-md p-2.5 hover:bg-accentHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:hidden"
+      aria-label="Open Menu"
+      data-open-menu
+    >
+      <span class="sr-only">Open Main Menu</span>
+      <span
+        set:html={hamburgerMenu}
+        class="block w-6 h-6 text-textOnDark [&_svg]:h-full [&_svg]:w-full [&_svg]:block"
+      />
+    </button>
+
+    <!-- MODAL -->
+  </nav>
+</header>
+
+<!-- overflow-hidden - Add to the container for the light effects -->
+
+
+<!-- move it into src/scripts/header-menu.ts and import it in the <script> tag.
+ -->
+<script>
+  const openBtn = document.querySelector("[data-open-menu]");
+  openBtn?.addEventListener("click", () => {
+    console.log("Clicked");
+  });
+</script>
