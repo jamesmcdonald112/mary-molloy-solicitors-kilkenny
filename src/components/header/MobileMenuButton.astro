@@ -1,0 +1,38 @@
+---
+interface MobileMenuButton {
+  icon: string;
+  border?: boolean;
+  srLabel: string;
+  action: "open" | "lose";
+  controlsId?: string;
+}
+
+const {
+  icon,
+  border = false,
+  srLabel,
+  action,
+  controlsId = "mobile-menu",
+} = Astro.props as MobileMenuButton;
+
+const baseClasses =
+  "cursor-pointer grid place-items-center p-2.5 hover:bg-accentHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:hidden";
+
+const borderClasses = "border border-border rounded-md";
+
+const classes = border ? `${baseClasses} ${borderClasses}`.trim() : baseClasses;
+---
+
+<!-- MODAL BUTTON -->
+<button
+  type="button"
+  class={classes}
+  aria-controls={controlsId}
+  data-action={action}
+>
+  <span class="sr-only">{srLabel}</span>
+  <span
+    set:html={icon}
+    class="block w-6 h-6 text-textOnDark [&_svg]:w-full [&_svg]:block"
+  />
+</button>

@@ -1,0 +1,38 @@
+---
+interface BrandProps {
+  companyLogo: string;
+  companyName?: string;
+  county?: string;
+  href?: string;
+}
+
+const {
+  companyLogo,
+  companyName,
+  county,
+  href = "/",
+} = Astro.props as BrandProps;
+---
+
+<!-- LOGO -->
+<div class="flex lg:flex-1">
+  <a
+    href={href}
+    aria-label={companyName ? `${companyName} home` : "Home"}
+    class="inline-flex items-center gap-2 p-1.5 -m-1.5"
+  >
+    <span
+      set:html={companyLogo}
+      class="h-16 w-16 text-accent [&_svg]:h-full [&_svg]:w-full"
+    />
+
+    {
+      (companyName || county) && (
+        <div class="flex flex-col leading-tight">
+          {companyName && <span class="font-bold text-md">{companyName}</span>}
+          {county && <span class="text-sm">{county}</span>}
+        </div>
+      )
+    }
+  </a>
+</div>

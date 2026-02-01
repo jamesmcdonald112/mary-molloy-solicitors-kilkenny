@@ -1,0 +1,23 @@
+---
+type NavItem = { navLabel: string; href: string };
+
+interface MobileMenuNavProps {
+  links: NavItem[];
+}
+
+const { links } = Astro.props as MobileMenuNavProps;
+---
+
+<nav class="space-y-2 py-6">
+  {
+    links.map(({ navLabel, href }) => (
+      <a
+        href={href}
+        class="-mx-3 block rounded-lg px-3 py-2 font-semibold hover:bg-accentHover"
+        data-mobile-link
+      >
+        {navLabel}
+      </a>
+    ))
+  }
+</nav>

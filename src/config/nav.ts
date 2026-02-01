@@ -1,6 +1,7 @@
 export const nav = [
-	{ label: "Home", href: "/" },
-	{ label: "Services", href: "/services" },
-	{ label: "About", href: "/about" },
-	{ label: "Contact", href: "/contact" },
+	{ navLabel: "Home", href: "/" },
+	{ navLabel: "Services", href: "/services" },
+	{ navLabel: "About", href: "/about" },
+	{ navLabel: "Contact", href: "/contact" },
+	{ navLabel: "Test", href: "/test" },
 ];

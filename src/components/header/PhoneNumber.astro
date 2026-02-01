@@ -1,0 +1,34 @@
+---
+interface PhoneNumberProps {
+  phoneHref: string;
+  phoneIcon: string;
+  phoneDisplay: string;
+  size?: "sm" | "md" | "lg";
+}
+
+const {
+  phoneHref,
+  phoneIcon,
+  phoneDisplay,
+  size = "md",
+} = Astro.props as PhoneNumberProps;
+
+const sizeMap = {
+  sm: { text: "text-sm", iconSize: "h-5" },
+  md: { text: "text-base", iconSize: "h-6" },
+  lg: { text: "text-lg", iconSize: "h-8" },
+} as const;
+
+const { text, iconSize } = sizeMap[size];
+---
+
+<a
+  class={`flex items-center ${text} font-semibold gap-2 `}
+  href={`tel:${phoneHref}`}
+>
+  <span
+    class={`block ${iconSize} text-textOnDark [&_svg]:size-full`}
+    set:html={phoneIcon}
+  />
+  Call: {phoneDisplay}</a
+>

@@ -1,0 +1,19 @@
+---
+type NavItem = { navLabel: string; href: string };
+
+interface DesktopNavProps {
+  links: NavItem[];
+}
+
+const { links } = Astro.props as DesktopNavProps;
+---
+
+<div class="hidden lg:flex flex-1 lg:gap-x-12 justify-center">
+  {
+    links.map(({ navLabel, href }) => (
+      <a href={href} class="text-sm font-semibold">
+        {navLabel}
+      </a>
+    ))
+  }
+</div>
