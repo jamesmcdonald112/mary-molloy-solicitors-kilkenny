@@ -13,7 +13,7 @@
   --color-mutedOnDark: var(--color-slate-200);
 
   --color-accent: var(--color-slate-900);
-  --color-accentHover: var(--color-slate-700);
+  --color-accentHover: var(--color-slate-500);
   --color-accentContrast: var(--color-white);
 
   --color-header: var(--color-slate-700);
