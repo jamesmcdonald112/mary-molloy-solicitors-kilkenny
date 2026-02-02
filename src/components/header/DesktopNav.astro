@@ -12,10 +12,14 @@ const { links } = Astro.props as DesktopNavProps;
   {
     links.map(({ navLabel, href }) => (
       <li>
-        <a href={href} class="text-sm font-semibold">
+        <a
+          href={href}
+          class="inline-block text-sm font-semibold transition duration-200  hover:text-accentHover hover:scale-105"
+        >
           {navLabel}
         </a>
       </li>
+      
     ))
   }
 </ul>
