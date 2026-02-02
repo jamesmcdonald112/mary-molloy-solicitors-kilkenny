@@ -17,17 +17,17 @@ const {
 <a
   href={href}
   aria-label={companyName ? `${companyName} home` : "Home"}
-  class="inline-flex items-center gap-2 p-1.5 -m-1.5"
+  class="group inline-flex items-center gap-2 p-1.5 -m-1.5 hover:text-accentHover hover:[&_svg]:text-accentHover transition-colors duration-200"
 >
   <span
     set:html={companyLogo}
-    class="h-16 w-16 text-accent [&_svg]:h-full [&_svg]:w-full"
+    class="h-16 w-16 text-accent transition-transform duration-200 group-hover:scale-105 [&_svg]:h-full [&_svg]:w-full"
   />
 
   {
     (companyName || county) && (
-      <div class="flex flex-col leading-tight">
-        {companyName && <span class="font-bold text-md">{companyName}</span>}
+      <div class="flex flex-col leading-tight transition-transform duration-200 group-hover:scale-105 group-hover:translate-x-2">
+        {companyName && <span class="font-bold text-md ">{companyName}</span>}
         {county && <span class="text-sm">{county}</span>}
       </div>
     )
