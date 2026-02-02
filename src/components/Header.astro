@@ -22,11 +22,7 @@ const { companyName, county, phoneDisplay, phoneHref } = firm;
 >
   <Navbar>
     <div class="flex lg:flex-1">
-      <Brand
-        companyLogo={companyLogo}
-        companyName={companyName}
-        county={county}
-      />
+      <Brand companyLogo={companyLogo} companyName={companyName} />
     </div>
 
     <!-- Open Menu -->
@@ -38,16 +34,18 @@ const { companyName, county, phoneDisplay, phoneHref } = firm;
     />
 
     <!-- Desktop Navigation -->
-    <div class="hidden lg:flex justify-center flex-1">
+    <div class="hidden lg:block">
       <DesktopNav links={nav} />
     </div>
 
-    <div class="hidden flex-1 justify-end lg:flex">
+    <!-- Desktop Phone Number -->
+    <div class="justify-end hidden lg:flex">
       <PhoneNumber
         phoneHref={phoneHref}
         phoneIcon={phoneIcon}
         phoneDisplay={phoneDisplay}
         size={"sm"}
+        class={"transition hover:text-accentHover duration-200 hover:scale-105"}
       />
     </div>
   </Navbar>
@@ -57,13 +55,14 @@ const { companyName, county, phoneDisplay, phoneHref } = firm;
       <MobileMenuNav links={nav} />
 
       <div
-        class="p-3 mt-3 -mx-3 block rounded-lg hover:bg-accentHover lg:hidden"
+        class="p-3 mt-3 -mx-3 block rounded-lg transition-colors hover:bg-accentHover duration-200 lg:hidden"
       >
         <PhoneNumber
           phoneHref={phoneHref}
           phoneIcon={phoneIcon}
           phoneDisplay={phoneDisplay}
           size={"md"}
+          class={""}
         />
       </div>
     </div>

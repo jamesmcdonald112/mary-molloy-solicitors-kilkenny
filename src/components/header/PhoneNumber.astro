@@ -4,6 +4,7 @@ interface PhoneNumberProps {
   phoneIcon: string;
   phoneDisplay: string;
   size?: "sm" | "md" | "lg";
+  class?: string;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   phoneIcon,
   phoneDisplay,
   size = "md",
+  class: className = "",
 } = Astro.props as PhoneNumberProps;
 
 const sizeMap = {
@@ -23,11 +25,11 @@ const { text, iconSize } = sizeMap[size];
 ---
 
 <a
-  class={`group flex items-center ${text} font-semibold gap-2 transition duration-200 hover:text-accentHover hover:scale-105`}
+  class={`flex items-center  font-semibold gap-2 ${text} ${className}`}
   href={`tel:${phoneHref}`}
 >
   <span
-    class={`block ${iconSize} text-textOnDark transition duration-200 group-hover:text-accentHover  [&_svg]:size-full`}
+    class={`block ${iconSize}  [&_svg]:size-full`}
     set:html={phoneIcon}
   />
   Call: {phoneDisplay}</a

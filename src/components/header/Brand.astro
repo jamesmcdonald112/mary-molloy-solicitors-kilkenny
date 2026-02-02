@@ -21,12 +21,12 @@ const {
 >
   <span
     set:html={companyLogo}
-    class="h-16 w-16 text-accent transition-transform duration-200 group-hover:scale-105 [&_svg]:h-full [&_svg]:w-full"
+    class="h-16 w-16 md:h-14 text-accent transition-transform duration-200 group-hover:scale-105 [&_svg]:h-full [&_svg]:w-full"
   />
 
   {
     (companyName || county) && (
-      <div class="flex flex-col leading-tight transition-transform duration-200 group-hover:scale-105 group-hover:translate-x-2">
+      <div class="flex flex-col leading-tight ">
         {companyName && <span class="font-bold text-md ">{companyName}</span>}
         {county && <span class="text-sm">{county}</span>}
       </div>
