@@ -21,7 +21,7 @@ const { companyName, county, phoneDisplay, phoneHref } = firm;
   data-header
 >
   <Navbar>
-    <div class="flex lg:flex-1">
+    <div class="mr-4 justify-center xl:justify-start flex lg:flex-1">
       <Brand companyLogo={companyLogo} companyName={companyName} />
     </div>
 
@@ -31,6 +31,7 @@ const { companyName, county, phoneDisplay, phoneHref } = firm;
       border={true}
       srLabel={"Open Mobile Menu"}
       action={"open"}
+      class={""}
     />
 
     <!-- Desktop Navigation -->
@@ -39,7 +40,7 @@ const { companyName, county, phoneDisplay, phoneHref } = firm;
     </div>
 
     <!-- Desktop Phone Number -->
-    <div class="justify-end hidden lg:flex">
+    <div class="justify-center xl:justify-end hidden lg:flex">
       <PhoneNumber
         phoneHref={phoneHref}
         phoneIcon={phoneIcon}

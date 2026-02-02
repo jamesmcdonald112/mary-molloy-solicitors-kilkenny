@@ -1,10 +1,11 @@
 ---
-interface MobileMenuButton {
+interface MobileMenuButtonProps {
   icon: string;
   border?: boolean;
   srLabel: string;
-  action: "open" | "lose";
+  action: "open" | "close";
   controlsId?: string;
+  class?: string;
 }
 
 const {
@@ -13,14 +14,16 @@ const {
   srLabel,
   action,
   controlsId = "mobile-menu",
-} = Astro.props as MobileMenuButton;
+  class: className = "",
+} = Astro.props as MobileMenuButtonProps;
 
-const baseClasses =
-  "cursor-pointer grid place-items-center p-2.5 hover:bg-accentHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:hidden";
-
-const borderClasses = "border border-border rounded-md";
-
-const classes = border ? `${baseClasses} ${borderClasses}`.trim() : baseClasses;
+const classes = [
+  "cursor-pointer transition duration-200 hover:scale-105 grid place-items-center p-2.5 hover:bg-accentHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:hidden",
+  border ? "border border-border rounded-md" : "",
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
 ---
 
 <!-- MODAL BUTTON -->
