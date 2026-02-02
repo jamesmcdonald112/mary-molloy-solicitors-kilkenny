@@ -21,11 +21,13 @@ const { companyName, county, phoneDisplay, phoneHref } = firm;
   data-header
 >
   <Navbar>
-    <Brand
-      companyLogo={companyLogo}
-      companyName={companyName}
-      county={county}
-    />
+    <div class="flex lg:flex-1">
+      <Brand
+        companyLogo={companyLogo}
+        companyName={companyName}
+        county={county}
+      />
+    </div>
 
     <!-- Open Menu -->
     <MobileMenuButton
@@ -35,37 +37,37 @@ const { companyName, county, phoneDisplay, phoneHref } = firm;
       action={"open"}
     />
 
-    <DesktopNav links={nav} />
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex justify-center flex-1">
+      <DesktopNav links={nav} />
+    </div>
 
     <div class="hidden flex-1 justify-end lg:flex">
       <PhoneNumber
         phoneHref={phoneHref}
         phoneIcon={phoneIcon}
         phoneDisplay={phoneDisplay}
-        hiddenOnSmallScreen={true}
         size={"sm"}
       />
     </div>
-
-    <!-- Mobile Menu -->
-    <MobileMenuDialog companyLogo={companyLogo}>
-      <div class="-my-6 divide-y divide-headerBorder">
-        <MobileMenuNav links={nav} />
-
-        <div
-          class=" p-3 mt-3 -mx-3 block rounded-lg hover:bg-accentHover lg:hidden"
-        >
-          <PhoneNumber
-            phoneHref={phoneHref}
-            phoneIcon={phoneIcon}
-            phoneDisplay={phoneDisplay}
-            hiddenOnSmallScreen={false}
-            size={"md"}
-          />
-        </div>
-      </div>
-    </MobileMenuDialog>
   </Navbar>
+
+  <MobileMenuDialog companyLogo={companyLogo}>
+    <div class="-my-6 divide-y divide-headerBorder">
+      <MobileMenuNav links={nav} />
+
+      <div
+        class="p-3 mt-3 -mx-3 block rounded-lg hover:bg-accentHover lg:hidden"
+      >
+        <PhoneNumber
+          phoneHref={phoneHref}
+          phoneIcon={phoneIcon}
+          phoneDisplay={phoneDisplay}
+          size={"md"}
+        />
+      </div>
+    </div>
+  </MobileMenuDialog>
 </header>
 
 <!-- overflow-hidden - Add to the container for the light effects -->

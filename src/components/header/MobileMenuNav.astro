@@ -8,7 +8,7 @@ interface MobileMenuNavProps {
 const { links } = Astro.props as MobileMenuNavProps;
 ---
 
-<nav class="space-y-2 py-6">
+<nav aria-label="Mobile menu" class="space-y-2 py-6">
   {
     links.map(({ navLabel, href }) => (
       <a

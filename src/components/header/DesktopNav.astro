@@ -8,12 +8,14 @@ interface DesktopNavProps {
 const { links } = Astro.props as DesktopNavProps;
 ---
 
-<div class="hidden lg:flex flex-1 lg:gap-x-12 justify-center">
+<ul class="flex gap-x-12">
   {
     links.map(({ navLabel, href }) => (
-      <a href={href} class="text-sm font-semibold">
-        {navLabel}
-      </a>
+      <li>
+        <a href={href} class="text-sm font-semibold">
+          {navLabel}
+        </a>
+      </li>
     ))
   }
-</div>
+</ul>
