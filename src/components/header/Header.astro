@@ -1,18 +1,16 @@
 ---
-import companyLogo from "../assets/logo/companyLogo.svg?raw";
-import hamburgerMenu from "../assets/navbar/hambugerMenu.svg?raw";
-import phoneIcon from "../assets/phone/phoneIcon.svg?raw";
-
-
-import { firm } from "../config/firm";
-import { nav } from "../config/nav";
-import Brand from "./header/Brand.astro";
-import DesktopNav from "./header/DesktopNav.astro";
-import Navbar from "./header/Navbar.astro";
-import PhoneNumber from "./header/PhoneNumber.astro";
-import MobileMenuButton from "./header/MobileMenuButton.astro";
-import MobileMenuDialog from "./header/MobileMenuDialog.astro";
-import MobileMenuNav from "./header/MobileMenuNav.astro";
+import { firm } from "../../config/firm";
+import { nav } from "../../config/nav";
+import companyLogo from "../../assets/logo/companyLogo.svg?raw";
+import hamburgerMenu from "../../assets/navbar/hambugerMenu.svg?raw";
+import phoneIcon from "../../assets/phone/phoneIcon.svg?raw";
+import Brand from "./Brand.astro";
+import DesktopNav from "./DesktopNav.astro";
+import MobileMenuButton from "./MobileMenuButton.astro";
+import MobileMenuDialog from "./MobileMenuDialog.astro";
+import MobileMenuNav from "./MobileMenuNav.astro";
+import Navbar from "./Navbar.astro";
+import PhoneNumber from "./PhoneNumber.astro";
 
 const { companyName, county, phone } = firm;
 ---
@@ -85,5 +83,5 @@ const { companyName, county, phone } = firm;
 <!-- overflow-hidden - Add to the container for the light effects -->
 
 <script>
-  import "../scripts/header-menu.ts";
+  import "../../scripts/header-menu.ts";
 </script>
