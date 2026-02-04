@@ -3,6 +3,7 @@ import companyLogo from "../assets/logo/companyLogo.svg?raw";
 import hamburgerMenu from "../assets/navbar/hambugerMenu.svg?raw";
 import phoneIcon from "../assets/phone/phoneIcon.svg?raw";
 
+
 import { firm } from "../config/firm";
 import { nav } from "../config/nav";
 import Brand from "./header/Brand.astro";
@@ -19,7 +20,7 @@ const { companyName, county, phone } = firm;
 <header
   class="sticky top-0 inset-x-0 z-50
     border-b border-gray-300
-    bg-gray-200 text-gray-700
+    bg-gray-100 text-gray-700
     shadow-lg"
   data-header
 >
@@ -64,16 +65,17 @@ const { companyName, county, phone } = firm;
 
       <div
         class="block
-          mt-3 -mx-3 p-3
+          mt-3
           rounded-lg
-          transition-colors duration-200 hover:bg-accentHover"
+          transition-colors duration-200
+          hover:bg-gray-300 hover:text-gray-900"
       >
         <PhoneNumber
           phoneHref={phone.phoneHref}
           phoneIcon={phoneIcon}
           phoneDisplay={phone.display}
           size={"md"}
-          class={""}
+          class={"p-3"}
         />
       </div>
     </div>
