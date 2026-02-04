@@ -25,12 +25,12 @@ const { text, iconSize } = sizeMap[size];
 ---
 
 <a
-  class={`flex items-center  font-semibold gap-2 ${text} ${className}`}
+  class={`
+    flex gap-2 items-center 
+    font-semibold ${text} 
+    ${className}`}
   href={`tel:${phoneHref}`}
 >
-  <span
-    class={`block ${iconSize}  [&_svg]:size-full`}
-    set:html={phoneIcon}
-  />
+  <span class={`block ${iconSize}  [&_svg]:size-full`} set:html={phoneIcon} />
   Call: {phoneDisplay}</a
 >
