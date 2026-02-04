@@ -4,6 +4,7 @@ interface BrandProps {
   companyName?: string;
   county?: string;
   href?: string;
+  class?: string;
 }
 
 const {
@@ -11,23 +12,37 @@ const {
   companyName,
   county,
   href = "/",
+  class: className = "",
 } = Astro.props as BrandProps;
 ---
 
 <a
   href={href}
   aria-label={companyName ? `${companyName} home` : "Home"}
-  class="group inline-flex items-center gap-2 p-1.5 -m-1.5 hover:text-accentHover hover:[&_svg]:text-accentHover transition-colors duration-200"
+  class=`
+    group 
+    inline-flex items-center gap-2
+    -m-1.5 p-1.5  
+    ${className}`
 >
   <span
     set:html={companyLogo}
-    class="h-14 w-14  text-accent transition-transform duration-200 group-hover:scale-105 [&_svg]:h-full [&_svg]:w-full"
+    class="h-14 w-14 [&_svg]:size-full
+      text-gray-800
+      transition duration-200
+      group-hover:scale-105 group-hover:text-gray-500"
   />
 
   {
     (companyName || county) && (
-      <div class="flex flex-col leading-tight ">
-        {companyName && <span class="font-bold text-md ">{companyName}</span>}
+      <div
+        class="
+        flex flex-col 
+        leading-tight 
+        transition-colors duration-200
+        group-hover:text-gray-500"
+      >
+        {companyName && <span class="font-bold text-md">{companyName}</span>}
         {county && <span class="text-sm">{county}</span>}
       </div>
     )
