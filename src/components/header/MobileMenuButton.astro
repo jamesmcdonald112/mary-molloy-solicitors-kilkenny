@@ -17,9 +17,19 @@ const {
   class: className = "",
 } = Astro.props as MobileMenuButtonProps;
 
+const base = [
+  "lg:hidden",
+  "grid place-items-center",
+  "p-2.5",
+  "bg-transparent",
+  "cursor-pointer hover:scale-105 hover:bg-gray-400",
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+  "transition duration-200",
+];
+
 const classes = [
-  "cursor-pointer transition duration-200 hover:scale-105 grid place-items-center p-2.5 hover:bg-accentHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:hidden",
-  border ? "border border-border rounded-md" : "",
+  ...base,
+  border ? "border border-gray-800 rounded-md " : "",
   className,
 ]
   .filter(Boolean)
@@ -36,6 +46,8 @@ const classes = [
   <span class="sr-only">{srLabel}</span>
   <span
     set:html={icon}
-    class="block w-6 h-6 text-textOnDark [&_svg]:w-full [&_svg]:block"
+    class="w-6 h-6
+    block [&_svg]:size-full
+    text-gray-800"
   />
 </button>
