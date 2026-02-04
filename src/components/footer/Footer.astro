@@ -1,0 +1,158 @@
+---
+import companyLogo from "../../assets/logo/companyLogo.svg?raw";
+import Brand from "../header/Brand.astro";
+import phoneIcon from "../../assets/phone/phoneIcon.svg?raw";
+
+import { firm } from "../../config/firm";
+import PhoneNumber from "../header/PhoneNumber.astro";
+
+const { companyName, phone, address, officeHours } = firm;
+---
+
+<footer class="bg-white">
+  <div class="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="flex flex-col gap-8">
+        <Brand
+          companyLogo={companyLogo}
+          companyName={companyName}
+          class={"-ml-3 -mt-3"}
+        />
+        <address class="not-italic text-muted text-sm/6">
+          {address.line1}<br />
+          {address.line2}<br />
+          {address.city}
+          <br />
+          {address.eircode}<br />
+          {address.country}
+        </address>
+        <p class="text-muted text-sm">Opening hours: {officeHours.display}</p>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+          <a
+            href={address.googleMapDirectionsHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class=" inline-flex w-full sm:w-fit justify-center items-center rounded-md bg-header border border-header px-4 py-2 text-sm text-white transition-colors duration-200 hover:bg-accentHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >Get directions</a
+          >
+          <PhoneNumber
+            phoneHref={phone.phoneHref}
+            phoneIcon={phoneIcon}
+            phoneDisplay={phone.display}
+            size={"sm"}
+            class="inline-flex  w-full sm:w-fit justify-center rounded-md border border-headerBorder px-4 py-2 text-muted hover:text-accentHover transition-colors duration-200"
+          />
+        </div>
+      </div>
+
+      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm/6 font-semibold text-gray-900">Solutions</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Marketing</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Analytics</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Automation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Commerce</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Insights</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <h3 class="text-sm/6 font-semibold text-gray-900">Support</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Submit ticket</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Documentation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Guides</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm/6 font-semibold text-gray-900">Company</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Jobs</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Press</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <h3 class="text-sm/6 font-semibold text-gray-900">Legal</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Terms of service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >Privacy policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                  >License</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
+      <p class="text-sm/6 text-gray-600">
+        &copy; {new Date().getFullYear()}
+        {companyName}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
