@@ -18,11 +18,12 @@ const {
 } = Astro.props as MobileMenuButtonProps;
 
 const base = [
+  "group",
   "lg:hidden",
   "grid place-items-center",
   "p-2.5",
   "bg-transparent",
-  "cursor-pointer hover:scale-105 hover:bg-gray-400",
+  "cursor-pointer hover:scale-105 hover:bg-gray-300",
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
   "transition duration-200",
 ];
@@ -48,6 +49,6 @@ const classes = [
     set:html={icon}
     class="w-6 h-6
     block [&_svg]:size-full
-    text-gray-800"
+    text-gray-700 group-hover:text-gray-800"
   />
 </button>
