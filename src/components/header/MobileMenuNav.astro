@@ -12,7 +12,7 @@ const { links } = Astro.props as MobileMenuNavProps;
     links.map(({ navLabel, href }) => (
       <a
         href={href}
-        class=" block rounded-lg px-3 py-2 font-semibold transition-colors hover:bg-accentHover duration-200"
+        class="block rounded-lg px-3 py-2 font-semibold transition-colors hover:bg-accentHover duration-200"
         data-mobile-link
       >
         {navLabel}
