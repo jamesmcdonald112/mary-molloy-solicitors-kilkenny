@@ -1,0 +1,24 @@
+---
+import AccessibilityStatement from "../components/legal/AccessibilityStatement.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { firm } from "../config/firm";
+
+const address = [
+  firm.address.line1,
+  firm.address.line2,
+  firm.address.city,
+  firm.address.eircode,
+]
+  .filter(Boolean)
+  .join(", ");
+---
+
+<BaseLayout>
+  <div class="py-12 md:py-24 px-8">
+    <AccessibilityStatement
+      companyName={firm.companyName}
+      phone={firm.phone.display}
+      address={address}
+    />
+  </div>
+</BaseLayout>

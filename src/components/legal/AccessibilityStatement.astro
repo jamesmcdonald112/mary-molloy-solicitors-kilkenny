@@ -1,0 +1,109 @@
+---
+interface AccessibilityStatementProps {
+  companyName: string;
+  phone: string;
+  address: string;
+}
+
+const { companyName, phone, address } =
+  Astro.props as AccessibilityStatementProps;
+---
+
+<article class="prose lg:prose-lg max-w-4xl mx-auto">
+  <h1 id="accessibility-statement">Accessibility Statement</h1>
+  <hr />
+  <p>This is an accessibility statement from {companyName}.</p>
+  <h2 id="measures-to-support-accessibility">
+    Measures to support accessibility
+  </h2>
+  <p>
+    {companyName} takes the following measures to ensure accessibility of
+    {companyName}:
+  </p>
+  <ul>
+    <li>Assign clear accessibility goals and responsibilities.</li>
+    <li>
+      Accessibility is considered during design, development, and content
+      updates.
+    </li>
+  </ul>
+  <h2 id="conformance-status">Conformance status</h2>
+  <p>
+    The <a href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+      >Web Content Accessibility Guidelines (WCAG)</a
+    > defines requirements for designers and developers to improve accessibility for
+    people with disabilities. It defines three levels of conformance: Level A, Level
+    AA, and Level AAA. {companyName} is partially conformant with WCAG 2.1 level AA.
+    Partially conformant means that some parts of the content do not fully conform
+    to the accessibility standard.
+  </p>
+  <h2 id="feedback">Feedback</h2>
+  <p>
+    We welcome your feedback on the accessibility of {companyName}. Please let
+    us know if you encounter accessibility barriers on {companyName}:
+  </p>
+  <ul>
+    <li>Phone: {phone}</li>
+    <li>Visitor Address: {address}</li>
+    <li>Postal Address: {address}</li>
+    <li>
+      You may also submit accessibility feedback through our website <a
+        href="/contact">contact form</a
+      > by selecting <strong>“General enquiry”</strong> and describing the accessibility
+      issue.
+    </li>
+  </ul>
+  <p>We aim to respond to accessibility feedback within 5 business days.</p>
+  <h2 id="compatibility-with-browsers-and-assistive-technology">
+    Compatibility with browsers and assistive technology
+  </h2>
+  <p>
+    {companyName} is designed to be compatible with the following assistive technologies:
+  </p>
+  <ul>
+    <li>
+      Modern web browsers (Chrome, Firefox, Safari, Edge) with screen readers
+      such as NVDA, VoiceOver, or JAWS on current operating systems.
+    </li>
+  </ul>
+  <p>{companyName} is not compatible with:</p>
+  <ul>
+    <li>Browsers older than 3 major versions.</li>
+  </ul>
+  <h2 id="technical-specifications">Technical specifications</h2>
+  <p>
+    Accessibility of {companyName} relies on the following technologies to work with
+    the particular combination of web browser and any assistive technologies or plugins
+    installed on your computer:
+  </p>
+  <ul>
+    <li>HTML</li>
+    <li>WAI-ARIA</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ul>
+  <p>
+    These technologies are relied upon for conformance with the accessibility
+    standards used.
+  </p>
+  <h2 id="assessment-approach">Assessment approach</h2>
+  <p>
+    {companyName} assessed the accessibility of {companyName} by the following approaches:
+  </p>
+  <ul>
+    <li>Self-evaluation</li>
+  </ul>
+  <h2 id="formal-complaints">Formal complaints</h2>
+  <p>
+    If you are not satisfied with our response, you may contact us using the
+    details above and we will review your concerns.
+  </p>
+  <hr />
+  <h2 id="date">Date</h2>
+  <p>
+    This statement was created on 10 February 2026 using the <a
+      href="https://www.w3.org/WAI/planning/statements/"
+      >W3C Accessibility Statement Generator Tool</a
+    >.
+  </p>
+</article>
