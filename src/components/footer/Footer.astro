@@ -15,9 +15,9 @@ const { companyName, phone, address, officeHours } = firm;
      pt-16 sm:pt-24 lg:pt-32
      pb-8 px-6 lg:px-8"
   >
-    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+    <div class="lg:grid lg:grid-cols-[minmax(24rem,1fr)_1fr] lg:gap-12">
       <!-- Brand -->
-      <div class="flex flex-col gap-8">
+      <div class="min-w-0 flex flex-col gap-8">
         <Brand
           companyLogo={companyLogo}
           companyName={companyName}
@@ -68,116 +68,95 @@ const { companyName, phone, address, officeHours } = firm;
               inline-flex justify-center w-full sm:w-fit 
               px-4 py-2 
               text-gray-700
-              rounded-md border border-gray-800
+              rounded-md border border-gray-500
               transition-colors duration-200
               hover:text-gray-800 hover:bg-gray-200`
           />
         </div>
       </div>
 
-      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-        <div class="md:grid md:grid-cols-2 md:gap-8">
-          <div>
-            <h3 class="text-sm/6 font-semibold text-gray-900">Solutions</h3>
-            <ul role="list" class="mt-6 space-y-4">
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Marketing</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Analytics</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Automation</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Commerce</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Insights</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="mt-10 md:mt-0">
-            <h3 class="text-sm/6 font-semibold text-gray-900">Support</h3>
-            <ul role="list" class="mt-6 space-y-4">
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Submit ticket</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Documentation</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Guides</a
-                >
-              </li>
-            </ul>
-          </div>
+      <!-- Links -->
+      <div class="min-w-0 mt-16 grid grid-cols-2 gap-4 lg:mt-0">
+        <div>
+          <h3 class="text-sm/6 font-semibold text-gray-900">Navigation</h3>
+          <ul role="list" class="mt-6 space-y-4">
+            <li>
+              <a href="/" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="/services"
+                class="text-sm/6 text-gray-600 hover:text-gray-900">Services</a
+              >
+            </li>
+            <li>
+              <a
+                href="/about"
+                class="text-sm/6 text-gray-600 hover:text-gray-900">About</a
+              >
+            </li>
+            <li>
+              <a
+                href="/contact"
+                class="text-sm/6 text-gray-600 hover:text-gray-900">Contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="/test"
+                class="text-sm/6 text-gray-600 hover:text-gray-900">Test</a
+              >
+            </li>
+          </ul>
         </div>
-        <div class="md:grid md:grid-cols-2 md:gap-8">
-          <div>
-            <h3 class="text-sm/6 font-semibold text-gray-900">Company</h3>
-            <ul role="list" class="mt-6 space-y-4">
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >About</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Blog</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Jobs</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Press</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="mt-10 md:mt-0">
-            <h3 class="text-sm/6 font-semibold text-gray-900">Legal</h3>
-            <ul role="list" class="mt-6 space-y-4">
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Terms of service</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >Privacy policy</a
-                >
-              </li>
-              <li>
-                <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
-                  >License</a
-                >
-              </li>
-            </ul>
-          </div>
+        <div>
+          <h3 class="text-sm/6 font-semibold text-gray-900">Legal</h3>
+          <ul role="list" class="mt-6 space-y-4">
+            <li>
+              <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                >Privacy policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                >Cookie Policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                >Disclaimer</a
+              >
+            </li>
+            <li>
+              <a href="/accessibility" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                >Accessibility</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-sm/6 text-gray-600 hover:text-gray-900"
+                >Complaints Procedure</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24">
+    <div
+      class="flex flex-col gap-6 md:flex-row md:justify-between mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24"
+    >
+      <a
+        href="https://www.lawsociety.ie/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm/6 text-gray-800
+            underline underline-offset-4
+            transition-colors duration-200
+            hover:text-gray-400 focus-visible:text-gray-400"
+        >Regulated by the Law Society of Ireland</a
+      >
+
       <p class="text-sm/6 text-gray-600">
         &copy; {new Date().getFullYear()}
         {companyName}. All rights reserved.
@@ -185,3 +164,5 @@ const { companyName, phone, address, officeHours } = firm;
     </div>
   </div>
 </footer>
+
+
