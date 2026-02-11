@@ -1,4 +1,5 @@
 export const firm = {
+	siteUrl: "https://marymolloysolicitor.ie",
 	companyName: "Mary Molloy Solicitors",
 	county: "Kilkenny",
 
@@ -30,5 +31,12 @@ export const firm = {
 			sat: "closed",
 			sun: "closed",
 		},
-	}
+	},
+
+	seo: {
+   	defaultTitle: "Mary Molloy Solicitors | Kilkenny",
+    defaultDescription:
+      "Mary Molloy Solicitors is a solicitor’s practice based in Kilkenny, providing legal services including conveyancing, probate, family law and litigation. Contact us to arrange an appointment.",
+  },
 } as const;
+
