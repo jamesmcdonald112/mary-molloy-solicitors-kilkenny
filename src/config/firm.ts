@@ -37,6 +37,7 @@ export const firm = {
    	defaultTitle: "Mary Molloy Solicitors | Kilkenny",
     defaultDescription:
       "Mary Molloy Solicitors is a solicitor’s practice based in Kilkenny, providing legal services including conveyancing, probate, family law and litigation. Contact us to arrange an appointment.",
+			defaultOgImage: "/images/open-graph/og-default.webp"
   },
 } as const;
 
