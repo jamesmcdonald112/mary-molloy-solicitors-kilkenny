@@ -2,8 +2,32 @@
 import "../styles/global.css";
 import Footer from "../components/footer/Footer.astro";
 import Header from "../components/header/Header.astro";
+import { firm } from "../config/firm";
 
+interface BaseLayoutProps {
+  title?: string;
+  description?: string;
+  noIndex?: boolean;
+  canonicalPath?: string;
+  ogImage?: string;
+}
 
+const {
+  title = firm.seo.defaultTitle,
+  description = firm.seo.defaultDescription,
+  noIndex = false,
+  canonicalPath,
+  ogImage = firm.seo.defaultOgImage,
+} = Astro.props as BaseLayoutProps;
+
+const canonical = firm.siteUrl
+  ? new URL(canonicalPath ?? Astro.url.pathname, firm.siteUrl).toString()
+  : undefined;
+
+const ogImageUrl =
+  firm.siteUrl && ogImage
+    ? new URL(ogImage, firm.siteUrl).toString()
+    : undefined;
 ---
 
 <!doctype html>
@@ -11,7 +35,27 @@ import Header from "../components/header/Header.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    {canonical && <link rel="canonical" href={canonical} />}
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_IE" />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+
+    <meta
+      name="twitter:card"
+      content={ogImageUrl ? "summary_large_image" : "summary"}
+    />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
   </head>
   <body class="bg-bg text-text">
     <Header />
