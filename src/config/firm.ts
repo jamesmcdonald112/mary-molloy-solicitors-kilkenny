@@ -1,5 +1,5 @@
 export const firm = {
-	siteUrl: "https://marymolloysolicitor.ie",
+	siteUrl: "https://test-mary-m.netlify.app/",
 	companyName: "Mary Molloy Solicitors",
 	county: "Kilkenny",
 
