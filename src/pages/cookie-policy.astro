@@ -1,0 +1,31 @@
+---
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title={`Cookie Policy | ${firm.companyName}`}
+  description="Cookie policy explaining how Mary Molloy Solicitors uses cookies and similar technologies on this website."
+  canonicalPath="/cookie-policy"
+>
+  <article class="prose lg:prose-lg max-w-3xl mx-auto my-24">
+    <h1>Cookie Policy</h1>
+    <p>
+      This website uses cookies and similar technologies to support essential
+      site functions and improve user experience.
+    </p>
+
+    <h2>Types of Cookies</h2>
+    <ul>
+      <li>Essential cookies required for core website operation.</li>
+      <li>Performance cookies used to understand general site usage.</li>
+      <li>Preference cookies that remember selected settings.</li>
+    </ul>
+
+    <h2>Managing Cookies</h2>
+    <p>
+      You can manage cookie preferences through your browser settings and choose
+      to block or delete cookies at any time.
+    </p>
+  </article>
+</BaseLayout>

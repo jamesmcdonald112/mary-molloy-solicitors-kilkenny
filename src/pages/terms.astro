@@ -1,0 +1,30 @@
+---
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title={`Terms of Use | ${firm.companyName}`}
+  description="Terms of use governing access to and use of the Mary Molloy Solicitors website."
+  canonicalPath="/terms"
+>
+  <article class="prose lg:prose-lg max-w-3xl mx-auto my-24">
+    <h1>Terms of Use</h1>
+    <p>
+      By using this website, you agree to these terms of use and any applicable
+      laws and regulations.
+    </p>
+
+    <h2>Permitted Use</h2>
+    <p>
+      Content on this website is provided for personal and informational use.
+      You must not use this site in a way that is unlawful or harmful.
+    </p>
+
+    <h2>Intellectual Property</h2>
+    <p>
+      Unless stated otherwise, website content is owned by {firm.companyName}
+      and may not be reproduced without permission.
+    </p>
+  </article>
+</BaseLayout>

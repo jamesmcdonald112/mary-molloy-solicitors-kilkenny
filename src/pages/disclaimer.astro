@@ -1,0 +1,30 @@
+---
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title={`Disclaimer | ${firm.companyName}`}
+  description="Website disclaimer for Mary Molloy Solicitors regarding general information and limitations of liability."
+  canonicalPath="/disclaimer"
+>
+  <article class="prose lg:prose-lg max-w-3xl mx-auto my-24">
+    <h1>Disclaimer</h1>
+    <p>
+      The information on this website is provided for general information
+      purposes only and does not constitute legal advice.
+    </p>
+
+    <h2>No Solicitor-Client Relationship</h2>
+    <p>
+      Accessing this website or sending an enquiry does not, by itself,
+      establish a solicitor-client relationship.
+    </p>
+
+    <h2>External Links</h2>
+    <p>
+      Where external links are provided, {firm.companyName} is not responsible
+      for the content, availability, or policies of third-party websites.
+    </p>
+  </article>
+</BaseLayout>

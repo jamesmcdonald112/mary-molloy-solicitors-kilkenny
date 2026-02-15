@@ -1,0 +1,32 @@
+---
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title={`Complaints Procedure | ${firm.companyName}`}
+  description="Information on how to raise a complaint with Mary Molloy Solicitors and how it will be handled."
+  canonicalPath="/complaints"
+>
+  <article class="prose lg:prose-lg max-w-3xl mx-auto my-24">
+    <h1>Complaints Procedure</h1>
+    <p>
+      {firm.companyName} is committed to providing a professional service. If
+      you are dissatisfied, we encourage you to contact us so we can review and
+      address your concerns.
+    </p>
+
+    <h2>How to Make a Complaint</h2>
+    <ul>
+      <li>Write to our office with details of your complaint.</li>
+      <li>Include relevant dates, documents, and preferred contact details.</li>
+      <li>We may contact you for further information where required.</li>
+    </ul>
+
+    <h2>What Happens Next</h2>
+    <p>
+      We will acknowledge your complaint and aim to respond within a reasonable
+      timeframe after reviewing the matter.
+    </p>
+  </article>
+</BaseLayout>
