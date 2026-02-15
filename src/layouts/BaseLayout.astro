@@ -12,6 +12,7 @@ interface BaseLayoutProps {
   ogImage?: string;
   ogImageAlt?: string;
   ogType?: "website" | "article";
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 
   // Optional article-only fields (ISO 8601 strings recommended)
   publishedTime?: string; // e.g. "2026-02-15T10:00:00+00:00"
@@ -29,6 +30,7 @@ const {
   ogImage = firm.seo.defaultOgImage,
   ogImageAlt = firm.seo.defaultOgImageAlt,
   ogType = "website",
+  structuredData,
   publishedTime,
   modifiedTime,
   author,
@@ -120,6 +122,14 @@ const isArticle = ogType === "article";
     {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
 
     {canonical && <meta name="twitter:url" content={canonical} />}
+    {
+      structuredData && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
   </head>
   <body class="bg-bg text-text">
     <Header />

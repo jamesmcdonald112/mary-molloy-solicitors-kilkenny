@@ -1,5 +1,26 @@
 ---
+import { firm } from "../config/firm";
+import { getLawFirmStructuredData } from "../config/seo";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const structuredData = getLawFirmStructuredData();
 ---
 
-<BaseLayout />
+<BaseLayout
+  title={`Home | ${firm.companyName}`}
+  description="Solicitors in Kilkenny providing practical legal services for property, family, probate, and dispute matters."
+  canonicalPath="/test"
+  structuredData={structuredData}
+>
+  <article class="prose lg:prose-lg max-w-3xl mx-auto my-24">
+    <h1>Mary Molloy Solicitors</h1>
+    <p>
+      Welcome to our Kilkenny practice. This page is currently serving as the
+      main website homepage while the permanent homepage is being rebuilt.
+    </p>
+    <p>
+      If you need an appointment, please contact our office by phone or through
+      the contact page.
+    </p>
+  </article>
+</BaseLayout>
