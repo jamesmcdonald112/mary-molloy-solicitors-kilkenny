@@ -5,12 +5,11 @@ import companyLogo from "../../assets/logo/companyLogo.svg?raw";
 import hamburgerMenu from "../../assets/navbar/hambugerMenu.svg?raw";
 import phoneIcon from "../../assets/phone/phoneIcon.svg?raw";
 import Brand from "./Brand.astro";
-import DesktopNav from "./DesktopNav.astro";
 import MobileMenuButton from "./MobileMenuButton.astro";
 import MobileMenuDialog from "./MobileMenuDialog.astro";
-import MobileMenuNav from "./MobileMenuNav.astro";
 import Navbar from "./Navbar.astro";
 import PhoneNumber from "./PhoneNumber.astro";
+import NavLink from "../nav/NavLink.astro";
 
 const { companyName, county, phone } = firm;
 ---
@@ -38,7 +37,21 @@ const { companyName, county, phone } = firm;
 
     <!-- Desktop Navigation -->
     <div class="hidden lg:block">
-      <DesktopNav links={nav} />
+      <ul class="flex gap-x-12">
+        {
+          nav.map(({ navLabel, href }) => (
+            <li>
+              <NavLink
+                href={href}
+                class="inline-block text-sm font-semibold transition duration-200 hover:text-gray-500 hover:scale-105"
+                activeClass="text-gray-900"
+              >
+                {navLabel}
+              </NavLink>
+            </li>
+          ))
+        }
+      </ul>
     </div>
 
     <!-- Desktop Phone Number -->
@@ -57,9 +70,22 @@ const { companyName, county, phone } = firm;
     </div>
   </Navbar>
 
-  <MobileMenuDialog companyLogo={companyLogo}>
+  <MobileMenuDialog companyLogo={companyLogo} ariaLabel={companyName}>
     <div class="-my-6 divide-y divide-gray-500">
-      <MobileMenuNav links={nav} />
+      <nav aria-label="Mobile menu" class="space-y-2 py-6">
+        {
+          nav.map(({ navLabel, href }) => (
+            <NavLink
+              href={href}
+              class="block px-3 py-2 font-semibold rounded-lg transition-colors duration-200 hover:bg-gray-300 hover:text-gray-800"
+              activeClass="bg-gray-300 text-gray-800"
+              data-mobile-link
+            >
+              {navLabel}
+            </NavLink>
+          ))
+        }
+      </nav>
 
       <div
         class="block
