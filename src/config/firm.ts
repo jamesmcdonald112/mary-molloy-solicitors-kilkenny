@@ -7,6 +7,8 @@ export const firm = {
     display: "(056) 776 5829",
     phoneHref: "+353567765829",
   },
+  // TODO: Replace with the real firm email address.
+  email: "info@YOURDOMAIN.ie",
 
   address: {
     line1: "2 Rose Inn St",
