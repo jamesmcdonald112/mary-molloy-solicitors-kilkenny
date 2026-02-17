@@ -1,0 +1,99 @@
+---
+import phoneIcon from "../../assets/phone/phoneIcon.svg?raw";
+import type { propertyPageContent } from "../../config/content/property";
+import { firm } from "../../config/firm";
+import PhoneNumber from "../header/PhoneNumber.astro";
+
+type Content = typeof propertyPageContent;
+
+const { hero } = Astro.props as { hero: Content["hero"] };
+---
+
+<div class="relative bg-gray-100">
+  <div class="mx-auto max-w-7xl
+    lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
+    <div
+      class="lg:col-span-7 lg:px-0 lg:pt-40 lg:pb-48 xl:col-span-6
+      px-6 pt-10 pb-24 sm:pb-32"
+    >
+      <div class="mx-auto max-w-lg lg:mx-0">
+        <!-- Badge -->
+        <div
+          class="sm:flex
+          max-w-fit
+          mt-20 sm:mt-32 lg:mt-16"
+        >
+          <div
+            class="relative
+            px-3 py-1
+            text-xs sm:text-sm/6 text-gray-500
+            rounded-full ring-1 ring-gray-900/20
+            hover:text-gray-700 hover:ring-gray-900/40 hover:bg-gray-200
+            transition-colors duration-200"
+          >
+            {hero.badge.text}
+            <a
+              href={hero.badge.href}
+              class="group
+              font-semibold whitespace-nowrap text-gray-600
+              hover:text-gray-800
+              transition-colors duration-200"
+            >
+              <span aria-hidden="true" class="absolute inset-0"></span>{
+                hero.badge.linkLabel
+              }
+              <span
+                aria-hidden="true"
+                class="inline-block
+                  group-hover:translate-x-1
+                  transition-transform duration-200"
+                >&rarr;</span
+              ></a
+            >
+          </div>
+        </div>
+        <!-- Title -->
+        <h1
+          class="mt-8 sm:mt-10
+            text-5xl sm:text-7xl
+            font-semibold tracking-tight text-pretty
+            text-gray-900"
+        >
+          {hero.title}
+        </h1>
+        <!-- Subtitle -->
+        <p
+          class="mt-8
+            text-lg sm:text-xl/8 font-medium text-pretty
+            text-gray-500"
+        >
+          {hero.subtitle}
+        </p>
+        <!-- CTAs -->
+        <div
+          class="mt-10
+            flex flex-col gap-6
+            sm:flex-row sm:items-center gap-x-6"
+        >
+          <a
+            href="#"
+            class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >Get started</a
+          >
+          <a href="#" class="text-sm/6 font-semibold text-gray-900"
+            >Learn more <span aria-hidden="true">→</span></a
+          >
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0"
+    >
+      <img
+        src={hero.image.src}
+        alt={hero.image.alt}
+        class="aspect-3/2 w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
+      />
+    </div>
+  </div>
+</div>

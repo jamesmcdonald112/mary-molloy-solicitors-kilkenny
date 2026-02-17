@@ -1,0 +1,104 @@
+---
+import type { propertyPageContent } from "../../config/content/property";
+
+type Content = typeof propertyPageContent;
+
+const { prepare } = Astro.props as { prepare: Content["prepare"] };
+---
+
+<section class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <p class="text-base/7 font-semibold text-indigo-600">
+        {prepare.eyebrow}
+      </p>
+      <h2
+        class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance"
+      >
+        {prepare.title}
+      </h2>
+      <p class="mt-6 text-lg/8 text-gray-600">
+        {prepare.description}
+      </p>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <dl
+        class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-12 lg:max-w-none lg:grid-cols-2"
+      >
+        <div class="flex flex-col rounded-2xl p-8 ring-1 ring-gray-900/10">
+          <dt
+            class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+              class="size-5 flex-none text-indigo-600"
+            >
+              <path
+                d="M10.756 1.36a1.5 1.5 0 0 0-1.512 0l-7 4A1.5 1.5 0 0 0 1.5 6.66V16A2.5 2.5 0 0 0 4 18.5h2.5A1.5 1.5 0 0 0 8 17v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1.5 1.5 0 0 0 1.5 1.5H16a2.5 2.5 0 0 0 2.5-2.5V6.66a1.5 1.5 0 0 0-.744-1.3l-7-4Z"
+              ></path>
+            </svg>
+            Buyers
+          </dt>
+          <dd class="mt-4 text-base/7 text-gray-600">
+            <ul role="list" class="space-y-3">
+              {
+                prepare.buyers.map((item) => (
+                  <li class="flex gap-x-3">
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      class="mt-1 size-4 flex-none text-indigo-600"
+                    >
+                      <path d="M16.704 5.29a1 1 0 0 1 .006 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L8 12.586l7.296-7.296a1 1 0 0 1 1.408 0Z" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </dd>
+        </div>
+
+        <div class="flex flex-col rounded-2xl p-8 ring-1 ring-gray-900/10">
+          <dt
+            class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+              class="size-5 flex-none text-indigo-600"
+            >
+              <path
+                d="M5.5 2A2.5 2.5 0 0 0 3 4.5v11A2.5 2.5 0 0 0 5.5 18h9a2.5 2.5 0 0 0 2.5-2.5v-8.379a2.5 2.5 0 0 0-.732-1.768l-2.621-2.621A2.5 2.5 0 0 0 11.879 2H5.5Zm6.5 1.5v2A1.5 1.5 0 0 0 13.5 7h2v8.5a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1h6.5ZM7 10a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5H7Zm0 3a.75.75 0 0 0 0 1.5h6a.75.75 0 0 0 0-1.5H7Z"
+              ></path>
+            </svg>
+            Sellers
+          </dt>
+          <dd class="mt-4 text-base/7 text-gray-600">
+            <ul role="list" class="space-y-3">
+              {
+                prepare.sellers.map((item) => (
+                  <li class="flex gap-x-3">
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      class="mt-1 size-4 flex-none text-indigo-600"
+                    >
+                      <path d="M16.704 5.29a1 1 0 0 1 .006 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L8 12.586l7.296-7.296a1 1 0 0 1 1.408 0Z" />
+                    </svg>
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

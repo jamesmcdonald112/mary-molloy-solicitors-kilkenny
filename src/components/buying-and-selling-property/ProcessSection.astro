@@ -1,0 +1,97 @@
+---
+import type { propertyPageContent } from "../../config/content/property";
+import { firm } from "../../config/firm";
+
+type Content = typeof propertyPageContent;
+
+const { process } = Astro.props as { process: Content["process"] };
+---
+
+<section class="relative isolate overflow-hidden bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <p class="text-base/7 font-semibold text-indigo-600">
+        {process.eyebrow}
+      </p>
+      <h2
+        class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+      >
+        {process.title}
+      </h2>
+      <p class="mt-6 text-xl/8 text-gray-700">{process.intro}</p>
+    </div>
+    <div
+      class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:mt-10 lg:max-w-none lg:grid-cols-12"
+    >
+      <div class="relative lg:order-last lg:col-span-5">
+        <svg
+          aria-hidden="true"
+          class="absolute -top-64 left-1/2 -z-10 h-64 w-[44rem] -translate-x-1/2 mask-[radial-gradient(64rem_64rem_at_111.5rem_0%,white,transparent)] stroke-gray-900/10"
+        >
+          <defs>
+            <pattern
+              id="process-grid-pattern"
+              width="200"
+              height="200"
+              patternUnits="userSpaceOnUse"
+            >
+              <path d="M0.5 0V200M200 0.5L0 0.499983"></path>
+            </pattern>
+          </defs>
+          <rect
+            width="100%"
+            height="100%"
+            fill="url(#process-grid-pattern)"
+            stroke-width="0"></rect>
+        </svg>
+        <figure class="border-l border-indigo-600 pl-8">
+          <blockquote class="text-xl/8 font-semibold tracking-tight text-gray-900">
+            <p>"{process.closing}"</p>
+          </blockquote>
+          <figcaption class="mt-8 flex gap-x-4">
+            <img
+              src={process.image.src}
+              alt={process.image.alt}
+              class="mt-1 size-10 flex-none rounded-full bg-gray-50 object-cover"
+            />
+            <div class="text-sm/6">
+              <div class="font-semibold text-gray-900">
+                {firm.companyName}
+              </div>
+              <div class="text-gray-600">Property Law Team</div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="max-w-xl text-base/7 text-gray-600 lg:col-span-7">
+        <p>{process.body}</p>
+        <ul role="list" class="mt-8 max-w-xl space-y-8 text-gray-600">
+          {
+            process.steps.map((step) => (
+              <li class="flex gap-x-3">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  class="mt-1 size-5 flex-none text-indigo-600"
+                >
+                  <path
+                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                    clip-rule="evenodd"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <span>
+                  <strong class="font-semibold text-gray-900">
+                    {step.title}.
+                  </strong>{" "}
+                  {step.description}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
