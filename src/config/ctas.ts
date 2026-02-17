@@ -1,9 +1,11 @@
+import phoneIcon from "../assets/phone/phoneIcon.svg?raw";
 import { firm } from "./firm";
 
 export const globalCtas = {
 	call: {
 		label: firm.phone.display,
 		href: `tel:${firm.phone.phoneHref}`,
+		icon: phoneIcon,
 	},
-	email: { label: "Email", href: `mailto:${firm.email}` },
+	email: { label: "Contact Us", href: `mailto:${firm.email}` },
 } as const;
