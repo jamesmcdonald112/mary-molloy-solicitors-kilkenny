@@ -7,5 +7,5 @@ export const globalCtas = {
 		href: `tel:${firm.phone.phoneHref}`,
 		icon: phoneIcon,
 	},
-	email: { label: "Contact Us", href: `mailto:${firm.email}` },
+	email: { label: "Contact Us", href: "/contact" },
 } as const;
