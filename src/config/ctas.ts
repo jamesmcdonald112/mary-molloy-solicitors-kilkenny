@@ -7,5 +7,3 @@ export const globalCtas = {
 	},
 	email: { label: "Email", href: `mailto:${firm.email}` },
 } as const;
-
-export const ctas = [globalCtas.call, globalCtas.email] as const;
