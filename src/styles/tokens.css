@@ -1,21 +1,21 @@
 @theme {
-  --color-bg: var(--color-slate-50);
+	--color-bg: var(--color-slate-50);
 
-  --color-surface: var(--color-white);
-  --color-surfaceHover: var(--color-slate-50);
-  --color-surfaceRaised: var(--color-slate-100);
+	--color-surface: var(--color-white);
+	--color-surfaceHover: var(--color-slate-50);
+	--color-surfaceRaised: var(--color-slate-100);
 
-  --color-text: var(--color-slate-900);
-  --color-muted: var(--color-slate-600);
-  --color-border: var(--color-slate-400);
+	--color-text: var(--color-slate-900);
+	--color-muted: var(--color-slate-600);
+	--color-border: var(--color-slate-400);
 
-  --color-textOnDark: var(--color-white);
-  --color-mutedOnDark: var(--color-slate-200);
+	--color-textOnDark: var(--color-white);
+	--color-mutedOnDark: var(--color-slate-200);
 
-  --color-accent: var(--color-slate-900);
-  --color-accentHover: var(--color-slate-500);
-  --color-accentContrast: var(--color-white);
+	--color-accent: var(--color-slate-900);
+	--color-accentHover: var(--color-slate-500);
+	--color-accentContrast: var(--color-white);
 
-  --color-header: var(--color-slate-700);
-  --color-headerBorder: var(--color-slate-600);
+	--color-header: var(--color-slate-700);
+	--color-headerBorder: var(--color-slate-600);
 }

@@ -1,24 +1,24 @@
 ---
 interface PhoneNumberProps {
-  phoneHref: string;
-  phoneIcon: string;
-  phoneDisplay: string;
-  size?: "sm" | "md" | "lg";
-  class?: string;
+	phoneHref: string;
+	phoneIcon: string;
+	phoneDisplay: string;
+	size?: "sm" | "md" | "lg";
+	class?: string;
 }
 
 const {
-  phoneHref,
-  phoneIcon,
-  phoneDisplay,
-  size = "md",
-  class: className = "",
+	phoneHref,
+	phoneIcon,
+	phoneDisplay,
+	size = "md",
+	class: className = "",
 } = Astro.props as PhoneNumberProps;
 
 const sizeMap = {
-  sm: { text: "text-sm", iconSize: "h-5" },
-  md: { text: "text-base", iconSize: "h-6" },
-  lg: { text: "text-lg", iconSize: "h-8" },
+	sm: { text: "text-sm", iconSize: "h-5" },
+	md: { text: "text-base", iconSize: "h-6" },
+	lg: { text: "text-lg", iconSize: "h-8" },
 } as const;
 
 const { text, iconSize } = sizeMap[size];

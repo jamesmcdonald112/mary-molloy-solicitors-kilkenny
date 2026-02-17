@@ -1,11 +1,11 @@
 ---
+import closeMenuIcon from "../../assets/navbar/closeMenuIcon.svg?raw";
 import Brand from "./Brand.astro";
 import MobileMenuButton from "./MobileMenuButton.astro";
-import closeMenuIcon from "../../assets/navbar/closeMenuIcon.svg?raw";
 
 interface MobileMenuDialogProps {
-  companyLogo: string;
-  ariaLabel: string;
+	companyLogo: string;
+	ariaLabel: string;
 }
 
 const { companyLogo, ariaLabel } = Astro.props as MobileMenuDialogProps;
