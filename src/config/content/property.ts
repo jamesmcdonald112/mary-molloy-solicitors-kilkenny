@@ -33,7 +33,7 @@ export const propertyPageContent = {
 			{ label: "Email", href: `mailto:${firm.email}`, variant: "secondary" },
 		],
 		image: {
-			src: "/images/pages/property/property-hero.webp",
+			src: "src/assets/images/pages/property/property-hero.webp",
 			alt: "A client signing a property contract with a solicitor, with a house model and keys on the table.",
 		},
 	},

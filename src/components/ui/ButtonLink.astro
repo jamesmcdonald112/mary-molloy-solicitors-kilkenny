@@ -1,0 +1,76 @@
+---
+type Variant = "solid" | "outline" | "ghost";
+type Size = "sm" | "md" | "lg";
+
+interface ButtonLinkProps {
+	href: string;
+	variant?: Variant;
+	size?: Size;
+	block?: boolean;
+	icon?: string;
+	label?: string; // optional convenience
+	endArrow?: boolean;
+	class?: string;
+}
+
+const {
+	href,
+	variant = "solid",
+	size = "md",
+	block = false,
+	label,
+	icon,
+	endArrow = false,
+	class: className = "",
+} = Astro.props as ButtonLinkProps;
+
+const group = endArrow ? "group" : "";
+
+const base = `
+  inline-flex items-center justify-center gap-2 
+  font-semibold
+  rounded-md 
+  shadow-sm 
+  focus-visible:outline-2 focus-visible:outline-offset-2 
+  focus-visible:outline-gray-700
+  `;
+
+const sizes: Record<Size, string> = {
+	sm: "px-3 py-2 text-sm",
+	md: "px-3.5 py-2.5 text-sm",
+	lg: "px-3.5 py-2.5 text-sm sm:text-md",
+};
+
+const width = block ? "w-full sm:w-auto" : "max-w-fit";
+
+const variants: Record<Variant, string> = {
+	solid: "text-white bg-gray-700 hover:bg-gray-600 border border-gray-700",
+	outline:
+		"text-gray-900 bg-transparent hover:bg-gray-200 border border-gray-600",
+	ghost: "text-gray-900 bg-transparent border border-transparent",
+};
+
+const classes = [group, base, sizes[size], width, variants[variant], className]
+	.filter(Boolean)
+	.join(" ");
+---
+
+<a href={href} class={classes}>
+  {
+    icon && (
+      <span class="h-4 w-4 [&_svg]:h-full [&_svg]:w-full" set:html={icon} />
+    )
+  }
+  <slot>{label}</slot>
+  {
+    endArrow && (
+      <span
+        aria-hidden="true"
+        class="inline-block
+          transition-transform duration-200 group-hover:translate-x-1"
+      >
+        &rarr;
+      </span>
+    )
+  }
+</a>
