@@ -1,6 +1,6 @@
 export const firm = {
 	siteUrl: "https://test-mary-m.netlify.app/",
-	companyName: "Mary Molloy Solicitors",
+	companyName: "Mary Molloy Solicitor",
 	county: "Kilkenny",
 
 	phone: {
@@ -12,7 +12,6 @@ export const firm = {
 
 	address: {
 		line1: "2 Rose Inn St",
-		line2: "Dukesmeadows",
 		city: "Kilkenny",
 		eircode: "R95 W58D",
 		country: "Ireland",
