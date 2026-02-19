@@ -1,17 +1,23 @@
 ---
-import type { propertyPageContent } from "../../config/content/property";
+// Imports
 import tickIcon from "../../assets/icons/tickIcon.svg?raw";
+import type { propertyPageContent } from "../../config/content/property";
 
+// Local content type alias
 type Content = typeof propertyPageContent;
 
+// Component props
 const { servicesSection, services } = Astro.props as {
   servicesSection: Content["servicesSection"];
   services: Content["services"];
 };
 ---
 
+<!-- Services Section: Wrapper -->
 <section class="bg-gray-50 py-24 sm:py-32">
+  <!-- Services Section: Container -->
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <!-- Services Section: Intro copy (eyebrow, title, description) -->
     <div class="max-w-2xl mx-auto lg:mx-0">
       <h2 class="text-base/7 font-semibold text-gray-600">
         {servicesSection.eyebrow}
@@ -25,26 +31,34 @@ const { servicesSection, services } = Astro.props as {
         {servicesSection.description}
       </p>
     </div>
+    <!-- Services Section: Cards grid -->
     <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
       <dl
         class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2"
       >
         {
-          services.map((service, index) => (
+          // Service card
+          services.map((service) => (
             <div class="flex flex-col rounded-2xl p-8 ring-1 ring-gray-900/10">
+              {/* Service card: Header (icon + title) */}
               <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900">
                 <span
+                  aria-hidden="true"
                   class="h-5 w-5 text-gray-600 [&_svg]:h-full [&_svg]:w-full"
                   set:html={service.icon}
                 />
                 {service.title}
               </dt>
+              {/* Service card: Body (summary, points, CTA) */}
               <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600">
+                {/* Service summary */}
                 <p class="flex-auto">{service.summary}</p>
+                {/* Service bullet points */}
                 <ul role="list" class="mt-6 space-y-2">
                   {service.points.map((point) => (
                     <li class="flex gap-x-3 items-baseline">
                       <span
+                        aria-hidden="true"
                         class="h-4 w-4 [&_svg]:h-full [&_svg]:w-full [&_svg]:stroke-3"
                         set:html={tickIcon}
                       />
@@ -52,12 +66,21 @@ const { servicesSection, services } = Astro.props as {
                     </li>
                   ))}
                 </ul>
+                {/* Service CTA link */}
                 <p class="mt-6">
                   <a
                     href={service.ctaHref}
-                    class="text-sm/6 font-semibold text-gray-600 hover:text-gray-500"
+                    class="group text-sm/6 font-semibold text-gray-600 hover:text-gray-500"
                   >
-                    {service.ctaLabel} <span aria-hidden="true">→</span>
+                    {service.ctaLabel}
+                    <span
+                      class="inline-block 
+                        group-hover:translate-x-1 
+                        transition-transform duration-200"
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
                   </a>
                 </p>
               </dd>

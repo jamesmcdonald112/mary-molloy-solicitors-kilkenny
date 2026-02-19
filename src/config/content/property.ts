@@ -1,6 +1,6 @@
-import { firm } from "../firm";
-import homeIcon from "../../assets/icons/homeIcon.svg?raw";
 import documentIcon from "../../assets/icons/documentIcon.svg?raw";
+import homeIcon from "../../assets/icons/homeIcon.svg?raw";
+import { firm } from "../firm";
 
 export const propertyPageContent = {
 	seo: {
@@ -61,33 +61,33 @@ export const propertyPageContent = {
 		{
 			title: "Buying a Property",
 			summary:
-				"For buyers, we guide the full house purchase process from contract review through to closing and registration. If you need a solicitor for buying a house in Kilkenny, we keep each step clear and practical.",
+				"We act for residential and commercial buyers across Kilkenny, guiding the purchase from contract review through to closing and registration with clear, practical advice at every stage.",
 			ctaLabel: "Contact Us",
 			ctaHref: "/contact",
 			points: [
 				"Reviewing contracts before signing.",
-				"Advising on title, rights, and restrictions.",
-				"Raising pre-contract queries with the seller's side.",
-				"Guiding you through mortgage-related legal steps.",
-				"Managing signing, exchange, and closing requirements.",
-				"Handling stamp duty and registration formalities.",
-				"Explaining obligations in plain English before commitment.",
+				"Advising on title, rights, and planning matters.",
+				"Raising pre-contract enquiries with the seller’s solicitor.",
+				"Guiding you through mortgage and lender requirements.",
+				"Managing signing and pre-completion formalities.",
+				"Handling stamp duty and Land Registry registration.",
+				"Explaining legal obligations in plain English before commitment.",
 			],
 			icon: homeIcon,
 		},
 		{
 			title: "Selling a Property",
 			summary:
-				"For sellers, we prepare documentation early, handle enquiries, and keep the sale moving toward completion.",
+				"For residential and commercial sellers, we prepare documentation early, address enquiries efficiently, and manage the transaction through to completion.",
 			ctaLabel: "Contact Us",
 			ctaHref: "/contact",
 			points: [
-				"Preparing contract documentation for sale.",
-				"Answering buyer solicitor enquiries promptly.",
+				"Preparing contracts and supporting sale documentation.",
+				"Responding to purchaser solicitor enquiries promptly.",
 				"Reviewing title records and resolving issues early.",
 				"Advising on conditions and timelines for completion.",
 				"Managing contract signing and agreed completion date.",
-				"Coordinating closing documents and transfer steps.",
+				"Coordinating closing documentation and fund transfers.",
 				"Supporting a smooth handover at final completion.",
 			],
 			icon: documentIcon,
