@@ -70,7 +70,13 @@ const { servicesSection, services } = Astro.props as {
                 <p class="mt-6">
                   <a
                     href={service.ctaHref}
-                    class="group text-sm/6 font-semibold text-gray-600 hover:text-gray-500"
+                    class="group text-sm/6 font-semibold text-gray-600 
+                      rounded-full
+                      hover:text-gray-500 
+                      focus:outline-none
+                      focus-visible:ring-2 
+                      focus-visible:ring-gray-900 
+                      focus-visible:ring-offset-2"
                   >
                     {service.ctaLabel}
                     <span
