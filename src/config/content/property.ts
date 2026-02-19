@@ -1,4 +1,6 @@
 import { firm } from "../firm";
+import homeIcon from "../../assets/icons/homeIcon.svg?raw";
+import documentIcon from "../../assets/icons/documentIcon.svg?raw";
 
 export const propertyPageContent = {
 	seo: {
@@ -17,24 +19,16 @@ export const propertyPageContent = {
 	],
 	hero: {
 		badge: {
-			text: "Property solicitor support for buying and selling in Kilkenny.",
+			text: "Residential & Commercial Conveyancing in Kilkenny.",
 			linkLabel: "Contact us",
 			href: "/contact",
 		},
 		title: "Buying & Selling Property in Kilkenny",
 		subtitle:
-			"A trusted property solicitor in Kilkenny clients rely on when buying or selling a home. Whether you need a solicitor for buying a house or for selling a property, we guide you through every stage of the process (conveyancing) clearly and efficiently.",
-		ctas: [
-			{
-				label: firm.phone.display,
-				href: `tel:${firm.phone.phoneHref}`,
-				variant: "primary",
-			},
-			{ label: "Email", href: `mailto:${firm.email}`, variant: "secondary" },
-		],
+			"If you are buying or selling property in Kilkenny, we provide clear, practical legal advice from contract to completion. Our experienced property solicitors manage residential and commercial conveyancing, protect your interests, avoid delays and ensure your transaction progresses smoothly at every stage",
 		image: {
 			src: "src/assets/images/pages/property/property-hero.webp",
-			alt: "A client signing a property contract with a solicitor, with a house model and keys on the table.",
+			alt: "A client signing a property contract with a solicitor, with a house model on the table.",
 		},
 	},
 	trustStrip: {
@@ -68,7 +62,7 @@ export const propertyPageContent = {
 			title: "Buying a Property",
 			summary:
 				"For buyers, we guide the full house purchase process from contract review through to closing and registration. If you need a solicitor for buying a house in Kilkenny, we keep each step clear and practical.",
-			ctaLabel: "Speak to us",
+			ctaLabel: "Contact Us",
 			ctaHref: "/contact",
 			points: [
 				"Reviewing contracts before signing.",
@@ -79,12 +73,13 @@ export const propertyPageContent = {
 				"Handling stamp duty and registration formalities.",
 				"Explaining obligations in plain English before commitment.",
 			],
+			icon: homeIcon,
 		},
 		{
 			title: "Selling a Property",
 			summary:
 				"For sellers, we prepare documentation early, handle enquiries, and keep the sale moving toward completion.",
-			ctaLabel: "Book consultation",
+			ctaLabel: "Contact Us",
 			ctaHref: "/contact",
 			points: [
 				"Preparing contract documentation for sale.",
@@ -95,6 +90,7 @@ export const propertyPageContent = {
 				"Coordinating closing documents and transfer steps.",
 				"Supporting a smooth handover at final completion.",
 			],
+			icon: documentIcon,
 		},
 	],
 	process: {

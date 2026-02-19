@@ -1,0 +1,349 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation "Global" [ref=e3]:
+      - link "Mary Molloy Solicitors home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "logo--skype" [ref=e7]
+        - generic [ref=e11]: Mary Molloy Solicitors
+      - list [ref=e13]:
+        - listitem [ref=e14]:
+          - link "Home" [ref=e15] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e16]:
+          - link "Services" [ref=e17] [cursor=pointer]:
+            - /url: /services
+        - listitem [ref=e18]:
+          - link "About" [ref=e19] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e20]:
+          - link "Contact" [ref=e21] [cursor=pointer]:
+            - /url: /contact
+        - listitem [ref=e22]:
+          - link "Test" [ref=e23] [cursor=pointer]:
+            - /url: /test
+      - link "(056) 776 5829" [ref=e25] [cursor=pointer]:
+        - /url: tel:+353567765829
+        - img [ref=e27]
+        - text: (056) 776 5829
+  - main [ref=e29]:
+    - generic [ref=e31]:
+      - generic [ref=e33]:
+        - link "Residential & Commercial Conveyancing in Kilkenny. Contact us" [ref=e34] [cursor=pointer]:
+          - /url: /contact
+          - generic [ref=e35]: Residential & Commercial Conveyancing in Kilkenny.
+          - generic [ref=e36]: Contact us
+          - generic [ref=e37]: →
+        - heading "Buying & Selling Property in Kilkenny" [level=1] [ref=e38]
+        - paragraph [ref=e39]: If you are buying or selling property in Kilkenny, we provide clear, practical legal advice from contract to completion. Our experienced property solicitors manage residential and commercial conveyancing, protect your interests, avoid delays and ensure your transaction progresses smoothly at every stage
+        - generic [ref=e40]:
+          - link "(056) 776 5829" [ref=e41] [cursor=pointer]:
+            - /url: tel:+353567765829
+            - img [ref=e43]
+            - text: (056) 776 5829
+          - link "Contact Us" [ref=e45] [cursor=pointer]:
+            - /url: /contact
+            - text: Contact Us
+            - generic [ref=e46]: →
+      - img "A client signing a property contract with a solicitor, with a house model on the table." [ref=e48]
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - heading "Property services" [level=2] [ref=e52]
+        - paragraph [ref=e53]: Support for buying and selling property
+        - paragraph [ref=e54]: Focused legal support for each side of the transaction, with clear advice on contracts, timelines, and completion steps.
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - term [ref=e58]:
+            - img [ref=e59]
+            - text: Buying a Property
+          - definition [ref=e61]:
+            - paragraph [ref=e62]: For buyers, we guide the full house purchase process from contract review through to closing and registration. If you need a solicitor for buying a house in Kilkenny, we keep each step clear and practical.
+            - list [ref=e63]:
+              - listitem [ref=e64]:
+                - img [ref=e65]
+                - generic [ref=e67]: Reviewing contracts before signing.
+              - listitem [ref=e68]:
+                - img [ref=e69]
+                - generic [ref=e71]: Advising on title, rights, and restrictions.
+              - listitem [ref=e72]:
+                - img [ref=e73]
+                - generic [ref=e75]: Raising pre-contract queries with the seller's side.
+              - listitem [ref=e76]:
+                - img [ref=e77]
+                - generic [ref=e79]: Guiding you through mortgage-related legal steps.
+            - paragraph [ref=e80]:
+              - link "Speak to us" [ref=e81] [cursor=pointer]:
+                - /url: /contact
+                - text: Speak to us →
+        - generic [ref=e82]:
+          - term [ref=e83]:
+            - img [ref=e84]
+            - text: Selling a Property
+          - definition [ref=e86]:
+            - paragraph [ref=e87]: For sellers, we prepare documentation early, handle enquiries, and keep the sale moving toward completion.
+            - list [ref=e88]:
+              - listitem [ref=e89]:
+                - img [ref=e90]
+                - generic [ref=e92]: Preparing contract documentation for sale.
+              - listitem [ref=e93]:
+                - img [ref=e94]
+                - generic [ref=e96]: Answering buyer solicitor enquiries promptly.
+              - listitem [ref=e97]:
+                - img [ref=e98]
+                - generic [ref=e100]: Reviewing title records and resolving issues early.
+              - listitem [ref=e101]:
+                - img [ref=e102]
+                - generic [ref=e104]: Advising on conditions and timelines for completion.
+            - paragraph [ref=e105]:
+              - link "Book consultation" [ref=e106] [cursor=pointer]:
+                - /url: /contact
+                - text: Book consultation →
+    - generic [ref=e108]:
+      - generic [ref=e109]:
+        - paragraph [ref=e110]: How it works
+        - heading "How the process works" [level=2] [ref=e111]
+        - paragraph [ref=e112]: Every buying and selling matter is different, but most property files follow a clear sequence from instruction to completion.
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - img [ref=e115]
+          - figure "Solicitor reviewing property documents with clients Mary Molloy Solicitors Property Law Team" [ref=e117]:
+            - blockquote [ref=e118]:
+              - paragraph [ref=e119]: "\"If you are buying a house or selling a house in Kilkenny, we can guide your property transaction from start to finish.\""
+            - generic [ref=e120]:
+              - img "Solicitor reviewing property documents with clients" [ref=e121]
+              - generic [ref=e122]:
+                - generic [ref=e123]: Mary Molloy Solicitors
+                - generic [ref=e124]: Property Law Team
+        - generic [ref=e125]:
+          - paragraph [ref=e126]: We keep each step practical and transparent, so you always know what is happening, what is needed from you, and what comes next.
+          - list [ref=e127]:
+            - listitem [ref=e128]:
+              - img [ref=e129]
+              - generic [ref=e131]:
+                - strong [ref=e132]: Initial instruction.
+                - text: We open your file, confirm key details, and explain the likely timeline for your transaction.
+            - listitem [ref=e133]:
+              - img [ref=e134]
+              - generic [ref=e136]:
+                - strong [ref=e137]: Document gathering.
+                - text: We collect identity documents and the core property paperwork needed to begin legal work.
+            - listitem [ref=e138]:
+              - img [ref=e139]
+              - generic [ref=e141]:
+                - strong [ref=e142]: Contract stage.
+                - text: We draft or review contracts and advise you clearly before any signature is made.
+            - listitem [ref=e143]:
+              - img [ref=e144]
+              - generic [ref=e146]:
+                - strong [ref=e147]: Enquiries and checks.
+                - text: We raise and respond to legal enquiries, and deal with title and compliance issues as they arise.
+            - listitem [ref=e148]:
+              - img [ref=e149]
+              - generic [ref=e151]:
+                - strong [ref=e152]: Signing and pre-completion.
+                - text: Once terms are agreed, we guide signing and confirm all pre-completion requirements.
+            - listitem [ref=e153]:
+              - img [ref=e154]
+              - generic [ref=e156]:
+                - strong [ref=e157]: Completion day.
+                - text: We handle closing documents and funds transfer so ownership can transfer correctly.
+            - listitem [ref=e158]:
+              - img [ref=e159]
+              - generic [ref=e161]:
+                - strong [ref=e162]: Post-completion.
+                - text: We complete final filings and registration steps and confirm when your matter is fully closed.
+    - generic [ref=e164]:
+      - generic [ref=e167]:
+        - heading "Our track record" [level=2] [ref=e168]
+        - paragraph [ref=e169]: Trusted by thousands of creators worldwide
+        - paragraph [ref=e170]: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis.
+      - generic [ref=e171]:
+        - generic [ref=e172]:
+          - term [ref=e173]: Creators on the platform
+          - definition [ref=e174]: 8,000+
+        - generic [ref=e175]:
+          - term [ref=e176]: Flat platform fee
+          - definition [ref=e177]: 3%
+        - generic [ref=e178]:
+          - term [ref=e179]: Uptime guarantee
+          - definition [ref=e180]: 99.9%
+        - generic [ref=e181]:
+          - term [ref=e182]: Paid out to creators
+          - definition [ref=e183]: $70M
+    - generic [ref=e185]:
+      - generic [ref=e186]:
+        - paragraph [ref=e187]: Preparation
+        - heading "What to prepare" [level=2] [ref=e188]
+        - paragraph [ref=e189]: A short checklist can help avoid delays once contracts and timelines start moving.
+      - generic [ref=e191]:
+        - generic [ref=e192]:
+          - term [ref=e193]:
+            - img [ref=e194]
+            - text: Buyers
+          - definition [ref=e196]:
+            - list [ref=e197]:
+              - listitem [ref=e198]:
+                - img [ref=e199]
+                - generic [ref=e201]: Photo ID and proof of address.
+              - listitem [ref=e202]:
+                - img [ref=e203]
+                - generic [ref=e205]: Mortgage approval details (if applicable).
+              - listitem [ref=e206]:
+                - img [ref=e207]
+                - generic [ref=e209]: Deposit source information.
+              - listitem [ref=e210]:
+                - img [ref=e211]
+                - generic [ref=e213]: PPS number and personal details.
+              - listitem [ref=e214]:
+                - img [ref=e215]
+                - generic [ref=e217]: Property details from the estate agent.
+        - generic [ref=e218]:
+          - term [ref=e219]:
+            - img [ref=e220]
+            - text: Sellers
+          - definition [ref=e222]:
+            - list [ref=e223]:
+              - listitem [ref=e224]:
+                - img [ref=e225]
+                - generic [ref=e227]: Photo ID and proof of address.
+              - listitem [ref=e228]:
+                - img [ref=e229]
+                - generic [ref=e231]: Title deeds or title information available.
+              - listitem [ref=e232]:
+                - img [ref=e233]
+                - generic [ref=e235]: Planning/building compliance documents, if relevant.
+              - listitem [ref=e236]:
+                - img [ref=e237]
+                - generic [ref=e239]: Mortgage lender details for redemption figures.
+              - listitem [ref=e240]:
+                - img [ref=e241]
+                - generic [ref=e243]: BER certificate and agent sale details.
+    - generic [ref=e246]:
+      - heading "Frequently asked questions" [level=2] [ref=e247]
+      - generic [ref=e248]:
+        - group [ref=e250]:
+          - generic "What does a property solicitor do?" [ref=e251] [cursor=pointer]:
+            - generic [ref=e252]: What does a property solicitor do?
+            - img [ref=e254]
+        - group [ref=e257]:
+          - generic "Do I need a solicitor before my offer is accepted?" [ref=e258] [cursor=pointer]:
+            - generic [ref=e259]: Do I need a solicitor before my offer is accepted?
+            - img [ref=e261]
+        - group [ref=e264]:
+          - generic "How long does conveyancing take in Ireland?" [ref=e265] [cursor=pointer]:
+            - generic [ref=e266]: How long does conveyancing take in Ireland?
+            - img [ref=e268]
+        - group [ref=e271]:
+          - generic "What documents do I need as a buyer?" [ref=e272] [cursor=pointer]:
+            - generic [ref=e273]: What documents do I need as a buyer?
+            - img [ref=e275]
+        - group [ref=e278]:
+          - generic "What documents do I need as a seller?" [ref=e279] [cursor=pointer]:
+            - generic [ref=e280]: What documents do I need as a seller?
+            - img [ref=e282]
+        - group [ref=e285]:
+          - generic "What affects solicitor fees when buying a house?" [ref=e286] [cursor=pointer]:
+            - generic [ref=e287]: What affects solicitor fees when buying a house?
+            - img [ref=e289]
+        - group [ref=e292]:
+          - generic "What are conveyancing costs and what do they cover?" [ref=e293] [cursor=pointer]:
+            - generic [ref=e294]: What are conveyancing costs and what do they cover?
+            - img [ref=e296]
+        - group [ref=e299]:
+          - generic "Can you do fixed-fee conveyancing?" [ref=e300] [cursor=pointer]:
+            - generic [ref=e301]: Can you do fixed-fee conveyancing?
+            - img [ref=e303]
+        - group [ref=e306]:
+          - generic "What's different about new builds?" [ref=e307] [cursor=pointer]:
+            - generic [ref=e308]: What's different about new builds?
+            - img [ref=e310]
+        - group [ref=e313]:
+          - generic "Can you act if I'm buying or selling outside Kilkenny?" [ref=e314] [cursor=pointer]:
+            - generic [ref=e315]: Can you act if I'm buying or selling outside Kilkenny?
+            - img [ref=e317]
+    - generic [ref=e322]:
+      - img "A client signing a property contract with a solicitor, with a house model on the table." [ref=e323]
+      - generic [ref=e324]:
+        - heading "Ready to move your property matter forward?" [level=2] [ref=e325]
+        - paragraph [ref=e326]: Contact us for clear, practical support with your buying or selling process.
+        - list [ref=e327]:
+          - listitem [ref=e328]:
+            - img [ref=e329]
+            - text: "Local base: Kilkenny"
+          - listitem [ref=e331]:
+            - img [ref=e332]
+            - text: "Service area: Kilkenny + nearby counties"
+          - listitem [ref=e334]:
+            - img [ref=e335]
+            - text: "Focus: Residential property"
+          - listitem [ref=e337]:
+            - img [ref=e338]
+            - text: "Communication: Direct and clear"
+        - link "Book consultation" [ref=e341] [cursor=pointer]:
+          - /url: /contact
+          - text: Book consultation →
+  - contentinfo [ref=e344]:
+    - generic [ref=e345]:
+      - generic [ref=e346]:
+        - generic [ref=e347]:
+          - link "Mary Molloy Solicitors home" [ref=e348] [cursor=pointer]:
+            - /url: /
+            - img "logo--skype" [ref=e350]
+            - generic [ref=e354]: Mary Molloy Solicitors
+          - generic [ref=e355]:
+            - text: 2 Rose Inn St
+            - text: Dukesmeadows
+            - text: Kilkenny
+            - text: R95 W58D
+            - text: Ireland
+          - paragraph [ref=e356]: "Opening hours: Mon-Fri 9:00-17:30"
+          - generic [ref=e357]:
+            - link "Get directions" [ref=e358] [cursor=pointer]:
+              - /url: https://www.google.com/maps/dir/?api=1&destination=2+Rose+Inn+St,+Kilkenny,+R95+W58D
+            - link "(056) 776 5829" [ref=e359] [cursor=pointer]:
+              - /url: tel:+353567765829
+              - img [ref=e361]
+              - text: (056) 776 5829
+        - generic [ref=e363]:
+          - generic [ref=e364]:
+            - heading "Navigation" [level=3] [ref=e365]
+            - list [ref=e366]:
+              - listitem [ref=e367]:
+                - link "Home" [ref=e368] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e369]:
+                - link "Services" [ref=e370] [cursor=pointer]:
+                  - /url: /services
+              - listitem [ref=e371]:
+                - link "About" [ref=e372] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e373]:
+                - link "Contact" [ref=e374] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e375]:
+                - link "Test" [ref=e376] [cursor=pointer]:
+                  - /url: /test
+          - generic [ref=e377]:
+            - heading "Legal" [level=3] [ref=e378]
+            - list [ref=e379]:
+              - listitem [ref=e380]:
+                - link "Privacy policy" [ref=e381] [cursor=pointer]:
+                  - /url: /privacy
+              - listitem [ref=e382]:
+                - link "Cookie Policy" [ref=e383] [cursor=pointer]:
+                  - /url: /cookie-policy
+              - listitem [ref=e384]:
+                - link "Disclaimer" [ref=e385] [cursor=pointer]:
+                  - /url: /disclaimer
+              - listitem [ref=e386]:
+                - link "Terms of use" [ref=e387] [cursor=pointer]:
+                  - /url: /terms
+              - listitem [ref=e388]:
+                - link "Accessibility" [ref=e389] [cursor=pointer]:
+                  - /url: /accessibility
+              - listitem [ref=e390]:
+                - link "Complaints Procedure" [ref=e391] [cursor=pointer]:
+                  - /url: /complaints
+      - generic [ref=e392]:
+        - link "Regulated by the Law Society of Ireland" [ref=e393] [cursor=pointer]:
+          - /url: https://www.lawsociety.ie/
+        - paragraph [ref=e394]: © 2026 Mary Molloy Solicitors. All rights reserved.
