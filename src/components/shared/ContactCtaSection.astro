@@ -1,0 +1,44 @@
+---
+import { globalCtas } from "../../config/ctas";
+import ButtonLink from "../ui/ButtonLink.astro";
+
+interface Props {
+  title?: string;
+  body?: string;
+}
+
+const {
+  title = "Need legal guidance you can rely on?",
+  body = "Speak with our team for clear, practical support tailored to your matter.",
+} = Astro.props as Props;
+---
+
+<section class="bg-white py-24 sm:py-32">
+  <div class="px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2
+        class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl"
+      >
+        {title}
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-gray-600">
+        {body}
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6">
+        <ButtonLink
+          href={globalCtas.call.href}
+          size="lg"
+          label={globalCtas.call.label}
+          icon={globalCtas.call.icon}
+        />
+        <ButtonLink
+          href={globalCtas.email.href}
+          variant="outline"
+          size="lg"
+          label={globalCtas.email.label}
+          endArrow={true}
+        />
+      </div>
+    </div>
+  </div>
+</section>
