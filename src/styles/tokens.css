@@ -1,21 +1,135 @@
 @theme {
-	--color-bg: var(--color-slate-50);
+	/* =========================================================
+     1) Base brand colors (do not use directly in components)
+     ========================================================= */
+	--color-cream: #f5f5ef;
+	--color-sand: #b69d74;
+	--color-navy: #1f2839;
 
-	--color-surface: var(--color-white);
-	--color-surfaceHover: var(--color-slate-50);
-	--color-surfaceRaised: var(--color-slate-100);
+	/* =========================================================
+     2) Neutral scale (for text, borders, dividers, UI chrome)
+     Keep these stable and reuse everywhere.
+     ========================================================= */
+	--color-neutral-0: #ffffff;
+	--color-neutral-50: color-mix(in oklab, #ffffff 90%, var(--color-cream));
+	--color-neutral-100: var(--color-cream);
+	--color-neutral-150: color-mix(in oklab, #ffffff 75%, var(--color-cream));
+	--color-neutral-200: color-mix(
+		in oklab,
+		var(--color-navy) 6%,
+		var(--color-cream)
+	);
+	--color-neutral-300: color-mix(
+		in oklab,
+		var(--color-navy) 10%,
+		var(--color-cream)
+	);
+	--color-neutral-400: color-mix(
+		in oklab,
+		var(--color-navy) 18%,
+		var(--color-cream)
+	);
+	--color-neutral-500: color-mix(
+		in oklab,
+		var(--color-navy) 28%,
+		var(--color-cream)
+	);
+	--color-neutral-600: color-mix(
+		in oklab,
+		var(--color-navy) 45%,
+		var(--color-cream)
+	);
+	--color-neutral-700: color-mix(in oklab, var(--color-navy) 65%, #000000);
+	--color-neutral-800: color-mix(in oklab, var(--color-navy) 82%, #000000);
+	--color-neutral-900: var(--color-navy);
 
-	--color-text: var(--color-slate-900);
-	--color-muted: var(--color-slate-600);
-	--color-border: var(--color-slate-400);
+	/* =========================================================
+     3) Brand scales (for primary actions + accents)
+     ========================================================= */
+	/* Navy (primary) */
+	--color-navy-50: color-mix(in oklab, var(--color-navy) 8%, #ffffff);
+	--color-navy-100: color-mix(in oklab, var(--color-navy) 14%, #ffffff);
+	--color-navy-200: color-mix(in oklab, var(--color-navy) 22%, #ffffff);
+	--color-navy-300: color-mix(in oklab, var(--color-navy) 34%, #ffffff);
+	--color-navy-400: color-mix(in oklab, var(--color-navy) 50%, #ffffff);
+	--color-navy-500: color-mix(in oklab, var(--color-navy) 68%, #000000);
+	--color-navy-600: color-mix(in oklab, var(--color-navy) 80%, #000000);
+	--color-navy-700: color-mix(in oklab, var(--color-navy) 88%, #000000);
+	--color-navy-800: color-mix(in oklab, var(--color-navy) 94%, #000000);
+	--color-navy-900: var(--color-navy);
 
-	--color-textOnDark: var(--color-white);
-	--color-mutedOnDark: var(--color-slate-200);
+	/* Sand (accent) */
+	--color-sand-50: color-mix(in oklab, var(--color-sand) 10%, #ffffff);
+	--color-sand-100: color-mix(in oklab, var(--color-sand) 18%, #ffffff);
+	--color-sand-200: color-mix(in oklab, var(--color-sand) 28%, #ffffff);
+	--color-sand-300: color-mix(in oklab, var(--color-sand) 40%, #ffffff);
+	--color-sand-400: color-mix(in oklab, var(--color-sand) 55%, #ffffff);
+	--color-sand-500: var(--color-sand);
+	--color-sand-600: color-mix(in oklab, var(--color-sand) 78%, #000000);
+	--color-sand-700: color-mix(in oklab, var(--color-sand) 88%, #000000);
+	--color-sand-800: color-mix(in oklab, var(--color-sand) 94%, #000000);
+	--color-sand-900: color-mix(in oklab, var(--color-sand) 97%, #000000);
 
-	--color-accent: var(--color-slate-900);
-	--color-accentHover: var(--color-slate-500);
-	--color-accentContrast: var(--color-white);
+	/* =========================================================
+     4) Semantic tokens (USE THESE in Tailwind classes)
+     ========================================================= */
 
-	--color-header: var(--color-slate-700);
-	--color-headerBorder: var(--color-slate-600);
+	/* Page + sections (this is what lets you vary section backgrounds) */
+	--color-page: var(--color-neutral-100);
+
+	--color-section: var(--color-neutral-100); /* default */
+	--color-section-alt: var(--color-neutral-150); /* slightly lighter/whiter */
+	--color-section-muted: var(--color-neutral-200); /* subtle grey-navy tint */
+	--color-section-accent: color-mix(
+		in oklab,
+		var(--color-sand) 12%,
+		var(--color-neutral-100)
+	); /* subtle sand tint */
+
+	/* Panels/cards */
+	--color-surface: var(--color-neutral-0); /* card background */
+	--color-surface-soft: var(
+		--color-neutral-50
+	); /* soft card on white sections */
+	--color-surface-2: var(--color-neutral-150); /* secondary panel background */
+
+	/* Text */
+	--color-text: var(--color-neutral-900);
+	--color-text-muted: var(--color-neutral-600);
+	--color-text-subtle: var(--color-neutral-500);
+	--color-on-dark: var(--color-neutral-100);
+
+	/* Borders + rings */
+	--color-border: var(--color-neutral-300);
+	--color-border-strong: var(--color-neutral-400);
+	--color-ring: var(--color-navy-400);
+
+	/* Primary actions */
+	--color-primary: var(--color-navy-900);
+	--color-primary-hover: var(--color-navy-800);
+	--color-primary-soft: var(--color-navy-100);
+	--color-on-primary: var(--color-neutral-0);
+
+	/* Accent / highlight */
+	--color-accent: var(--color-sand-500);
+	--color-accent-hover: var(--color-sand-600);
+	--color-accent-soft: var(--color-sand-100);
+	--color-on-accent: var(--color-navy-900);
+
+	/* Links */
+	--color-link: var(--color-navy-700);
+	--color-link-hover: var(--color-navy-900);
+
+	/* Dark band sections (CTA/footer strips) */
+	--color-band: var(--color-navy-900);
+	--color-band-muted: color-mix(
+		in oklab,
+		var(--color-neutral-100) 70%,
+		var(--color-navy-900)
+	);
+	--color-band-border: color-mix(
+		in oklab,
+		var(--color-neutral-100) 14%,
+		var(--color-navy-900)
+	);
 }

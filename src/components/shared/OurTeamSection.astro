@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import {
-  teamSectionContent as defaultTeamSectionContent,
-  type TeamSectionContent,
+	teamSectionContent as defaultTeamSectionContent,
+	type TeamSectionContent,
 } from "../../config/content/team";
 
 const { teamSection = defaultTeamSectionContent } = Astro.props as {
-  teamSection?: TeamSectionContent;
+	teamSection?: TeamSectionContent;
 };
 ---
 <div class="relative overflow-hidden py-24 sm:py-32">
