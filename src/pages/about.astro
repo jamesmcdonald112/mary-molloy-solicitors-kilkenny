@@ -1,0 +1,23 @@
+---
+import TrustStripSection from "../components/buying-and-selling-property/TrustStripSection.astro";
+import ContactCtaSection from "../components/shared/ContactCtaSection.astro";
+import OurTeamSection from "../components/shared/OurTeamSection.astro";
+import { propertyPageContent } from "../config/content/property";
+import { teamSectionContent } from "../config/content/team";
+import { firm } from "../config/firm";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title={`About | ${firm.companyName}`}
+  description={`Meet the team at ${firm.companyName}.`}
+  canonicalPath="/about"
+  ogType="website"
+>
+  <TrustStripSection
+    trustStrip={propertyPageContent.trustStrip}
+    heroImage={propertyPageContent.hero.image}
+  />
+  <OurTeamSection teamSection={teamSectionContent} />
+  <ContactCtaSection />
+</BaseLayout>
