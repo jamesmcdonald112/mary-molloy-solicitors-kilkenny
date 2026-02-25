@@ -19,7 +19,7 @@ export const propertyPageContent = {
 	],
 	hero: {
 		badge: {
-			text: "Residential & Commercial Conveyancing in Kilkenny.",
+			text: "Conveyancing in Kilkenny.",
 			linkLabel: "Contact us",
 			href: "/contact",
 		},
@@ -32,23 +32,23 @@ export const propertyPageContent = {
 		},
 	},
 	trustStrip: {
-		eyebrow: "Why clients choose us",
-		title: "A practical approach to property work",
+		eyebrow: "Kilkenny Solicitors",
+		title: "A family-run firm focused on clear, practical legal advice",
 		columns: [
 			[
-				"We focus on clear communication from day one, so you know what is happening with your purchase or sale and what decisions need to be made next.",
-				"Our team handles contracts, title checks, and transaction milestones with careful attention to detail, while keeping legal language straightforward.",
+				"Our experienced team provides practical, straightforward legal guidance across property and private client matters.",
+				"Our work is centred on property and private client matters, including buying and selling homes, conveyancing, probate and estate administration. We prioritise straightforward advice and a steady, detail-focused approach on every file.",
 			],
 			[
-				"If issues arise during a property transaction, we explain your options in plain English and help you choose the most practical route forward.",
-				"We work with buyers, sellers, lenders, and agents to keep momentum and reduce avoidable delays where possible.",
+				"Clients choose us for clarity and communication. We explain each step in plain English, outline what’s required early, and keep you informed as your matter progresses.",
+				"Whether you’re purchasing, selling, dealing with probate, or looking for general guidance, our aim is simple: keep the process clear, keep matters moving, and help you make confident decisions without unnecessary stress.",
 			],
 		],
 		stats: [
+			{ label: "Years in practice", value: "46+" },
+			{ label: "Established", value: "1979" },
 			{ label: "Local base", value: "Kilkenny" },
-			{ label: "Service area", value: "Kilkenny + nearby counties" },
-			{ label: "Focus", value: "Residential property" },
-			{ label: "Communication", value: "Direct and clear" },
+			{ label: "Core focus", value: "Property & Probate" },
 		],
 	},
 	servicesSection: {
@@ -99,10 +99,6 @@ export const propertyPageContent = {
 		intro:
 			"Every buying and selling matter is different, but most property files follow a clear sequence from instruction to completion.",
 		body: "We keep each step practical and transparent, so you always know what is happening, what is needed from you, and what comes next.",
-		image: {
-			src: "/images/lady-justice3.webp",
-			alt: "Solicitor reviewing property documents with clients",
-		},
 		steps: [
 			{
 				title: "Initial instruction",
@@ -140,8 +136,15 @@ export const propertyPageContent = {
 					"We complete final filings and registration steps and confirm when your matter is fully closed.",
 			},
 		],
-		closing:
+
+		attribution:
 			"If you are buying a house or selling a house in Kilkenny, we can guide your property transaction from start to finish.",
+		attributionImage: {
+			src: "src/assets/team/maryCropped.webp",
+			alt: "Mary Molloy, Principal Solicitor",
+		},
+		attributionName: "Mary Molloy",
+		attributionTitle: "Principal Solicitor",
 	},
 	prepare: {
 		eyebrow: "Preparation",
