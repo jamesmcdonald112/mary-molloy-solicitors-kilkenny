@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets";
-import type { propertyPageContent } from "../../config/content/property";
 import trustImage from "../../assets/images/pages/property/property-trust.webp";
+import type { propertyPageContent } from "../../config/content/property";
 
 type Content = typeof propertyPageContent;
 
 const { trustStrip, heroImage } = Astro.props as {
-  trustStrip: Content["trustStrip"];
-  heroImage: Content["hero"]["image"];
+	trustStrip: Content["trustStrip"];
+	heroImage: Content["hero"]["image"];
 };
 ---
  
@@ -46,10 +46,7 @@ const { trustStrip, heroImage } = Astro.props as {
         {
           trustStrip.stats.map((stat) => (
             <div class="rounded-xl bg-white/10 p-5 ring-1 ring-white/20 backdrop-blur-sm">
-              <dt class="text-sm/6 text-white/80">{stat.label}</dt>
-              <dd class="mt-1 text-2xl font-semibold tracking-tight text-white">
-                {stat.value}
-              </dd>
+              <dt class="text-base/7 font-semibold text-white">{stat.label}</dt>
             </div>
           ))
         }

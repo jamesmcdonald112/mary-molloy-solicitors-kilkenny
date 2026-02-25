@@ -1,6 +1,6 @@
 ---
 // Imports
-import tickIcon from "../../assets/icons/tickIcon.svg?raw";
+import checkIcon from "../../assets/icons/checkIcon.svg?raw";
 import type { propertyPageContent } from "../../config/content/property";
 
 // Local content type alias
@@ -8,8 +8,8 @@ type Content = typeof propertyPageContent;
 
 // Component props
 const { servicesSection, services } = Astro.props as {
-  servicesSection: Content["servicesSection"];
-  services: Content["services"];
+	servicesSection: Content["servicesSection"];
+	services: Content["services"];
 };
 ---
 
@@ -60,7 +60,7 @@ const { servicesSection, services } = Astro.props as {
                       <span
                         aria-hidden="true"
                         class="h-4 w-4 [&_svg]:h-full [&_svg]:w-full [&_svg]:stroke-3"
-                        set:html={tickIcon}
+                        set:html={checkIcon}
                       />
                       <span>{point}</span>
                     </li>
