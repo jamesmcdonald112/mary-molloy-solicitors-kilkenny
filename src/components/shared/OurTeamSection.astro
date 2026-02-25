@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import {
+  teamSectionContent as defaultTeamSectionContent,
+  type TeamSectionContent,
+} from "../../config/content/team";
+
+const { teamSection = defaultTeamSectionContent } = Astro.props as {
+  teamSection?: TeamSectionContent;
+};
+---
+<div class="relative overflow-hidden py-24 sm:py-32">
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="max-w-2xl text-left">
+      <h2 class="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">{teamSection.title}</h2>
+      <p class="mt-6 text-lg/8 font-medium text-gray-800">{teamSection.intro}</p>
+    </div>
+    <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+      {
+        teamSection.members.map((member, index) => (
+          <li
+            class="cursor-default rounded-2xl border border-white/50 bg-white/30 px-8 py-10 backdrop-blur-md transition-transform duration-300 ease-out motion-reduce:transform-none hover:-translate-y-0.5 animate-[teamCardIn_500ms_ease-out_forwards]"
+            style={`animation-delay: ${index * 90}ms;`}
+          >
+            <Image
+              src={member.photo}
+              alt={member.name}
+              class="mx-auto size-48 rounded-full object-cover outline-1 -outline-offset-1 outline-black/5 md:size-56"
+            />
+            <h3 class="mt-6 text-base/7 font-semibold tracking-tight text-gray-900">
+              {member.name}
+            </h3>
+            <p class="text-sm/6 font-medium text-gray-700">{member.role}</p>
+            <p class="mt-4 text-sm/6 font-medium text-gray-800">{member.bio}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  @keyframes teamCardIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
