@@ -1,0 +1,70 @@
+---
+import phoneIcon from "../../assets/ctas/phoneIcon.svg?raw";
+import buildingIcon from "../../assets/icons/buildingIcon.svg?raw";
+// Contact page copy content.
+import { contactPageContent } from "../../config/content/contact";
+// Firm details (address + phone).
+import { firm } from "../../config/firm";
+import PhoneNumber from "../shared/PhoneNumber.astro";
+---
+
+<!-- Contact section outer wrapper -->
+<section class="bg-gray-100">
+  <!-- Two-column layout: info (left) + form slot (right) -->
+  <div class="mx-auto grid max-w-7xl
+    grid-cols-1 lg:grid-cols-2">
+    <!-- Left column: heading, intro, and contact details -->
+    <div class="px-6 lg:px-8
+      pt-24 sm:pt-32
+      pb-20
+      lg:py-48">
+      <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+        <!-- Section heading -->
+        <h2
+          class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+        >
+          {contactPageContent.title}
+        </h2>
+        <!-- Introductory paragraph -->
+        <p class="mt-6 text-lg/8 text-gray-600">{contactPageContent.intro}</p>
+        <!-- Contact details list -->
+        <dl class="mt-10 space-y-4 text-base/7 text-gray-600">
+          <!-- Address row -->
+          <div class="flex gap-x-4">
+            <dt class="flex-none">
+              <span class="sr-only">Address</span>
+              <span
+                aria-hidden="true"
+                class="block h-7 w-6 text-gray-400 [&_svg]:size-full"
+                set:html={buildingIcon}
+              />
+            </dt>
+            <dd>
+              {firm.address.line1}<br />
+              {firm.address.city}<br />
+              {firm.address.country}<br />
+              {firm.address.eircode}
+            </dd>
+          </div>
+          <!-- Phone row -->
+          <div class="flex gap-x-4">
+            <dt class="sr-only">Telephone</dt>
+            <dd>
+              <PhoneNumber
+                phoneHref={firm.phone.phoneHref}
+                phoneIcon={phoneIcon}
+                phoneDisplay={firm.phone.display}
+                size="md"
+                variant="outline"
+                weight="normal"
+                class="text-gray-600 hover:text-gray-900"
+              />
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <!-- Right column injected from page-level usage (ContactForm on /contact) -->
+    <slot />
+  </div>
+</section>
