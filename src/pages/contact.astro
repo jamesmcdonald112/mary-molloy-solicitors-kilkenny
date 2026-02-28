@@ -1,29 +1,21 @@
 ---
+import ContactPageContent from "../components/contact/ContactPageContent.astro";
 import { firm } from "../config/firm";
 import { getLawFirmStructuredData } from "../config/seo";
+import { pageSeo } from "../config/seo/pages";
+import ContactForm from "../features/contact-form/components/ContactForm.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const structuredData = getLawFirmStructuredData();
 ---
 
 <BaseLayout
-  title={`Contact | ${firm.companyName}`}
-  description="Contact Mary Molloy Solicitors in Kilkenny to arrange a legal consultation."
-  canonicalPath="/contact"
+  title={`${pageSeo.contact.title} | ${firm.companyName}`}
+  description={pageSeo.contact.description}
+  canonicalPath={pageSeo.contact.canonicalPath}
   structuredData={structuredData}
 >
-  <article class="prose lg:prose-lg max-w-3xl mx-auto my-24">
-    <h1>Contact</h1>
-    <p>
-      You can contact {firm.companyName} by phone during office hours or by
-      visiting our office in {firm.county}.
-    </p>
-    <p>
-      Phone: <a href={`tel:${firm.phone.phoneHref}`}>{firm.phone.display}</a>
-    </p>
-    <p>
-      Address: {firm.address.line1}, {firm.address.line2}, {firm.address.city},{" "}
-      {firm.address.eircode}, {firm.address.country}
-    </p>
-  </article>
+  <ContactPageContent>
+    <ContactForm />
+  </ContactPageContent>
 </BaseLayout>
