@@ -3,6 +3,10 @@ import { z } from "zod";
 import { CONTACT_PRACTICE_AREAS } from "../config/contact-practice-areas";
 
 const IE_DEFAULT_REGION = "IE";
+const PHONE_PARSE_OPTIONS = {
+	defaultCountry: IE_DEFAULT_REGION,
+	extract: false,
+} as const;
 
 export const contactSchema = z.object({
 	name: z
@@ -15,11 +19,11 @@ export const contactSchema = z.object({
 		.trim()
 		.min(1, "Phone is required.")
 		.refine((value) => {
-			const phone = parsePhoneNumberFromString(value, IE_DEFAULT_REGION);
+			const phone = parsePhoneNumberFromString(value, PHONE_PARSE_OPTIONS);
 			return phone?.isValid() ?? false;
 		}, "Enter a valid phone number.")
 		.transform((value, ctx) => {
-			const phone = parsePhoneNumberFromString(value, IE_DEFAULT_REGION);
+			const phone = parsePhoneNumberFromString(value, PHONE_PARSE_OPTIONS);
 			if (!phone || !phone.isValid()) {
 				ctx.addIssue({
 					code: z.ZodIssueCode.custom,
