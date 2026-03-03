@@ -1,7 +1,8 @@
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { z } from "zod";
 import { CONTACT_PRACTICE_AREAS } from "../config/contact-practice-areas";
 
-const phoneRegex = /^[0-9+()\s-]{7,20}$/;
+const IE_DEFAULT_REGION = "IE";
 
 export const contactSchema = z.object({
 	name: z
@@ -12,9 +13,22 @@ export const contactSchema = z.object({
 	phone: z
 		.string()
 		.trim()
-		.min(7, "Phone number looks too short.")
-		.max(20, "Phone number looks too long.")
-		.regex(phoneRegex, "Enter a valid phone number."),
+		.min(1, "Phone is required.")
+		.refine((value) => {
+			const phone = parsePhoneNumberFromString(value, IE_DEFAULT_REGION);
+			return phone?.isValid() ?? false;
+		}, "Enter a valid phone number.")
+		.transform((value, ctx) => {
+			const phone = parsePhoneNumberFromString(value, IE_DEFAULT_REGION);
+			if (!phone || !phone.isValid()) {
+				ctx.addIssue({
+					code: z.ZodIssueCode.custom,
+					message: "Enter a valid phone number.",
+				});
+				return z.NEVER;
+			}
+			return phone.number; // E.164 e.g. +353567765829
+		}),
 	practiceArea: z.enum(CONTACT_PRACTICE_AREAS, {
 		errorMap: () => ({ message: "Please choose a practice area." }),
 	}),
