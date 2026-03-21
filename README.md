@@ -51,6 +51,17 @@ Once the domain is verified and these values are updated, the contact form will 
 
 ---
 
+## Contact Form — Spam Protection
+
+The form currently has two layers of protection:
+
+- **Honeypot field** — a hidden input that bots tend to fill in; submissions with it filled are silently discarded
+- **Zod validation** — all fields are validated server-side before the email is sent
+
+This is sufficient for a low-traffic site. If the client reports a spam problem in the future, the recommended next step is **rate limiting** via [Upstash Redis](https://upstash.com) (free tier covers thousands of requests per day, works with Vercel). This would limit submissions per IP to e.g. 3 per hour.
+
+---
+
 # Accessibility Statement
 
 An accessibility statement page is included as part of the standard legal pages.
