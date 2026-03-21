@@ -9,7 +9,9 @@
 		"astro": "astro",
 		"biome:format": "biome format --write .",
 		"biome:lint": "biome lint --write .",
-		"biome:check": "biome check --write ."
+		"biome:check": "biome check --write .",
+		"test": "vitest run",
+		"test:watch": "vitest"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
