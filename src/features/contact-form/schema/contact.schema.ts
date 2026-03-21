@@ -11,33 +11,57 @@ const PHONE_PARSE_OPTIONS = {
 export const contactSchema = z.object({
 	name: z
 		.string()
-		.trim()
-		.min(2, "Name must be at least 2 characters.")
-		.max(100, "Name must be 100 character maximum."),
+		.nullable()
+		.transform((v) => v ?? "")
+		.pipe(
+			z
+				.string()
+				.trim()
+				.min(2, "Name must be at least 2 characters.")
+				.max(100, "Name must be 100 character maximum."),
+		),
 	email: z
 		.string()
-		.trim()
-		.min(1, "Email is required.")
-		.email("Enter a valid email address."),
+		.nullable()
+		.transform((v) => v ?? "")
+		.pipe(
+			z
+				.string()
+				.trim()
+				.superRefine((val, ctx) => {
+					if (val.length === 0) {
+						ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Email is required.", fatal: true });
+						return z.NEVER;
+					}
+					const result = z.string().email().safeParse(val);
+					if (!result.success) {
+						ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Enter a valid email address." });
+					}
+				}),
+		),
 	phone: z
 		.string()
-		.trim()
-		.min(1, "Phone is required.")
-		.refine((value) => {
-			const phone = parsePhoneNumberFromString(value, PHONE_PARSE_OPTIONS);
-			return phone?.isValid() ?? false;
-		}, "Enter a valid phone number.")
-		.transform((value, ctx) => {
-			const phone = parsePhoneNumberFromString(value, PHONE_PARSE_OPTIONS);
-			if (!phone || !phone.isValid()) {
-				ctx.addIssue({
-					code: z.ZodIssueCode.custom,
-					message: "Enter a valid phone number.",
-				});
-				return z.NEVER;
-			}
-			return phone.number; // E.164 e.g. +353567765829
-		}),
+		.nullable()
+		.transform((v) => v ?? "")
+		.pipe(
+			z
+				.string()
+				.trim()
+				.superRefine((val, ctx) => {
+					if (val.length === 0) {
+						ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Phone is required.", fatal: true });
+						return z.NEVER;
+					}
+					const parsed = parsePhoneNumberFromString(val, PHONE_PARSE_OPTIONS);
+					if (!parsed?.isValid()) {
+						ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Enter a valid phone number.", fatal: true });
+					}
+				})
+				.transform((value) => {
+					const phone = parsePhoneNumberFromString(value, PHONE_PARSE_OPTIONS);
+					return phone?.number ?? value; // E.164 e.g. +353567765829
+				}),
+		),
 	practiceArea: z.enum(CONTACT_PRACTICE_AREAS, {
 		errorMap: () => ({ message: "Please choose a practice area." }),
 	}),
