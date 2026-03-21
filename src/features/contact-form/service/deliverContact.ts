@@ -5,7 +5,7 @@ import type { ContactInput } from "../schema/contact.schema";
 const resend = new Resend(RESEND_API_KEY);
 
 const FROM = "onboarding@resend.dev";
-const TO = "jamesmcdonaldmusic112@gmail.com";
+const TO = "jamesmcdonald112@yahoo.ie";
 
 export async function deliverContact(input: ContactInput): Promise<void> {
 	await resend.emails.send({
@@ -14,6 +14,7 @@ export async function deliverContact(input: ContactInput): Promise<void> {
 		subject: `New contact form submission — ${input.practiceArea}`,
 		text: [
 			`Name: ${input.name}`,
+			`Email: ${input.email}`,
 			`Phone: ${input.phone}`,
 			`Practice Area: ${input.practiceArea}`,
 			`Message: ${input.message || "(none)"}`,
