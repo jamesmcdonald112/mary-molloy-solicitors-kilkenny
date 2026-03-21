@@ -13,152 +13,159 @@ const hasSuccess = !!result && !error;
 ---
 
 <ClientRouter />
-<form
-  action={actions.contact}
-  method="POST"
-  class="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48"
->
-  <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-    <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-      <div class="sm:col-span-2">
-        <label for="name" class="block text-sm/6 font-semibold text-gray-900"
-          >Name</label
-        >
-        <div class="mt-2.5">
-          <input
-            transition:persist
-            id="name"
-            type="text"
-            name="name"
-            autocomplete="name"
-            class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-          />
-          <p class="mt-1 text-sm text-gray-500">{fieldErrors.name?.join(", ")}</p>
-        </div>
-      </div>
 
-      <div class="sm:col-span-2">
-        <label for="email" class="block text-sm/6 font-semibold text-gray-900"
-          >Email</label
-        >
-        <div class="mt-2.5">
-          <input
-            transition:persist
-            id="email"
-            type="email"
-            name="email"
-            autocomplete="email"
-            class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-          />
-          <p class="mt-1 text-sm text-gray-500">{fieldErrors.email?.join(", ")}</p>
-        </div>
+{hasSuccess ? (
+  <div class="flex h-full min-h-128 items-center justify-center px-6 py-24 lg:px-8 lg:py-48">
+    <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg text-center">
+      <div class="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-gray-900">
+        <span class="text-2xl text-white" aria-hidden="true">✓</span>
       </div>
-
-      <div class="sm:col-span-2">
-        <label for="phone" class="block text-sm/6 font-semibold text-gray-900"
-          >Phone</label
-        >
-        <div class="mt-2.5">
-          <input
-            transition:persist
-            id="phone"
-            type="tel"
-            name="phone"
-            autocomplete="tel"
-            class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-          />
-          <p class="mt-1 text-sm text-gray-500">
-            {fieldErrors.phone?.join(", ")}
-          </p>
-        </div>
-      </div>
-
-      <div class="sm:col-span-2">
-        <label
-          for="practiceArea"
-          class="block text-sm/6 font-semibold text-gray-900"
-          >Practice area</label
-        >
-        <div class="relative mt-2.5">
-          <select
-            transition:persist
-            id="practiceArea"
-            name="practiceArea"
-            class="block w-full appearance-none rounded-md bg-white px-3.5 py-2 pr-11 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-          >
-            <option value="">Select a practice area</option>
-            {
-              CONTACT_PRACTICE_AREAS.map((area) => (
-                <option value={area}>{area}</option>
-              ))
-            }
-          </select>
-          <span
-            class="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-gray-500"
-            set:html={chevronDownIcon}
-          />
-          <p class="mt-1 text-sm text-gray-500">
-            {fieldErrors.practiceArea?.join(", ")}
-          </p>
-        </div>
-      </div>
-
-      <div class="sm:col-span-2">
-        <label for="message" class="block text-sm/6 font-semibold text-gray-900"
-          >Message</label
-        >
-        <div class="mt-2.5">
-          <textarea
-            transition:persist
-            id="message"
-            name="message"
-            rows="4"
-            class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-          ></textarea>
-          <p class="mt-1 text-sm text-gray-500">
-            {fieldErrors.message?.join(", ")}
-          </p>
-        </div>
-      </div>
-
-      <div class="hidden" aria-hidden="true">
-        <label for="website">Website</label>
-        <input
-          transition:persist
-          id="website"
-          type="text"
-          name="website"
-          tabindex="-1"
-          autocomplete="off"
-        />
-        <p class="sr-only">{fieldErrors.website?.join(", ")}</p>
-      </div>
-    </div>
-
-    {result?.error && !isInputError(result.error) && (
-      <div class="mt-6 flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 px-4 py-3">
-        <span class="text-red-500" aria-hidden="true">✕</span>
-        <p class="text-sm font-medium text-red-800">
-          Something went wrong. Please try again later.
-        </p>
-      </div>
-    )}
-    {hasSuccess && (
-      <div class="mt-6 flex items-center gap-3 rounded-lg border border-green-200 bg-green-50 px-4 py-3">
-        <span class="text-green-600" aria-hidden="true">✓</span>
-        <p class="text-sm font-medium text-green-800">
-          Message sent. We'll be in touch shortly.
-        </p>
-      </div>
-    )}
-
-    <div class="mt-8 flex justify-end">
-      <button
-        type="submit"
-        class="rounded-md bg-gray-900 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
-      >
-        Send message
-      </button>
+      <h3 class="text-2xl font-semibold tracking-tight text-gray-900">Message received</h3>
+      <p class="mt-4 text-base/7 text-gray-600">
+        Thank you for getting in touch. We'll review your message and get back to you as soon as possible.
+      </p>
     </div>
   </div>
-</form>
+) : (
+  <form
+    action={actions.contact}
+    method="POST"
+    class="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48"
+  >
+    <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+          <label for="name" class="block text-sm/6 font-semibold text-gray-900"
+            >Name</label
+          >
+          <div class="mt-2.5">
+            <input
+              transition:persist
+              id="name"
+              type="text"
+              name="name"
+              autocomplete="name"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+            />
+            <p class="mt-1 text-sm text-gray-500">{fieldErrors.name?.join(", ")}</p>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="email" class="block text-sm/6 font-semibold text-gray-900"
+            >Email</label
+          >
+          <div class="mt-2.5">
+            <input
+              transition:persist
+              id="email"
+              type="email"
+              name="email"
+              autocomplete="email"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+            />
+            <p class="mt-1 text-sm text-gray-500">{fieldErrors.email?.join(", ")}</p>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="phone" class="block text-sm/6 font-semibold text-gray-900"
+            >Phone</label
+          >
+          <div class="mt-2.5">
+            <input
+              transition:persist
+              id="phone"
+              type="tel"
+              name="phone"
+              autocomplete="tel"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+            />
+            <p class="mt-1 text-sm text-gray-500">
+              {fieldErrors.phone?.join(", ")}
+            </p>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label
+            for="practiceArea"
+            class="block text-sm/6 font-semibold text-gray-900"
+            >Practice area</label
+          >
+          <div class="relative mt-2.5">
+            <select
+              transition:persist
+              id="practiceArea"
+              name="practiceArea"
+              class="block w-full appearance-none rounded-md bg-white px-3.5 py-2 pr-11 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+            >
+              <option value="">Select a practice area</option>
+              {
+                CONTACT_PRACTICE_AREAS.map((area) => (
+                  <option value={area}>{area}</option>
+                ))
+              }
+            </select>
+            <span
+              class="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-gray-500"
+              set:html={chevronDownIcon}
+            />
+            <p class="mt-1 text-sm text-gray-500">
+              {fieldErrors.practiceArea?.join(", ")}
+            </p>
+          </div>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="message" class="block text-sm/6 font-semibold text-gray-900"
+            >Message</label
+          >
+          <div class="mt-2.5">
+            <textarea
+              transition:persist
+              id="message"
+              name="message"
+              rows="4"
+              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+            ></textarea>
+            <p class="mt-1 text-sm text-gray-500">
+              {fieldErrors.message?.join(", ")}
+            </p>
+          </div>
+        </div>
+
+        <div class="hidden" aria-hidden="true">
+          <label for="website">Website</label>
+          <input
+            transition:persist
+            id="website"
+            type="text"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+          <p class="sr-only">{fieldErrors.website?.join(", ")}</p>
+        </div>
+      </div>
+
+      {result?.error && !isInputError(result.error) && (
+        <div class="mt-6 flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 px-4 py-3">
+          <span class="text-red-500" aria-hidden="true">✕</span>
+          <p class="text-sm font-medium text-red-800">
+            Something went wrong. Please try again later.
+          </p>
+        </div>
+      )}
+
+      <div class="mt-8 flex justify-end">
+        <button
+          type="submit"
+          class="rounded-md bg-gray-900 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+        >
+          Send message
+        </button>
+      </div>
+    </div>
+  </form>
+)}
