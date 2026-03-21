@@ -43,10 +43,10 @@ export const contactSchema = z.object({
 	}),
 	message: z
 		.string()
-		.trim()
-		.max(2000, "Message is too long.")
+		.nullable()
 		.optional()
-		.default(""),
+		.transform((v) => v ?? "")
+		.pipe(z.string().trim().max(2000, "Message is too long.")),
 
 	// Honeypot (bots fill it)
 	website: z
