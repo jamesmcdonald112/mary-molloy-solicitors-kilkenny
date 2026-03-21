@@ -1,5 +1,6 @@
 ---
 import { actions, isInputError } from "astro:actions";
+import { ClientRouter } from "astro:transitions";
 import chevronDownIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
 import { CONTACT_PRACTICE_AREAS } from "../config/contact-practice-areas";
 
@@ -7,12 +8,11 @@ const result = Astro.getActionResult(actions.contact);
 const error = result?.error;
 
 const fieldErrors = isInputError(error) ? error.fields : {};
-const hasSuccess = !!result && !error;     // action was called + no error
-const hasError = !!error;                  // any error (input or server)
-const hasInputError = isInputError(error); // validation errors only
+const hasSuccess = !!result && !error;
 
 ---
 
+<ClientRouter />
 <form
   action={actions.contact}
   method="POST"
@@ -34,6 +34,23 @@ const hasInputError = isInputError(error); // validation errors only
             class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
           />
           <p class="mt-1 text-sm text-gray-500">{fieldErrors.name?.join(", ")}</p>
+        </div>
+      </div>
+
+      <div class="sm:col-span-2">
+        <label for="email" class="block text-sm/6 font-semibold text-gray-900"
+          >Email</label
+        >
+        <div class="mt-2.5">
+          <input
+            transition:persist
+            id="email"
+            type="email"
+            name="email"
+            autocomplete="email"
+            class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+          />
+          <p class="mt-1 text-sm text-gray-500">{fieldErrors.email?.join(", ")}</p>
         </div>
       </div>
 
@@ -119,12 +136,20 @@ const hasInputError = isInputError(error); // validation errors only
     </div>
 
     {result?.error && !isInputError(result.error) && (
-      <p class="mt-4 text-sm text-gray-500">
-        Something went wrong. Please try again.
-      </p>
+      <div class="mt-6 flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 px-4 py-3">
+        <span class="text-red-500" aria-hidden="true">✕</span>
+        <p class="text-sm font-medium text-red-800">
+          Something went wrong. Please try again later.
+        </p>
+      </div>
     )}
     {hasSuccess && (
-      <p class="mt-4 text-sm text-gray-700">Message sent. We'll get back to you.</p>
+      <div class="mt-6 flex items-center gap-3 rounded-lg border border-green-200 bg-green-50 px-4 py-3">
+        <span class="text-green-600" aria-hidden="true">✓</span>
+        <p class="text-sm font-medium text-green-800">
+          Message sent. We'll be in touch shortly.
+        </p>
+      </div>
     )}
 
     <div class="mt-8 flex justify-end">
