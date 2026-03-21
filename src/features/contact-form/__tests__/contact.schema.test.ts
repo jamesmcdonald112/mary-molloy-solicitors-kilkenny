@@ -32,7 +32,7 @@ describe("contactSchema", () => {
 			});
 			expect(result.success).toBe(false);
 			expect(result.error?.issues[0].message).toBe(
-				"Name must be 100 character maximum.",
+				"Name must be 100 characters or fewer.",
 			);
 		});
 
@@ -169,7 +169,7 @@ describe("contactSchema", () => {
 				message: "A".repeat(2001),
 			});
 			expect(result.success).toBe(false);
-			expect(result.error?.issues[0].message).toBe("Message is too long.");
+			expect(result.error?.issues[0].message).toBe("Message must be 2000 characters or fewer.");
 		});
 	});
 
