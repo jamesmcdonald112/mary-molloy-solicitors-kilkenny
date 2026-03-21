@@ -1,5 +1,5 @@
+import { z } from "astro/zod";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
-import { z } from "zod";
 import { CONTACT_PRACTICE_AREAS } from "../config/contact-practice-areas";
 
 const IE_DEFAULT_REGION = "IE";
