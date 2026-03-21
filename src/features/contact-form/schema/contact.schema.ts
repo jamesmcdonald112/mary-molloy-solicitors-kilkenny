@@ -1,5 +1,6 @@
 import { z } from "astro/zod";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
+import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
 import { CONTACT_PRACTICE_AREAS } from "../config/contact-practice-areas";
 
 const IE_DEFAULT_REGION = "IE";
@@ -17,8 +18,8 @@ export const contactSchema = z.object({
 			z
 				.string()
 				.trim()
-				.min(2, "Name must be at least 2 characters.")
-				.max(100, "Name must be 100 character maximum."),
+				.min(CONTACT_FIELD_LIMITS.name.min, `Name must be at least ${CONTACT_FIELD_LIMITS.name.min} characters.`)
+				.max(CONTACT_FIELD_LIMITS.name.max, `Name must be ${CONTACT_FIELD_LIMITS.name.max} characters or fewer.`),
 		),
 	email: z
 		.string()
@@ -70,7 +71,7 @@ export const contactSchema = z.object({
 		.nullable()
 		.optional()
 		.transform((v) => v ?? "")
-		.pipe(z.string().trim().max(2000, "Message is too long.")),
+		.pipe(z.string().trim().max(CONTACT_FIELD_LIMITS.message.max, `Message must be ${CONTACT_FIELD_LIMITS.message.max} characters or fewer.`)),
 
 	// Honeypot (bots fill it)
 	website: z
