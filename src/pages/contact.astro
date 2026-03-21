@@ -6,6 +6,8 @@ import { pageSeo } from "../config/seo/pages";
 import ContactForm from "../features/contact-form/components/ContactForm.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+export const prerender = false;
+
 const structuredData = getLawFirmStructuredData();
 ---
 
