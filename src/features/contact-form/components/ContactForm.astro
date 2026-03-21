@@ -2,6 +2,7 @@
 import { actions, isInputError } from "astro:actions";
 import { ClientRouter } from "astro:transitions";
 import chevronDownIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
+import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
 import { CONTACT_PRACTICE_AREAS } from "../config/contact-practice-areas";
 
 const result = Astro.getActionResult(actions.contact);
@@ -118,15 +119,22 @@ const hasSuccess = !!result && !error;
         </div>
 
         <div class="sm:col-span-2">
-          <label for="message" class="block text-sm/6 font-semibold text-gray-900"
-            >Message</label
-          >
+          <div class="flex items-baseline justify-between">
+            <label for="message" class="block text-sm/6 font-semibold text-gray-900"
+              >Message</label
+            >
+            <span id="message-count" class="text-xs text-gray-400">
+              0 / {CONTACT_FIELD_LIMITS.message.max}
+            </span>
+          </div>
           <div class="mt-2.5">
             <textarea
               transition:persist
               id="message"
               name="message"
               rows="4"
+              maxlength={CONTACT_FIELD_LIMITS.message.max}
+              aria-describedby="message-count"
               class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
             ></textarea>
             <p class="mt-1 text-sm text-gray-500">
@@ -169,3 +177,7 @@ const hasSuccess = !!result && !error;
     </div>
   </form>
 )}
+
+<script>
+  import "../scripts/messageCounter";
+</script>
