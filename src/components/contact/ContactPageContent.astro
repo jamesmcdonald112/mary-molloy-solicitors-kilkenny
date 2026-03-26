@@ -9,33 +9,57 @@ import PhoneNumber from "../shared/PhoneNumber.astro";
 ---
 
 <!-- Contact section outer wrapper -->
-<section class="bg-gray-100">
+<section class="relative bg-section-primary-light">
+  <!-- On lg+: fills the right half of the viewport with white, bleeding to the screen edge -->
+  <div
+    aria-hidden="true"
+    class="hidden lg:block
+      absolute inset-y-0 right-0
+      w-1/2
+      bg-(--color-section-base)"
+  >
+  </div>
+
   <!-- Two-column layout: info (left) + form slot (right) -->
-  <div class="mx-auto grid max-w-7xl
-    grid-cols-1 lg:grid-cols-2">
+  <div class="relative
+    mx-auto max-w-7xl
+    grid grid-cols-1 lg:grid-cols-2">
     <!-- Left column: heading, intro, and contact details -->
     <div class="px-6 lg:px-8
-      pt-24 sm:pt-32
+      lg:py-48
       pb-20
-      lg:py-48">
+      pt-24 sm:pt-32">
       <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+        <!-- Eyebrow -->
+        <p
+          class="text-sm font-semibold uppercase tracking-widest
+          text-accent"
+        >
+          {firm.county} Solicitors
+        </p>
+
         <!-- Section heading -->
         <h2
-          class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+          class="mt-3
+          text-4xl sm:text-5xl
+          font-semibold tracking-tight text-pretty
+          text-text"
         >
           {contactPageContent.title}
         </h2>
+
         <!-- Introductory paragraph -->
-        <p class="mt-6 text-lg/8 text-gray-600">{contactPageContent.intro}</p>
+        <p class="mt-6 text-lg/8 text-text-muted">{contactPageContent.intro}</p>
+
         <!-- Contact details list -->
-        <dl class="mt-10 space-y-4 text-base/7 text-gray-600">
+        <dl class="mt-10 space-y-4 text-base/7 text-text-muted">
           <!-- Address row -->
           <div class="flex gap-x-4">
             <dt class="flex-none">
               <span class="sr-only">Address</span>
               <span
                 aria-hidden="true"
-                class="block h-7 w-6 text-gray-400 [&_svg]:size-full"
+                class="block h-7 w-6 text-accent [&_svg]:size-full"
                 set:html={buildingIcon}
               />
             </dt>
@@ -46,6 +70,7 @@ import PhoneNumber from "../shared/PhoneNumber.astro";
               {firm.address.eircode}
             </dd>
           </div>
+
           <!-- Phone row -->
           <div class="flex gap-x-4">
             <dt class="sr-only">Telephone</dt>
@@ -57,14 +82,18 @@ import PhoneNumber from "../shared/PhoneNumber.astro";
                 size="md"
                 variant="outline"
                 weight="normal"
-                class="text-gray-600 hover:text-gray-900"
+                class="text-text-muted hover:text-accent"
+                iconClass="text-accent"
               />
             </dd>
           </div>
         </dl>
       </div>
     </div>
-    <!-- Right column injected from page-level usage (ContactForm on /contact) -->
-    <slot />
+
+    <!-- Right column: white on all screen sizes, bleeds to viewport edge on lg+ via the absolute div above -->
+    <div class="bg-(--color-section-base) lg:bg-transparent">
+      <slot />
+    </div>
   </div>
 </section>
