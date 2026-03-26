@@ -12,12 +12,12 @@ export async function deliverContact(input: ContactInput): Promise<void> {
 		from: FROM,
 		to: TO,
 		subject: `New contact form submission — ${input.practiceArea}`,
-		text: [
-			`Name: ${input.name}`,
-			`Email: ${input.email}`,
-			`Phone: ${input.phone}`,
-			`Practice Area: ${input.practiceArea}`,
-			`Message: ${input.message || "(none)"}`,
+		html: [
+			`<p><strong>Name:</strong> ${input.name}</p>`,
+			`<p><strong>Email:</strong> ${input.email}</p>`,
+			`<p><strong>Phone:</strong> ${input.phone}</p>`,
+			`<p><strong>Practice Area:</strong> ${input.practiceArea}</p>`,
+			`<p><strong>Message:</strong><br>${(input.message || "(none)").replace(/\n/g, "<br>")}</p>`,
 		].join("\n"),
 	});
 }
