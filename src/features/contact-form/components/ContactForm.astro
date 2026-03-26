@@ -1,7 +1,11 @@
 ---
 import { actions, isInputError } from "astro:actions";
 import { ClientRouter } from "astro:transitions";
+import FieldError from "../../../components/ui/FieldError.astro";
+import FormField from "../../../components/ui/FormField.astro";
+import checkCircleIcon from "../../../assets/icons/checkCircleIcon.svg?raw";
 import chevronDownIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
+import { contactFormSuccess } from "../../../config/content/contact";
 import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
 import { CONTACT_PRACTICE_AREAS } from "../config/contact-practice-areas";
 
@@ -11,119 +15,131 @@ const error = result?.error;
 const fieldErrors = isInputError(error) ? error.fields : {};
 const hasSuccess = !!result && !error;
 
+// Shared base styles for select and textarea (inputs use FormField component)
+const selectClass = [
+  "block w-full rounded-md appearance-none",
+  "px-3.5 py-2 pr-11",
+  "text-base text-text bg-(--color-surface)",
+  "outline-1 -outline-offset-1 outline-(--color-input)",
+  "hover:outline-(--color-input-hover)",
+  "focus:outline-2 focus:-outline-offset-2 focus:outline-(--color-input-focus)",
+].join(" ");
+
+const textareaClass = [
+  "block w-full rounded-md",
+  "px-3.5 py-2",
+  "text-base text-text bg-(--color-surface)",
+  "placeholder:text-text-subtle",
+  "outline-1 -outline-offset-1 outline-(--color-input)",
+  "hover:outline-(--color-input-hover)",
+  "focus:outline-2 focus:-outline-offset-2 focus:outline-(--color-input-focus)",
+].join(" ");
 ---
 
 <ClientRouter />
 
 {hasSuccess ? (
-  <div class="flex h-full min-h-128 items-center justify-center px-6 py-24 lg:px-8 lg:py-48">
-    <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg text-center">
-      <div class="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-gray-900">
-        <span class="text-2xl text-white" aria-hidden="true">✓</span>
-      </div>
-      <h3 class="text-2xl font-semibold tracking-tight text-gray-900">Message received</h3>
-      <p class="mt-4 text-base/7 text-gray-600">
-        Thank you for getting in touch. We'll review your message and get back to you as soon as possible.
-      </p>
+  <!-- ── Success state ─────────────────────────────────────────── -->
+  <div class="
+    flex items-center justify-center
+    h-full min-h-128
+    px-6 py-24 lg:px-8 lg:py-48
+  ">
+    <div class="flex flex-col items-center
+      max-w-xl lg:mr-0 lg:max-w-lg
+      text-center">
+      <span
+        aria-hidden="true"
+        class="mb-6 block size-24 text-(--color-success) [&_svg]:size-full"
+        set:html={checkCircleIcon}
+      />
+      <h3 class="text-2xl font-semibold tracking-tight text-text">{contactFormSuccess.heading}</h3>
+      <p class="mt-4 text-base/7 text-text-muted">{contactFormSuccess.body}</p>
     </div>
   </div>
 ) : (
+  <!-- ── Contact form ───────────────────────────────────────────── -->
   <form
     action={actions.contact}
     method="POST"
-    class="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48"
+    class="px-6 lg:px-8
+      lg:py-48
+      pt-20 
+      pb-24 sm:pb-32"
   >
-    <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-      <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-        <div class="sm:col-span-2">
-          <label for="name" class="block text-sm/6 font-semibold text-gray-900"
-            >Name</label
-          >
-          <div class="mt-2.5">
-            <input
-              transition:persist
-              id="name"
-              type="text"
-              name="name"
-              autocomplete="name"
-              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-            />
-            <p class="mt-1 text-sm text-gray-500">{fieldErrors.name?.join(", ")}</p>
-          </div>
-        </div>
+    <div class="max-w-xl lg:max-w-lg
+      mx-auto lg:mr-0">
+      <div class="flex flex-col gap-y-6">
 
-        <div class="sm:col-span-2">
-          <label for="email" class="block text-sm/6 font-semibold text-gray-900"
-            >Email</label
-          >
-          <div class="mt-2.5">
-            <input
-              transition:persist
-              id="email"
-              type="email"
-              name="email"
-              autocomplete="email"
-              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-            />
-            <p class="mt-1 text-sm text-gray-500">{fieldErrors.email?.join(", ")}</p>
-          </div>
-        </div>
+        <!-- Name -->
+        <FormField
+          id="name"
+          name="name"
+          label="Name"
+          type="text"
+          autocomplete="name"
+          placeholder="John Doe"
+          required error={fieldErrors.name?.join(", ")}
+          />
 
-        <div class="sm:col-span-2">
-          <label for="phone" class="block text-sm/6 font-semibold text-gray-900"
-            >Phone</label
-          >
-          <div class="mt-2.5">
-            <input
-              transition:persist
-              id="phone"
-              type="tel"
-              name="phone"
-              autocomplete="tel"
-              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
-            />
-            <p class="mt-1 text-sm text-gray-500">
-              {fieldErrors.phone?.join(", ")}
-            </p>
-          </div>
-        </div>
+        <!-- Email -->
+        <FormField
+          id="email"
+          name="email"
+          label="Email"
+          type="email"
+          autocomplete="email"
+          placeholder="johndoe@example.com"
+          required error={fieldErrors.email?.join(", ")}
+          />
 
-        <div class="sm:col-span-2">
-          <label
-            for="practiceArea"
-            class="block text-sm/6 font-semibold text-gray-900"
-            >Practice area</label
-          >
+        <!-- Phone -->
+        <FormField
+          id="phone"
+          name="phone"
+          label="Phone"
+          type="tel"
+          autocomplete="tel"
+          placeholder="085 123 4567"
+          required error={fieldErrors.phone?.join(", ")}
+          />
+
+        <!-- Practice area (custom: needs chevron icon overlay) -->
+        <div>
+          <label for="practiceArea" class="block text-sm/6 font-semibold text-text">
+            Practice area <span class="ml-0.5 text-accent" aria-hidden="true">*</span>
+          </label>
           <div class="relative mt-2.5">
             <select
               transition:persist
               id="practiceArea"
               name="practiceArea"
-              class="block w-full appearance-none rounded-md bg-white px-3.5 py-2 pr-11 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+              class={selectClass}
             >
               <option value="">Select a practice area</option>
-              {
-                CONTACT_PRACTICE_AREAS.map((area) => (
-                  <option value={area}>{area}</option>
-                ))
-              }
+              {CONTACT_PRACTICE_AREAS.map((area) => (
+                <option value={area}>{area}</option>
+              ))}
             </select>
+            <!-- Chevron icon — purely decorative, positioned over the right edge -->
             <span
-              class="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-gray-500"
+              aria-hidden="true"
+              class="absolute right-4 top-1/2 size-4 -translate-y-1/2 
+                text-text-subtle
+                pointer-events-none "
               set:html={chevronDownIcon}
             />
-            <p class="mt-1 text-sm text-gray-500">
-              {fieldErrors.practiceArea?.join(", ")}
-            </p>
+            <FieldError message={fieldErrors.practiceArea?.join(", ")} />
           </div>
         </div>
 
-        <div class="sm:col-span-2">
+        <!-- Message (custom: needs character counter) -->
+        <div>
           <div class="flex items-baseline justify-between">
-            <label for="message" class="block text-sm/6 font-semibold text-gray-900"
-              >Message</label
-            >
-            <span id="message-count" class="text-xs text-gray-400">
+            <label for="message" class="block text-sm/6 font-semibold text-text">
+              Message <span class="ml-1 text-xs font-normal text-text-subtle">(optional)</span>
+            </label>
+            <span id="message-count" class="text-xs text-text-subtle">
               0 / {CONTACT_FIELD_LIMITS.message.max}
             </span>
           </div>
@@ -135,41 +151,56 @@ const hasSuccess = !!result && !error;
               rows="4"
               maxlength={CONTACT_FIELD_LIMITS.message.max}
               aria-describedby="message-count"
-              class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-600"
+              placeholder="Briefly describe how we can help you…"
+              class={textareaClass}
             ></textarea>
-            <p class="mt-1 text-sm text-gray-500">
-              {fieldErrors.message?.join(", ")}
-            </p>
+            <FieldError message={fieldErrors.message?.join(", ")} />
           </div>
         </div>
 
+        <!-- Honeypot (spam protection — hidden from real users, bots fill it in) -->
         <div class="hidden" aria-hidden="true">
           <label for="website">Website</label>
-          <input
-            transition:persist
-            id="website"
-            type="text"
-            name="website"
-            tabindex="-1"
-            autocomplete="off"
-          />
+          <input transition:persist id="website" type="text" name="website" tabindex="-1" autocomplete="off" />
           <p class="sr-only">{fieldErrors.website?.join(", ")}</p>
         </div>
+
       </div>
 
+      <!-- Required field note -->
+      <p class="mt-4 text-sm text-text-subtle">
+        Fields marked <span class="text-accent">*</span> are required.
+      </p>
+
+      <!-- Server error (shown when submission fails for a non-validation reason) -->
       {result?.error && !isInputError(result.error) && (
-        <div class="mt-6 flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 px-4 py-3">
-          <span class="text-red-500" aria-hidden="true">✕</span>
-          <p class="text-sm font-medium text-red-800">
+        <div class="
+          mt-6
+          flex items-center gap-3
+          rounded-lg border border-destructive-border bg-destructive-soft
+          px-4 py-3
+        ">
+          <span class="text-destructive" aria-hidden="true">✕</span>
+          <p class="text-sm font-medium text-destructive">
             Something went wrong. Please try again later.
           </p>
         </div>
       )}
 
+      <!-- Submit button -->
       <div class="mt-8 flex justify-end">
         <button
           type="submit"
-          class="rounded-md bg-gray-900 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
+          class="
+            rounded-md
+            px-3.5 py-2.5
+            text-center text-sm font-semibold
+            bg-primary text-(--color-on-primary)
+            shadow-xs transition-colors duration-200
+            hover:bg-accent hover:text-(--color-on-accent)
+            focus-visible:outline-2 focus-visible:outline-offset-2 
+            focus-visible:outline-(--color-ring)
+            cursor-pointer"
         >
           Send message
         </button>
@@ -177,6 +208,13 @@ const hasSuccess = !!result && !error;
     </div>
   </form>
 )}
+
+<style>
+  /* Show default option in muted colour, like other placeholder text */
+  select:has(option[value=""]:checked) {
+    color: var(--color-text-subtle);
+  }
+</style>
 
 <script>
   import "../scripts/messageCounter";
