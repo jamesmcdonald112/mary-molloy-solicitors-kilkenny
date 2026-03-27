@@ -15,6 +15,39 @@ npm run test:watch # run tests in watch mode
 
 ---
 
+## TODO — Before Launch
+
+- [ ] **OG images** — create and add real Open Graph images for each page. Currently using placeholder/default values. Update `src/config/seo/pages.ts` with the correct image paths and ensure images are placed in `public/`.
+
+---
+
+## Going Live — Switch Adapter to Vercel
+
+The site currently uses `@astrojs/netlify` as a temporary adapter during development. Before going live on Vercel, swap it out:
+
+1. Uninstall the Netlify adapter:
+   ```bash
+   npm uninstall @astrojs/netlify
+   ```
+
+2. Install the Vercel adapter:
+   ```bash
+   npx astro add vercel
+   ```
+
+3. In `astro.config.mjs`, replace:
+   ```js
+   import netlify from "@astrojs/netlify";
+   adapter: netlify(),
+   ```
+   with:
+   ```js
+   import vercel from "@astrojs/vercel";
+   adapter: vercel(),
+   ```
+
+---
+
 ## Going Live — Email Setup (Resend)
 
 The contact form uses [Resend](https://resend.com) to send emails. During development it runs in **sandbox mode**, which only allows sending to the email address you signed up to Resend with.
