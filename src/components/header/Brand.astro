@@ -37,20 +37,20 @@ const {
       <div
         class="
         flex flex-col
-        leading-tight
-        transition-colors duration-200"
+        leading-tight"
       >
         {companyName && (
           <span
             class="
-            font-bold text-md text-(--color-header-text) 
+            font-bold text-md text-white
+            transition-colors duration-200
             group-hover:text-accent"
           >
             {companyName}
           </span>
         )}
         {county && (
-          <span class="text-sm text-text-muted-on-dark group-hover:text-accent">
+          <span class="text-sm text-text-muted-on-dark transition-colors duration-200 group-hover:text-accent">
             {county}
           </span>
         )}
