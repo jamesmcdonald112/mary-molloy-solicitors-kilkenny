@@ -23,14 +23,14 @@ const base = [
 	"grid place-items-center",
 	"p-2.5",
 	"bg-transparent",
-	"cursor-pointer hover:scale-105 hover:bg-gray-300",
+	"cursor-pointer hover:scale-105 hover:bg-accent",
 	"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
 	"transition duration-200",
 ];
 
 const classes = [
 	...base,
-	border ? "border border-gray-800 rounded-md " : "",
+	border ? "border border-primary-dark-border rounded-md " : "",
 	className,
 ]
 	.filter(Boolean)
@@ -49,6 +49,6 @@ const classes = [
     set:html={icon}
     class="w-6 h-6
     block [&_svg]:size-full
-    text-gray-700 group-hover:text-gray-800"
+    text-white"
   />
 </button>
