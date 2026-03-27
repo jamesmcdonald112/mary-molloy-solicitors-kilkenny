@@ -1,0 +1,65 @@
+---
+import { allServices } from "../../config/content/services";
+
+type Service = (typeof allServices)[number];
+
+interface Props {
+	services?: readonly Service[];
+}
+
+const { services = allServices } = Astro.props;
+---
+
+<dl class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+	{services.map((service, i) => (
+		<a
+			href={service.href}
+			class="group relative overflow-hidden flex flex-col bg-white border-2 border-border border-t-primary p-10 shadow-md hover:border-accent hover:shadow-xl hover:rounded-2xl hover:-translate-y-2 transition-all duration-200"
+		>
+			{/* Background image — revealed on hover */}
+			<img
+				src={service.hoverImage}
+				alt=""
+				aria-hidden="true"
+				class="absolute inset-0 size-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+			/>
+			<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+			{/* Card header — number + icon */}
+			<dt class="relative">
+				<div class="flex items-center justify-between">
+					<span class="text-sm font-semibold text-text-muted group-hover:text-white transition-colors duration-200">
+						{String(i + 1).padStart(2, "0")}
+					</span>
+					<span
+						aria-hidden="true"
+						class="inline-flex items-center justify-center text-accent [&_svg]:size-6 transition-transform duration-200 group-hover:scale-105 group-hover:text-white"
+						set:html={service.icon}
+					/>
+				</div>
+				<p class="mt-4 text-xs font-semibold uppercase tracking-widest text-accent group-hover:text-white/60 transition-colors duration-200">
+					{service.tag}
+				</p>
+				<p class="mt-1 text-xl font-semibold text-primary group-hover:text-accent transition-colors duration-200">
+					{service.title}
+				</p>
+			</dt>
+
+			{/* Card body — description + link */}
+			<dd class="relative mt-3 flex flex-1 flex-col">
+				<p class="text-sm/6 text-text-muted flex-1 group-hover:text-white/80 transition-colors duration-200">
+					{service.description}
+				</p>
+				<p class="mt-6 text-sm font-semibold text-primary group-hover:text-accent transition-colors duration-200">
+					Learn more{" "}
+					<span
+						aria-hidden="true"
+						class="inline-block transition-transform duration-200 group-hover:translate-x-1"
+					>
+						&rarr;
+					</span>
+				</p>
+			</dd>
+		</a>
+	))}
+</dl>

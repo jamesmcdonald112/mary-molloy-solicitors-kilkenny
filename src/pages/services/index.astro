@@ -1,0 +1,46 @@
+---
+import { firm } from "../../config/firm";
+import { servicesIndexContent } from "../../config/content/services";
+import { pageSeo } from "../../config/seo/pages";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CtaSection from "../../components/shared/CtaSection.astro";
+import ServiceCardsGrid from "../../components/shared/ServiceCardsGrid.astro";
+---
+
+<BaseLayout
+	title={`${pageSeo.services.title} | ${firm.companyName}`}
+	description={pageSeo.services.description}
+	canonicalPath={pageSeo.services.canonicalPath}
+	ogType="website"
+>
+	<!-- Services grid -->
+	<section class="pt-12 sm:pt-16
+      pb-16 sm:pb-24
+     bg-section-primary-light">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<!-- Page title -->
+			<div class="max-w-2xl mb-12">
+				<p class="text-sm font-semibold uppercase tracking-widest text-accent">
+					{servicesIndexContent.hero.eyebrow}
+				</p>
+				<h1
+					class="mt-3
+          text-4xl sm:text-5xl
+          font-semibold tracking-tight
+          text-primary"
+				>
+					{servicesIndexContent.hero.title}
+				</h1>
+				<p class="mt-4 text-lg/8 text-text-muted">
+					{servicesIndexContent.hero.subtitle}
+				</p>
+			</div>
+
+			<!-- Cards -->
+			<ServiceCardsGrid />
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<CtaSection title={servicesIndexContent.cta.title} body={servicesIndexContent.cta.body} />
+</BaseLayout>
