@@ -11,103 +11,107 @@ import MobileMenuButton from "./MobileMenuButton.astro";
 import MobileMenuDialog from "./MobileMenuDialog.astro";
 import Navbar from "./Navbar.astro";
 
-const { companyName, county, phone } = firm;
+const { companyName, phone } = firm;
 ---
 
 <header
-  class="sticky top-0 inset-x-0 z-50
-    border-b border-gray-300
-    bg-gray-100 text-gray-700
-    shadow-lg"
-  data-header
+	class="sticky top-0 inset-x-0 z-50
+    border-b border-primary-dark-border
+    bg-primary-dark-bg text-white
+    shadow-sm"
+	data-header
 >
-  <Navbar>
-    <div class="flex">
-      <Brand companyLogo={companyLogo} companyName={companyName} />
-    </div>
+	<Navbar>
+		<div class="flex">
+			<Brand companyLogo={companyLogo} companyName={companyName} />
+		</div>
 
-    <!-- Open Menu -->
-    <MobileMenuButton
-      icon={hamburgerMenu}
-      border={true}
-      srLabel={"Open Mobile Menu"}
-      action={"open"}
-      class={""}
-    />
+		<!-- Open Menu -->
+		<MobileMenuButton
+			icon={hamburgerMenu}
+			border={true}
+			srLabel={"Open Mobile Menu"}
+			action={"open"}
+			class={""}
+		/>
 
-    <!-- Desktop Navigation -->
-    <div class="hidden lg:block">
-      <ul class="flex gap-x-12">
-        {
-          nav.map(({ navLabel, href }) => (
-            <li>
-              <NavLink
-                href={href}
-                class="inline-block text-sm font-semibold transition duration-200 hover:text-gray-500 hover:scale-105"
-                activeClass="text-gray-900"
-              >
-                {navLabel}
-              </NavLink>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+		<!-- Desktop Navigation -->
+		<div class="hidden lg:block">
+			<ul class="flex gap-x-12">
+				{
+					nav.map(({ navLabel, href }) => (
+						<li>
+							<NavLink
+								href={href}
+								class="
+                  inline-block
+                  text-sm font-semibold
+                  transition duration-200
+                  hover:scale-105"
+								inactiveClass="text-white hover:text-accent"
+								activeClass="text-accent"
+							>
+								{navLabel}
+							</NavLink>
+						</li>
+					))
+				}
+			</ul>
+		</div>
 
-    <!-- Desktop Phone Number -->
-    <div
-      class="hidden
+		<!-- Desktop Phone Number -->
+		<div class="hidden
       lg:block
-      lg:justify-self-center xl:justify-self-end"
-    >
-      <PhoneNumber
-        phoneHref={phone.phoneHref}
-        phoneIcon={phoneIcon}
-        phoneDisplay={phone.display}
-        size={"sm"}
-        class={"transition-transform duration-200 hover:text-gray-500 hover:scale-105"}
-      />
-    </div>
-  </Navbar>
+      lg:justify-self-center xl:justify-self-end">
+			<PhoneNumber
+				phoneHref={phone.phoneHref}
+				phoneIcon={phoneIcon}
+				phoneDisplay={phone.display}
+				size={"sm"}
+				class={"text-white hover:text-accent transition-transform duration-200  hover:scale-105"}
+				iconClass={"text-accent"}
+			/>
+		</div>
+	</Navbar>
 
-  <MobileMenuDialog companyLogo={companyLogo} ariaLabel={companyName}>
-    <div class="-my-6 divide-y divide-gray-500">
-      <nav aria-label="Mobile menu" class="space-y-2 py-6">
-        {
-          nav.map(({ navLabel, href }) => (
-            <NavLink
-              href={href}
-              class="block px-3 py-2 font-semibold rounded-lg transition-colors duration-200 hover:bg-gray-300 hover:text-gray-800"
-              activeClass="bg-gray-300 text-gray-800"
-              data-mobile-link
-            >
-              {navLabel}
-            </NavLink>
-          ))
-        }
-      </nav>
+	<!-- Mobile Menu -->
+	<MobileMenuDialog companyLogo={companyLogo} ariaLabel={companyName}>
+		<div class="-my-6 divide-y divide-text-muted-on-dark">
+			<nav aria-label="Mobile menu" class="space-y-2 py-6">
+				{
+					nav.map(({ navLabel, href }) => (
+						<NavLink
+							href={href}
+							class="block px-4 py-4 rounded-lg text-lg font-semibold text-white transition-colors duration-200 hover:bg-primary-dark-surface hover:text-accent"
+							activeClass="text-accent"
+							data-mobile-link
+						>
+							{navLabel}
+						</NavLink>
+					))
+				}
+			</nav>
 
-      <div
-        class="block
+			<div
+				class="block
           mt-3
           rounded-lg
           transition-colors duration-200
-          hover:bg-gray-300 hover:text-gray-900"
-      >
-        <PhoneNumber
-          phoneHref={phone.phoneHref}
-          phoneIcon={phoneIcon}
-          phoneDisplay={phone.display}
-          size={"md"}
-          class={"p-3"}
-        />
-      </div>
-    </div>
-  </MobileMenuDialog>
+          hover:bg-primary-dark-surface"
+			>
+				<PhoneNumber
+					phoneHref={phone.phoneHref}
+					phoneIcon={phoneIcon}
+					phoneDisplay={phone.display}
+					size={"md"}
+					class={"px-4 py-4 text-white hover:text-accent"}
+					iconClass={"text-accent"}
+				/>
+			</div>
+		</div>
+	</MobileMenuDialog>
 </header>
 
-<!-- overflow-hidden - Add to the container for the light effects -->
-
 <script>
-  import "../../scripts/header-menu.ts";
+	import "../../scripts/header-menu.ts";
 </script>
