@@ -1,4 +1,8 @@
 @import "./reset.css";
 @import "./tokens.css";
+
+/* ── THEME ──────────────────────────────────────────────────── */
+@import "./themes/theme-midnight.css";
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
