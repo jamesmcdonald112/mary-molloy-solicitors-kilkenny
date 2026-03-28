@@ -1,0 +1,9 @@
+---
+interface FieldErrorProps {
+	message?: string;
+}
+
+const { message } = Astro.props as FieldErrorProps;
+---
+
+{message && <p class="mt-1 text-sm text-destructive">{message}</p>}
