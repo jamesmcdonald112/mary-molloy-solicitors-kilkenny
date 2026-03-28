@@ -1,5 +1,5 @@
 ---
-type Variant = "solid" | "outline" | "ghost";
+type Variant = "solid" | "solid-accent" | "solid-inverse" | "outline" | "ghost-dark";
 type Size = "sm" | "md" | "lg";
 
 interface ButtonLinkProps {
@@ -27,27 +27,58 @@ const {
 const group = endArrow ? "group" : "";
 
 const base = `
-  inline-flex items-center justify-center gap-2 
-  font-semibold
-  rounded-md 
-  shadow-sm 
-  focus-visible:outline-2 focus-visible:outline-offset-2 
-  focus-visible:outline-gray-700
+  inline-flex items-center justify-center gap-2
+  font-semibold 
+	rounded-md shadow-sm
+  border
+  transition-colors duration-200
+  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent
   `;
 
 const sizes: Record<Size, string> = {
 	sm: "px-3 py-2 text-sm",
 	md: "px-3.5 py-2.5 text-sm",
-	lg: "px-3.5 py-2.5 text-sm sm:text-md",
+	lg: "px-3.5 py-2.5 text-sm sm:text-base",
 };
 
 const width = block ? "w-full sm:w-auto" : "max-w-fit";
 
 const variants: Record<Variant, string> = {
-	solid: "text-white bg-gray-700 hover:bg-gray-600 border border-gray-700",
-	outline:
-		"text-gray-900 bg-transparent hover:bg-gray-200 border border-gray-600",
-	ghost: "text-gray-900 bg-transparent border border-transparent",
+
+	// ── Light surface variants ──────────────────────────────────────
+
+	solid: `
+		bg-primary      hover:bg-accent
+		text-on-primary hover:text-text-on-accent
+		border-primary  hover:border-accent
+	`,
+
+	outline: `
+		bg-transparent  hover:bg-accent
+		text-text       hover:text-text-on-accent
+		border-primary  hover:border-accent
+	`,
+
+	// ── Dark/inverse surface variants ──────────────────────────────
+
+	"solid-accent": `
+		bg-accent           hover:bg-accent-hover
+		text-text-on-accent
+		border-accent       hover:border-accent-hover
+	`,
+
+	"solid-inverse": `
+		bg-white        hover:bg-accent
+		text-primary    hover:text-text-on-accent
+		border-white    hover:border-accent
+	`,
+
+	"ghost-dark": `
+		bg-transparent
+		text-text-on-dark hover:text-accent
+		border-transparent
+	`,
+
 };
 
 const classes = [group, base, sizes[size], width, variants[variant], className]
@@ -56,21 +87,17 @@ const classes = [group, base, sizes[size], width, variants[variant], className]
 ---
 
 <a href={href} class={classes}>
-  {
-    icon && (
-      <span class="h-4 w-4 [&_svg]:h-full [&_svg]:w-full" set:html={icon} />
-    )
-  }
-  <slot>{label}</slot>
-  {
-    endArrow && (
-      <span
-        aria-hidden="true"
-        class="inline-block
+	{icon && <span class="h-4 w-4 [&_svg]:h-full [&_svg]:w-full" set:html={icon} />}
+	<slot>{label}</slot>
+	{
+		endArrow && (
+			<span
+				aria-hidden="true"
+				class="inline-block
           transition-transform duration-200 group-hover:translate-x-1"
-      >
-        &rarr;
-      </span>
-    )
-  }
+			>
+				&rarr;
+			</span>
+		)
+	}
 </a>
