@@ -7,6 +7,7 @@ interface PhoneNumberProps {
 	variant?: "solid" | "outline";
 	weight?: "normal" | "semibold";
 	class?: string;
+	iconClass?: string;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
 	variant = "solid",
 	weight = "semibold",
 	class: className = "",
+	iconClass = "",
 } = Astro.props as PhoneNumberProps;
 
 const sizeMap = {
@@ -33,9 +35,9 @@ const iconVariantClass =
 		: "[&_svg]:fill-current [&_svg]:stroke-current";
 ---
 
-<a class={`flex items-center gap-2 ${weightClass} ${text} ${className}`} href={`tel:${phoneHref}`}>
+<a class={`flex items-center gap-2 transition-colors duration-200 ${weightClass} ${text} ${className}`} href={`tel:${phoneHref}`}>
   <span
-    class={`block ${iconSize} [&_svg]:size-full ${iconVariantClass}`}
+    class={`block ${iconSize} [&_svg]:size-full ${iconVariantClass} ${iconClass}`}
     set:html={phoneIcon}
   />
   {phoneDisplay}</a
