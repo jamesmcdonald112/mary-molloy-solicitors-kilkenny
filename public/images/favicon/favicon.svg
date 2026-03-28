@@ -1,15 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MM">
-  <title>MM</title>
-  <circle cx="32" cy="32" r="30" fill="#111827"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="50" fill="hsl(213, 68%, 20%)"/>
   <text
-    x="50%"
-    y="52%"
+    x="50"
+    y="50"
+    dominant-baseline="central"
     text-anchor="middle"
-    dominant-baseline="middle"
-    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial"
-    font-size="30"
-    font-weight="800"
-    fill="#ffffff"
-    letter-spacing="-2"
-  >MM</text>
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="62"
+    font-weight="400"
+    fill="hsl(40, 55%, 58%)"
+  >M</text>
 </svg>
