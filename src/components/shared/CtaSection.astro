@@ -1,69 +1,73 @@
 ---
-import { globalCtas } from "../../config/ctas";
+import { defaultCtaSection, globalCtas } from "../../config/ctas";
 import ButtonLink from "../ui/ButtonLink.astro";
 
 interface Props {
 	title?: string;
 	body?: string;
-	variant?: "white" | "gray" | "navy" | "accent";
+	variant?: "light" | "subtle" | "dark";
 }
 
 const {
-	title = "Need legal guidance you can rely on?",
-	body = "Speak with our team for clear, practical support tailored to your matter.",
-	variant = "gray",
+	title = defaultCtaSection.title,
+	body = defaultCtaSection.body,
+	variant = "dark",
 } = Astro.props as Props;
 
 const sectionClass = {
-	white: "bg-white",
-	gray:  "bg-(--color-section-base)",
-	navy:  "bg-(--color-primary-dark-bg)",
-	accent: "bg-(--color-accent)",
+	light: "bg-white",
+	subtle: "bg-section-primary-light",
+	dark: "bg-primary-dark-bg",
 }[variant];
 
 const headingClass = {
-	white:  "text-(--color-text)",
-	gray:   "text-(--color-text)",
-	navy:   "text-(--color-text-on-dark)",
-	accent: "text-(--color-text-on-accent)",
+	light: "text-text",
+	subtle: "text-text",
+	dark: "text-text-on-dark",
 }[variant];
 
 const bodyClass = {
-	white:  "text-(--color-text-muted)",
-	gray:   "text-(--color-text-muted)",
-	navy:   "text-(--color-text-muted-on-dark)",
-	accent: "text-(--color-text-on-accent)",
+	light: "text-text-muted",
+	subtle: "text-text-muted",
+	dark: "text-text-muted-on-dark",
 }[variant];
 
-const buttonVariant = variant === "navy" ? "ghost-inverse" : "solid";
-const outlineVariant = variant === "navy" ? "ghost-inverse" : "outline";
+const buttonVariant = variant === "dark" ? "solid-accent" : "solid";
+const outlineVariant = variant === "dark" ? "solid-inverse" : "outline";
 ---
 
 <section class={`${sectionClass} py-24 sm:py-32`}>
-  <div class="px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center">
-      <h2 class={`text-4xl font-semibold tracking-tight text-balance sm:text-5xl ${headingClass}`}>
-        {title}
-      </h2>
-      <p class={`mx-auto mt-6 max-w-xl text-lg/8 text-pretty ${bodyClass}`}>
-        {body}
-      </p>
-      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-x-6">
-        <ButtonLink
-          href={globalCtas.call.href}
-          variant={buttonVariant}
-          size="lg"
-          label={globalCtas.call.label}
-          icon={globalCtas.call.icon}
-        />
-        <ButtonLink
-          href={globalCtas.email.href}
-          variant={outlineVariant}
-          size="lg"
-          label={globalCtas.email.label}
-          endArrow={true}
-        />
-      </div>
-    </div>
-  </div>
+	<div class="px-6 lg:px-8">
+		<div class="mx-auto max-w-2xl text-center">
+			<h2 class={`text-4xl sm:text-5xl font-semibold tracking-tight text-balance ${headingClass}`}>
+				{title}
+			</h2>
+			<p class={`mx-auto mt-6 max-w-xl text-lg/8 text-pretty ${bodyClass}`}>
+				{body}
+			</p>
+			<div
+				class="mt-10
+        flex flex-col sm:flex-row
+        gap-4 sm:gap-x-6
+        sm:items-center sm:justify-center"
+			>
+				<ButtonLink
+					href={globalCtas.call.href}
+					variant={buttonVariant}
+					size="lg"
+					label={globalCtas.call.label}
+					icon={globalCtas.call.icon}
+					block={true}
+				/>
+				<ButtonLink
+					href={globalCtas.email.href}
+					variant={outlineVariant}
+					size="lg"
+					label={globalCtas.email.label}
+					endArrow={true}
+					block={true}
+				/>
+			</div>
+		</div>
+	</div>
 </section>
