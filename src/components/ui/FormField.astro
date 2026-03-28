@@ -1,0 +1,58 @@
+---
+import FieldError from "./FieldError.astro";
+
+type InputType = "text" | "email" | "tel";
+type Autocomplete = "name" | "email" | "tel" | "off";
+
+interface FormFieldProps {
+	id: string;
+	name: string;
+	label: string;
+	type?: InputType;
+	autocomplete?: Autocomplete;
+	placeholder?: string;
+	required?: boolean;
+	error?: string;
+}
+
+const {
+	id,
+	name,
+	label,
+	type = "text",
+	autocomplete,
+	placeholder,
+	required = false,
+	error,
+} = Astro.props as FormFieldProps;
+
+const inputClass = [
+	"block w-full rounded-md",
+	"px-3.5 py-2",
+	"text-base text-text",
+	"bg-surface",
+	"outline-1 -outline-offset-1 outline-input",
+	"hover:outline-input-hover",
+	"placeholder:text-text-subtle",
+	"focus:outline-2 focus:-outline-offset-2 focus:outline-input-focus",
+].join(" ");
+---
+
+<div>
+  <label for={id} class="block text-sm/6 font-semibold text-text">
+    {label}{required && <span class="ml-0.5 text-accent" aria-hidden="true">*</span>}
+  </label>
+  <div class="mt-2.5">
+    <input
+      transition:persist
+      {id}
+      {name}
+      {type}
+      autocomplete={autocomplete}
+      placeholder={placeholder}
+      required={required}
+      class={inputClass}
+    />
+    <FieldError message={error} />
+  </div>
+</div>
