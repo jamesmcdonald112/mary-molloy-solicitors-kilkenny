@@ -52,11 +52,10 @@ const { companyName, phone, address, officeHours } = firm;
             class="inline-flex justify-center
               w-full sm:w-fit
               px-4 py-2
-              text-sm font-semibold text-(--color-text-on-accent)
-              bg-accent
-              border border-accent rounded-md
+              text-sm font-semibold text-text-on-accent
+              bg-accent hover:bg-accent-hover
+              border border-accent hover:border-accent-hover rounded-md
               transition-colors duration-200
-              hover:opacity-90
               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >Get directions</a
           >
@@ -68,10 +67,10 @@ const { companyName, phone, address, officeHours } = firm;
             class=`
               inline-flex justify-center w-full sm:w-fit
               px-4 py-2
-              text-text-on-dark
-              rounded-md border border-primary-dark-border
+              bg-white text-text
+              rounded-md border border-white
               transition-colors duration-200
-              hover:bg-accent hover:border-accent`
+              hover:bg-accent hover:text-text-on-accent hover:border-accent`
           />
         </div>
       </div>
