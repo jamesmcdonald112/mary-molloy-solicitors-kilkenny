@@ -1,4 +1,4 @@
-import documentIcon from "../../assets/icons/documentIcon.svg?raw";
+import documentIcon from "../../assets/icons/documentTextIcon.svg?raw";
 import homeIcon from "../../assets/icons/homeIcon.svg?raw";
 import { firm } from "../firm";
 
