@@ -1,4 +1,5 @@
 ---
+import { actions } from "astro:actions";
 import ContactPageContent from "../components/contact/ContactPageContent.astro";
 import { firm } from "../config/firm";
 import { getLawFirmStructuredData } from "../config/seo";
@@ -9,6 +10,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 export const prerender = false;
 
 const structuredData = getLawFirmStructuredData();
+
+const result = Astro.getActionResult(actions.contact);
+if (result && !result.error) {
+  return Astro.redirect("/thank-you");
+}
 ---
 
 <BaseLayout
