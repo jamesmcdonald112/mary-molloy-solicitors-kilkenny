@@ -38,10 +38,21 @@ const iconVariantClass =
 		: "[&_svg]:fill-current [&_svg]:stroke-current";
 ---
 
-<a class={`flex items-center gap-2 transition duration-200 ${weightClass} ${text} ${className}`} href={`tel:${phoneHref}`}>
-  <span
-    class={`block ${resolvedIconSize} [&_svg]:size-full ${iconVariantClass} ${iconClass}`}
-    set:html={phoneIcon}
-  />
-  {phoneDisplay}</a
+<a
+	class={`
+		flex items-center gap-2 
+		transition duration-200 
+		${weightClass} ${text} ${className}
+	`}
+	href={`tel:${phoneHref}`}
+>
+	<span
+		class={`
+			block 
+			${resolvedIconSize} [&_svg]:size-full 
+			${iconVariantClass} ${iconClass}
+		`}
+		set:html={phoneIcon}
+	/>
+	{phoneDisplay}</a
 >
