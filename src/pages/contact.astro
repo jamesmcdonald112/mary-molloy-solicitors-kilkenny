@@ -1,9 +1,9 @@
 ---
 import { actions } from "astro:actions";
 import ContactPageContent from "../components/contact/ContactPageContent.astro";
+import { contactPageContent } from "../config/content/contact";
 import { firm } from "../config/firm";
-import { getLawFirmStructuredData } from "../config/seo";
-import { pageSeo } from "../config/seo/pages";
+import { getLawFirmStructuredData } from "../config/structured-data";
 import ContactForm from "../features/contact-form/components/ContactForm.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -18,9 +18,9 @@ if (result && !result.error) {
 ---
 
 <BaseLayout
-  title={`${pageSeo.contact.title} | ${firm.companyName}`}
-  description={pageSeo.contact.description}
-  canonicalPath={pageSeo.contact.canonicalPath}
+  title={`${contactPageContent.seo.title} | ${firm.companyName}`}
+  description={contactPageContent.seo.description}
+  canonicalPath={contactPageContent.seo.canonicalPath}
   structuredData={structuredData}
 >
   <ContactPageContent>
