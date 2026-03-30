@@ -19,7 +19,7 @@ const validInput: ContactInput = {
 	name: "Jane Doe",
 	email: "jane@example.com",
 	phone: "+353871234567" as ContactInput["phone"],
-	practiceArea: "Wills and Estate Administration",
+	service: "Wills and Estate Administration",
 	message: "I need help with a will.",
 	website: "",
 };

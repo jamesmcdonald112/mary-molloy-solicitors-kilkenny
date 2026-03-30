@@ -5,7 +5,7 @@ const validInput = {
 	name: "John Smith",
 	email: "john@example.com",
 	phone: "0871234567",
-	practiceArea: "Employment Law",
+	service: "Employment Law",
 	message: "I need help with a work issue.",
 	website: "",
 };
@@ -126,23 +126,23 @@ describe("contactSchema", () => {
 		});
 	});
 
-	describe("practiceArea", () => {
-		it("accepts a valid practice area", () => {
+	describe("service", () => {
+		it("accepts a valid service", () => {
 			const result = contactSchema.safeParse({
 				...validInput,
-				practiceArea: "Other",
+				service: "Other",
 			});
 			expect(result.success).toBe(true);
 		});
 
-		it("rejects an invalid practice area", () => {
+		it("rejects an invalid service", () => {
 			const result = contactSchema.safeParse({
 				...validInput,
-				practiceArea: "Rocket Science",
+				service: "Rocket Science",
 			});
 			expect(result.success).toBe(false);
 			expect(result.error?.issues[0].message).toBe(
-				"Please choose a practice area.",
+				"Please choose a service.",
 			);
 		});
 	});

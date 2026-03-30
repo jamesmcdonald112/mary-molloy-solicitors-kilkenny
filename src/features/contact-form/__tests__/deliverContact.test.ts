@@ -17,7 +17,7 @@ const validInput: ContactInput = {
 	name: "John Smith",
 	email: "john@example.com",
 	phone: "+353871234567" as ContactInput["phone"],
-	practiceArea: "Employment Law",
+	service: "Employment Law",
 	message: "I need help.",
 	website: "",
 };
@@ -39,12 +39,12 @@ describe("deliverContact", () => {
 		expect(call[0].text).toContain("Name: John Smith");
 		expect(call[0].text).toContain("Email: john@example.com");
 		expect(call[0].text).toContain("Phone: +353871234567");
-		expect(call[0].text).toContain("Practice Area: Employment Law");
+		expect(call[0].text).toContain("Service: Employment Law");
 		expect(call[0].text).toContain("Message: I need help.");
 	});
 
-	it("includes the practice area in the subject line", async () => {
-		await deliverContact({ ...validInput, practiceArea: "Family & Childcare Law" as const });
+	it("includes the service in the subject line", async () => {
+		await deliverContact({ ...validInput, service: "Family & Childcare Law" as const });
 
 		const [call] = mockSend.mock.calls;
 		expect(call[0].subject).toBe(
