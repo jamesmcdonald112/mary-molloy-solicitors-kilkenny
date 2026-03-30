@@ -3,17 +3,14 @@ import { actions, isInputError } from "astro:actions";
 import { ClientRouter } from "astro:transitions";
 import FieldError from "../../../components/ui/FieldError.astro";
 import FormField from "../../../components/ui/FormField.astro";
-import checkCircleIcon from "../../../assets/icons/checkCircleIcon.svg?raw";
 import chevronDownIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
-import { contactFormSuccess } from "../../../config/content/contact";
 import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
-import { CONTACT_PRACTICE_AREAS } from "../config/contact-practice-areas";
+import { CONTACT_SERVICES } from "../config/contact-services";
 
 const result = Astro.getActionResult(actions.contact);
 const error = result?.error;
 
 const fieldErrors = isInputError(error) ? error.fields : {};
-const hasSuccess = !!result && !error;
 
 // Shared base styles for select and textarea (inputs use FormField component)
 const selectClass = [
@@ -38,28 +35,8 @@ const textareaClass = [
 
 <ClientRouter />
 
-{hasSuccess ? (
-  <!-- ── Success state ─────────────────────────────────────────── -->
-  <div class="
-    flex items-center justify-center
-    h-full min-h-128
-    px-6 py-24 lg:px-8 lg:py-48
-  ">
-    <div class="flex flex-col items-center
-      max-w-xl lg:mr-0 lg:max-w-lg
-      text-center">
-      <span
-        aria-hidden="true"
-        class="mb-6 block size-24 text-(--color-success) [&_svg]:size-full"
-        set:html={checkCircleIcon}
-      />
-      <h3 class="text-2xl font-semibold tracking-tight text-text">{contactFormSuccess.heading}</h3>
-      <p class="mt-4 text-base/7 text-text-muted">{contactFormSuccess.body}</p>
-    </div>
-  </div>
-) : (
-  <!-- ── Contact form ───────────────────────────────────────────── -->
-  <form
+<!-- ── Contact form ───────────────────────────────────────────── -->
+<form
     action={actions.contact}
     method="POST"
     class="px-6 lg:px-8
@@ -104,32 +81,32 @@ const textareaClass = [
           required error={fieldErrors.phone?.join(", ")}
           />
 
-        <!-- Practice area (custom: needs chevron icon overlay) -->
+        <!-- Service (custom: needs chevron icon overlay) -->
         <div>
-          <label for="practiceArea" class="block text-sm/6 font-semibold text-text">
-            Practice area <span class="ml-0.5 text-accent" aria-hidden="true">*</span>
+          <label for="service" class="block text-sm/6 font-semibold text-text">
+            Service <span class="ml-0.5 text-accent" aria-hidden="true">*</span>
           </label>
           <div class="relative mt-2.5">
             <select
               transition:persist
-              id="practiceArea"
-              name="practiceArea"
+              id="service"
+              name="service"
               class={selectClass}
             >
-              <option value="">Select a practice area</option>
-              {CONTACT_PRACTICE_AREAS.map((area) => (
+              <option value="">Select a legal service</option>
+              {CONTACT_SERVICES.map((area) => (
                 <option value={area}>{area}</option>
               ))}
             </select>
             <!-- Chevron icon — purely decorative, positioned over the right edge -->
             <span
               aria-hidden="true"
-              class="absolute right-4 top-1/2 size-4 -translate-y-1/2 
+              class="absolute right-4 top-1/2 size-4 -translate-y-1/2
                 text-text-subtle
                 pointer-events-none "
               set:html={chevronDownIcon}
             />
-            <FieldError message={fieldErrors.practiceArea?.join(", ")} />
+            <FieldError message={fieldErrors.service?.join(", ")} />
           </div>
         </div>
 
@@ -207,7 +184,6 @@ const textareaClass = [
       </div>
     </div>
   </form>
-)}
 
 <style>
   /* Show default option in muted colour, like other placeholder text */
