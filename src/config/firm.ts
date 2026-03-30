@@ -21,15 +21,13 @@ export const firm = {
 
 	officeHours: {
 		display: "Mon-Fri 9:00-17:30",
-		weekly: {
-			mon: "09:00-17:30",
-			tue: "09:00-17:30",
-			wed: "09:00-17:30",
-			thu: "09:00-17:30",
-			fri: "09:00-17:30",
-			sat: "closed",
-			sun: "closed",
-		},
+		weekly: [
+			{ day: "Monday",    opens: "09:00", closes: "17:30" },
+			{ day: "Tuesday",   opens: "09:00", closes: "17:30" },
+			{ day: "Wednesday", opens: "09:00", closes: "17:30" },
+			{ day: "Thursday",  opens: "09:00", closes: "17:30" },
+			{ day: "Friday",    opens: "09:00", closes: "17:30" },
+		],
 	},
 
 	socialLinks: [],
