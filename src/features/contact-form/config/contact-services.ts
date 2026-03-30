@@ -1,4 +1,4 @@
-import { SERVICES } from "../../../config/contact/services";
+import { SERVICES } from "../../../config/service-areas";
 
 export const CONTACT_SERVICES = [...SERVICES, "Other"] as const;
 
