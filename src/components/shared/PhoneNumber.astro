@@ -4,6 +4,7 @@ interface PhoneNumberProps {
 	phoneIcon: string;
 	phoneDisplay: string;
 	size?: "sm" | "md" | "lg";
+	iconHeight?: string;
 	variant?: "solid" | "outline";
 	weight?: "normal" | "semibold";
 	class?: string;
@@ -15,6 +16,7 @@ const {
 	phoneIcon,
 	phoneDisplay,
 	size = "md",
+	iconHeight,
 	variant = "solid",
 	weight = "semibold",
 	class: className = "",
@@ -23,11 +25,12 @@ const {
 
 const sizeMap = {
 	sm: { text: "text-sm", iconSize: "h-5" },
-	md: { text: "text-base", iconSize: "h-6" },
-	lg: { text: "text-lg", iconSize: "h-8" },
+	md: { text: "text-sm", iconSize: "h-6" },
+	lg: { text: "text-sm sm:text-base", iconSize: "h-8" },
 } as const;
 
 const { text, iconSize } = sizeMap[size];
+const resolvedIconSize = iconHeight ?? iconSize;
 const weightClass = weight === "normal" ? "font-normal" : "font-semibold";
 const iconVariantClass =
 	variant === "outline"
@@ -35,9 +38,9 @@ const iconVariantClass =
 		: "[&_svg]:fill-current [&_svg]:stroke-current";
 ---
 
-<a class={`flex items-center gap-2 transition-colors duration-200 ${weightClass} ${text} ${className}`} href={`tel:${phoneHref}`}>
+<a class={`flex items-center gap-2 transition duration-200 ${weightClass} ${text} ${className}`} href={`tel:${phoneHref}`}>
   <span
-    class={`block ${iconSize} [&_svg]:size-full ${iconVariantClass} ${iconClass}`}
+    class={`block ${resolvedIconSize} [&_svg]:size-full ${iconVariantClass} ${iconClass}`}
     set:html={phoneIcon}
   />
   {phoneDisplay}</a
