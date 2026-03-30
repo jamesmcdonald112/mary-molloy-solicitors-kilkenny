@@ -1,13 +1,52 @@
 ---
+import checkCircleIcon from "../assets/icons/checkCircleIcon.svg?raw";
+import phoneIcon from "../assets/ctas/phoneIcon.svg?raw";
+import ButtonLink from "../components/ui/ButtonLink.astro";
+import PhoneNumber from "../components/shared/PhoneNumber.astro";
 import { firm } from "../config/firm";
+import { thankYouContent } from "../config/content/thank-you";
+import { pageSeo } from "../config/seo/pages";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!-- Add title and description -->
 <BaseLayout
-  title={`Thank you | ${firm.companyName}`}
-  description="Thank you for your enquiry."
-  noIndex={true}
+	title={`${pageSeo.thankYou.title} | ${firm.companyName}`}
+	description={pageSeo.thankYou.description}
+	noIndex={true}
 >
-  <!-- Page content -->
+	<section class="bg-section-base py-24 sm:py-32 lg:py-48">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+			<div class="mx-auto max-w-2xl text-center">
+				<span
+					aria-hidden="true"
+					class="mb-8 block size-40 mx-auto text-success [&_svg]:size-full"
+					set:html={checkCircleIcon}
+				/>
+				<h1 class="text-4xl font-semibold tracking-tight text-text sm:text-5xl">
+					{thankYouContent.heading}
+				</h1>
+				<p class="mt-6 text-lg/8 text-text-muted">
+					{thankYouContent.body}
+				</p>
+				<div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+					<ButtonLink href={thankYouContent.href} variant="solid" size="md" block={true}>
+						Back to home
+					</ButtonLink>
+					<PhoneNumber
+						phoneHref={firm.phone.phoneHref}
+						phoneIcon={phoneIcon}
+						phoneDisplay={firm.phone.display}
+						size="md"
+						iconHeight="h-4"
+						class="inline-flex justify-center w-full sm:w-fit
+              px-3.5 py-2.5
+              bg-transparent hover:bg-accent
+              text-text hover:text-text-on-accent
+              rounded-md border border-primary hover:border-accent
+              transition-colors duration-200"
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
 </BaseLayout>
