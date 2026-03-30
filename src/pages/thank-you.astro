@@ -5,13 +5,12 @@ import ButtonLink from "../components/ui/ButtonLink.astro";
 import PhoneNumber from "../components/shared/PhoneNumber.astro";
 import { firm } from "../config/firm";
 import { thankYouContent } from "../config/content/thank-you";
-import { pageSeo } from "../config/seo/pages";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-	title={`${pageSeo.thankYou.title} | ${firm.companyName}`}
-	description={pageSeo.thankYou.description}
+	title={`${thankYouContent.seo.title} | ${firm.companyName}`}
+	description={thankYouContent.seo.description}
 	noIndex={true}
 >
 	<section class="bg-section-base py-24 sm:py-32 lg:py-48">
