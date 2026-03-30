@@ -1,50 +1,12 @@
 import { firm } from "./firm";
 
-const weekdayMap: Record<string, string> = {
-	mon: "Monday",
-	tue: "Tuesday",
-	wed: "Wednesday",
-	thu: "Thursday",
-	fri: "Friday",
-	sat: "Saturday",
-	sun: "Sunday",
-};
-
-type OpeningHoursSpec = {
-	"@type": "OpeningHoursSpecification";
-	dayOfWeek: string;
-	opens: string;
-	closes: string;
-};
-
 function getOpeningHoursSpecification() {
-	const weekly = firm.officeHours.weekly;
-	const specs: OpeningHoursSpec[] = [];
-
-	for (const [shortDay, hours] of Object.entries(weekly)) {
-		if (hours.toLowerCase() === "closed") {
-			continue;
-		}
-
-		const [opens, closes] = hours.split("-");
-		if (!opens || !closes) {
-			continue;
-		}
-
-		const dayOfWeek = weekdayMap[shortDay];
-		if (!dayOfWeek) {
-			continue;
-		}
-
-		specs.push({
-			"@type": "OpeningHoursSpecification",
-			dayOfWeek,
-			opens,
-			closes,
-		});
-	}
-
-	return specs.length > 0 ? specs : undefined;
+	return firm.officeHours.weekly.map((entry) => ({
+		"@type": "OpeningHoursSpecification" as const,
+		dayOfWeek: entry.day,
+		opens: entry.opens,
+		closes: entry.closes,
+	}));
 }
 
 export function getLawFirmStructuredData() {
@@ -60,9 +22,7 @@ export function getLawFirmStructuredData() {
 		image: imageUrl,
 		address: {
 			"@type": "PostalAddress",
-			streetAddress: [firm.address.line1, firm.address.line2]
-				.filter(Boolean)
-				.join(", "),
+			streetAddress: firm.address.line1,
 			addressLocality: firm.address.city,
 			postalCode: firm.address.eircode,
 			addressCountry: firm.address.country,
@@ -77,9 +37,7 @@ export function getLawFirmStructuredData() {
 				name: firm.county,
 			},
 		],
-		...(openingHoursSpecification
-			? { openingHoursSpecification }
-			: { openingHours: firm.officeHours.display }),
+		openingHoursSpecification,
 		...(sameAs && sameAs.length > 0 ? { sameAs } : {}),
 	};
 
