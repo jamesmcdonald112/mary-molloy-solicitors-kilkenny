@@ -1,8 +1,4 @@
 ---
-/**
- * ServiceArticle — rich prose content block.
- * bg: section-primary-light — light navy tint, reinforces the primary brand colour
- */
 
 import checkCircleIcon from "../../assets/icons/checkCircleIcon.svg?raw";
 
@@ -90,7 +86,7 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
 							</ul>
 						);
 					}
-          
+
 					// Pull quote with an optional attribution line
 					if (block.type === "blockquote") {
 						return (
