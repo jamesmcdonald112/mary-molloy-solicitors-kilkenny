@@ -1,5 +1,5 @@
 ---
-import TrustStripSection from "../components/buying-and-selling-property/TrustStripSection.astro";
+import TrustStrip from "../components/shared/TrustStrip.astro";
 import CtaSection from "../components/shared/CtaSection.astro";
 import OurTeamSection from "../components/shared/OurTeamSection.astro";
 import { propertyPageContent } from "../config/content/property";
@@ -19,9 +19,10 @@ const structuredData = getLawFirmStructuredData();
   ogType="website"
   structuredData={structuredData}
 >
-  <TrustStripSection
-    trustStrip={propertyPageContent.trustStrip}
-    heroImage={propertyPageContent.hero.image}
+  <TrustStrip
+    title={propertyPageContent.trustStrip.title}
+    columns={propertyPageContent.trustStrip.columns}
+    stats={propertyPageContent.trustStrip.stats}
   />
   <OurTeamSection teamSection={teamSectionContent} />
   <CtaSection />

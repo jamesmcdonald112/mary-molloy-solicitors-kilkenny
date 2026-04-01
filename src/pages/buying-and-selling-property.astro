@@ -5,7 +5,7 @@ import HeroSection from "../components/buying-and-selling-property/HeroSection.a
 import PrepareSection from "../components/buying-and-selling-property/PrepareSection.astro";
 import ProcessSection from "../components/buying-and-selling-property/ProcessSection.astro";
 import ServicesSection from "../components/buying-and-selling-property/ServicesSection.astro";
-import TrustStripSection from "../components/buying-and-selling-property/TrustStripSection.astro";
+import TrustStrip from "../components/shared/TrustStrip.astro";
 import { propertyPageContent as content } from "../config/content/property";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -22,7 +22,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     services={content.services}
   />
   <ProcessSection process={content.process} />
-  <TrustStripSection trustStrip={content.trustStrip} heroImage={content.hero.image} />
+  <TrustStrip
+    title={content.trustStrip.title}
+    columns={content.trustStrip.columns}
+    stats={content.trustStrip.stats}
+  />
   <PrepareSection prepare={content.prepare} />
   <FaqSection faqs={content.faqs} />
   <FinalCtaSection
