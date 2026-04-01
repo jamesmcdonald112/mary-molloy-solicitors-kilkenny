@@ -1,22 +1,22 @@
-# Accessibility Statement for Mary Molloy Solicitors
+# Accessibility Statement for Mary Molloy Solicitor
 --------------------------------------------------
 
-This is an accessibility statement from Mary Molloy Solicitors.
+This is an accessibility statement from Mary Molloy Solicitor.
 
 ### Measures to support accessibility
 
-Mary Molloy Solicitors takes the following measures to ensure accessibility of Mary Molloy Solicitors:
+Mary Molloy Solicitor takes the following measures to ensure accessibility of Mary Molloy Solicitor:
 
 -   Assign clear accessibility goals and responsibilities.
 -   Accessibility is considered during design, development, and content updates.
 
 ### Conformance status
 
-The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. Mary Molloy Solicitors is partially conformant with WCAG 2.1 level AA. Partially conformant means that some parts of the content do not fully conform to the accessibility standard.
+The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. Mary Molloy Solicitor is partially conformant with WCAG 2.1 level AA. Partially conformant means that some parts of the content do not fully conform to the accessibility standard.
 
 ### Feedback
 
-We welcome your feedback on the accessibility of Mary Molloy Solicitors. Please let us know if you encounter accessibility barriers on Mary Molloy Solicitors:
+We welcome your feedback on the accessibility of Mary Molloy Solicitor. Please let us know if you encounter accessibility barriers on Mary Molloy Solicitor:
 
 -   Phone: +353 56 7765829
 -   Visitor Address: 2 Rose Inn St, Dukesmeadows, Kilkenny, R95 W58D
@@ -27,17 +27,17 @@ We aim to respond to accessibility feedback within 5 business days.
 
 ### Compatibility with browsers and assistive technology
 
-Mary Molloy Solicitors is designed to be compatible with the following assistive technologies:
+Mary Molloy Solicitor is designed to be compatible with the following assistive technologies:
 
 -   Modern web browsers (Chrome, Firefox, Safari, Edge) with screen readers such as NVDA, VoiceOver, or JAWS on current operating systems.
 
-Mary Molloy Solicitors is not compatible with:
+Mary Molloy Solicitor is not compatible with:
 
 -   Browsers older than 3 major versions.
 
 ### Technical specifications
 
-Accessibility of Mary Molloy Solicitors relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:
+Accessibility of Mary Molloy Solicitor relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:
 
 -   HTML
 -   WAI-ARIA
@@ -48,7 +48,7 @@ These technologies are relied upon for conformance with the accessibility standa
 
 ### Assessment approach
 
-Mary Molloy Solicitors assessed the accessibility of Mary Molloy Solicitors by the following approaches:
+Mary Molloy Solicitor assessed the accessibility of Mary Molloy Solicitor by the following approaches:
 
 -   Self-evaluation
 
