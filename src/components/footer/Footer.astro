@@ -56,7 +56,7 @@ const { companyName, phone, address, officeHours } = firm;
               bg-accent hover:bg-accent-hover
               border border-accent hover:border-accent-hover rounded-md
               transition-colors duration-200
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              focus-ring"
             >Get directions</a
           >
           <PhoneNumber
@@ -87,7 +87,8 @@ const { companyName, phone, address, officeHours } = firm;
                   <a
                     href={href}
                     class="text-sm/6 text-text-muted-on-dark hover:text-accent
-                    transition-colors duration-200"
+                    rounded-sm transition-colors duration-200
+                    focus-ring"
                   >
                     {navLabel}
                   </a>
@@ -107,7 +108,8 @@ const { companyName, phone, address, officeHours } = firm;
                   <a
                     href={href}
                     class="text-sm/6 text-text-muted-on-dark hover:text-accent
-                    transition-colors duration-200"
+                    rounded-sm transition-colors duration-200
+                    focus-ring"
                   >
                     {label}
                   </a>
@@ -133,8 +135,9 @@ const { companyName, phone, address, officeHours } = firm;
         rel="noopener noreferrer"
         class="text-sm/6 text-text-on-dark
             underline underline-offset-4
-            transition-colors duration-200
-            hover:text-accent"
+            rounded-sm transition-colors duration-200
+            hover:text-accent
+            focus-ring"
         >Regulated by the Law Society of Ireland</a
       >
 

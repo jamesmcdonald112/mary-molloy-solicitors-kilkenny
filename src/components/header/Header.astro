@@ -17,7 +17,7 @@ const { companyName, phone } = firm;
 <header
 	class="sticky top-0 inset-x-0 z-50
     border-b border-primary-dark-border
-    bg-primary-dark-bg text-white
+    bg-header-bg text-white
     shadow-sm"
 	data-header
 >
@@ -46,8 +46,10 @@ const { companyName, phone } = firm;
 								class="
                   inline-block
                   text-sm font-semibold
+                  rounded-sm
                   transition duration-200
-                  hover:scale-105"
+                  hover:scale-105
+                  focus-ring"
 								inactiveClass="text-white hover:text-accent"
 								activeClass="text-accent"
 							>
@@ -82,7 +84,7 @@ const { companyName, phone } = firm;
 					nav.map(({ navLabel, href }) => (
 						<NavLink
 							href={href}
-							class="block px-4 py-4 rounded-lg text-lg font-semibold text-white transition-colors duration-200 hover:bg-primary-dark-surface hover:text-accent"
+							class="block px-4 py-4 rounded-lg text-lg font-semibold text-white transition-colors duration-200 hover:bg-primary-dark-surface hover:text-accent focus-ring"
 							activeClass="text-accent"
 							data-mobile-link
 						>
