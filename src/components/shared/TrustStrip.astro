@@ -1,0 +1,86 @@
+---
+import { firm } from "../../config/firm";
+
+interface Stat {
+	label: string;
+	value: string;
+}
+
+interface Props {
+	title: string;
+	columns: readonly [readonly [string, string], readonly [string, string]];
+	stats: readonly Stat[];
+}
+
+const { title, columns, stats } = Astro.props as Props;
+---
+
+<!-- bg -->
+<div class="py-16 sm:py-24
+  bg-section-primary-light">
+	<div class="mx-auto
+    max-w-7xl
+    px-6 lg:px-8">
+		<!-- Section header: fixed labels, not configurable -->
+		<div class="mx-auto lg:mx-0
+			max-w-2xl lg:max-w-none">
+			<!-- Eyebrow: county pulled from firm config, title passed as prop -->
+			<p class="text-sm font-semibold uppercase tracking-widest text-accent">
+				{firm.county} Solicitors
+			</p>
+			<h2 class="mt-3
+				text-4xl sm:text-5xl
+				font-semibold tracking-tight text-pretty text-text">
+				{title}
+			</h2>
+
+			<!-- Two-column prose: columns is a 2x2 tuple [col1para1, col1para2], [col2para1, col2para2] -->
+			<!-- items-stretch + flex flex-col + justify-between keeps both columns the same height -->
+			<div
+				class="mt-10
+					max-w-xl lg:max-w-none
+					grid
+					grid-cols-1 lg:grid-cols-2
+					lg:items-stretch
+					gap-8
+					text-base/7 text-text-muted"
+			>
+				{
+					columns.map((col) => (
+						<div
+							class="
+							flex flex-col justify-between gap-8"
+						>
+							{col.map((para) => (
+								<p>{para}</p>
+							))}
+						</div>
+					))
+				}
+			</div>
+
+			<!-- Stats: 1 col mobile, 2 col sm, 4 col lg -->
+			<!-- each stat: { value (large), label (small) } with accent left border -->
+			<dl
+				class="mt-16 sm:mt-20 lg:mt-28
+					grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+					gap-x-8
+					gap-y-12 sm:gap-y-16"
+			>
+				{
+					stats.map((stat) => (
+						<div
+							class="
+							flex flex-col gap-y-3 
+							pl-6
+							border-l-2 border-accent"
+						>
+							<dd class="text-3xl font-semibold tracking-tight text-text">{stat.value}</dd>
+							<dt class="text-base/7 text-text-subtle">{stat.label}</dt>
+						</div>
+					))
+				}
+			</dl>
+		</div>
+	</div>
+</div>
