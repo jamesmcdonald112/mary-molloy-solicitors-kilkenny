@@ -1,0 +1,52 @@
+---
+/**
+ * ServiceMidCta — mid-page CTA band.
+ * bg: navy — dark authority moment, breaks the light sections either side.
+ */
+
+import { globalCtas } from "../../config/ctas";
+import ButtonLink from "../ui/ButtonLink.astro";
+
+interface Props {
+	heading: readonly string[];
+}
+
+const { heading } = Astro.props as Props;
+---
+
+<!-- layout: stacked on mobile, horizontal (space-between) on lg+ -->
+<div class="bg-primary-dark-bg">
+	<div
+		class="mx-auto
+    max-w-7xl
+    lg:flex lg:items-center lg:justify-between
+    px-6 lg:px-8
+    py-14"
+	>
+		<!-- Left: heading lines — each string in the array renders as its own <p> -->
+		<h2 class="max-w-2xl
+      text-3xl font-semibold tracking-tight text-text-on-dark sm:text-4xl">
+			{heading.map((line) => <p>{line}</p>)}
+		</h2>
+
+		<!-- Right: CTAs — shrink-0 prevents this group compressing when heading is long -->
+		<div class="mt-8 lg:mt-0
+			lg:shrink-0
+			flex items-center gap-x-4">
+			<ButtonLink
+				href={globalCtas.call.href}
+				variant="solid-accent"
+				size="lg"
+				label={globalCtas.call.label}
+				icon={globalCtas.call.icon}
+			/>
+			<ButtonLink
+				href={globalCtas.email.href}
+				variant="ghost-dark"
+				size="lg"
+				label={globalCtas.email.label}
+				endArrow={true}
+			/>
+		</div>
+	</div>
+</div>
