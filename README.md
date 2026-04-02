@@ -225,6 +225,49 @@ Alternatively, use the [Schema.org Validator](https://validator.schema.org) to p
 
 ---
 
+## Testing & Auditing Tools
+
+A reference for the best tools to audit the site after launch. None of these require code changes — they test the live URL.
+
+### Performance
+
+**Lighthouse** (built into Chrome DevTools)
+The go-to tool for a quick overall score. Open Chrome DevTools → Lighthouse tab → run on any page. Tests Performance, Accessibility, Best Practices, and SEO in one go. Good for checking individual pages. Run it in incognito mode to avoid browser extensions skewing the results.
+
+**WebPageTest** (webpagetest.org)
+More detailed than Lighthouse. Tests on real devices and connections, shows a waterfall of every request, and measures how the page looks at each 100ms interval. Best used to diagnose specific performance bottlenecks. Tests one page at a time.
+
+**Google PageSpeed Insights** (pagespeed.web.dev)
+Runs Lighthouse remotely on Google's servers and also shows real-user data (Core Web Vitals) from Chrome users who have visited the page. Useful once the site has enough real traffic.
+
+### SEO & Crawling
+
+**Screaming Frog** (screamingfrog.co.uk)
+Crawls the entire site at once — checks every page for broken links, missing meta tags, duplicate titles, missing alt text, redirect chains, and more. The free version covers up to 500 URLs which is more than enough for this site. Run it after any major content changes.
+
+**Google Search Console** (search.google.com/search-console)
+The authoritative source for how Google sees the site. Submit the sitemap, monitor for crawl errors, check which pages are indexed, and see real search query data. Set this up as soon as the site goes live on the real domain.
+
+### Accessibility
+
+**axe DevTools** (Chrome/Firefox extension — deque.com/axe)
+More thorough than Lighthouse for accessibility. Flags WCAG violations Lighthouse misses and gives more actionable guidance. Free version covers most common issues.
+
+**VoiceOver** (built into Mac — `Cmd+F5` to toggle)
+The actual screen reader used by most Irish and UK screen reader users on desktop. Tab through the site, especially the contact form and navigation, to check that everything makes sense when read aloud.
+
+### Using AI for Audits
+
+Claude Code (this tool) and similar AI assistants can be useful for:
+- Reviewing components for accessibility issues before deploying
+- Checking that new colour combinations pass WCAG contrast ratios
+- Auditing new pages for missing structured data, meta tags, or semantic HTML issues
+- Reviewing security headers or configuration changes
+
+The most effective approach is to paste specific components or pages and ask targeted questions — e.g. "does this component have any accessibility issues?" or "will this colour combination pass WCAG AA contrast on this background?" AI tools work best as a first pass before running the automated tools above.
+
+---
+
 # Accessibility Statement
 
 An accessibility statement page is included as part of the standard legal pages.
