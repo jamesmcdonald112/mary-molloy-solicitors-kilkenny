@@ -16,6 +16,7 @@
 	/* --- Text --- */
 	--color-text:                  var(--grey-900);
 	--color-text-muted:            var(--grey-600);
+	--color-text-accent:           var(--accent-700);
 	--color-heading:               var(--brand-500);
 	--color-text-on-dark:          var(--white);
 	--color-text-muted-on-dark:    var(--grey-200);
