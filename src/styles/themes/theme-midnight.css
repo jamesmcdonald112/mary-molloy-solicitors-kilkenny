@@ -1,0 +1,44 @@
+/*
+ * THEME: Midnight
+ * Brand: warm navy — dramatic, serious, premium
+ * Accent: champagne gold — warm contrast against near-black
+ * Success: deep teal — sophisticated secondary pop
+ * Best for: maximum authority, high-end boutique firm
+ */
+@theme {
+	/* --- Backgrounds --- */
+	--color-bg:                    var(--white);
+	--color-bg-alt:                var(--grey-100);
+	--color-bg-brand-light:        var(--brand-50);
+	--color-bg-header:             var(--brand-800);
+	--color-bg-brand-dark:         var(--brand-600);
+
+	/* --- Text --- */
+	--color-text:                  var(--grey-900);
+	--color-text-muted:            var(--grey-600);
+	--color-heading:               var(--brand-500);
+	--color-text-on-dark:          var(--white);
+	--color-text-muted-on-dark:    var(--grey-200);
+
+	/* --- Borders --- */
+	--color-border:                var(--grey-200);
+
+	/* --- Accent (gold) --- */
+	--color-accent:                var(--accent-500);
+	--color-accent-hover:          var(--accent-600);
+	--color-text-on-accent:        var(--white);
+
+	/* --- Form inputs --- */
+	--color-input-bg:              var(--white);
+	--color-input:                 var(--grey-200);
+	--color-ring:                  var(--accent-500);
+
+	/* --- Destructive (errors, alerts) --- */
+	--color-destructive:           var(--danger-500);
+	--color-destructive-soft:      var(--danger-50);
+	--color-destructive-border:    var(--danger-200);
+
+	/* --- Success (checkmarks, step numbers) --- */
+	--color-success:               var(--success-500);
+	--color-on-success:            var(--white);
+}
