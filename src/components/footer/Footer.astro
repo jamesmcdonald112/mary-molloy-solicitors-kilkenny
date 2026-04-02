@@ -4,147 +4,132 @@ import companyLogo from "../../assets/logo/companyLogo.svg?raw";
 import { firm } from "../../config/firm";
 import { nav, legalNav } from "../../config/nav";
 import Brand from "../header/Brand.astro";
+import ButtonLink from "../ui/ButtonLink.astro";
 import PhoneNumber from "../shared/PhoneNumber.astro";
 
 const { companyName, phone, address, officeHours } = firm;
 ---
 
 <footer class="bg-bg-brand-dark">
-  <div
-    class="max-w-7xl
+	<div class="max-w-7xl
       mx-auto
       pt-16 sm:pt-24 lg:pt-32
       px-6 lg:px-8
-      pb-8"
-  >
-    <!-- ── Main columns ───────────────────────────────────────────── -->
-    <div class="lg:grid lg:grid-cols-[minmax(24rem,1fr)_1fr] lg:gap-12">
-      <!-- ── Left col: brand, address, CTAs ─────────────────────── -->
-      <div class="flex flex-col gap-8 min-w-0">
-        <Brand
-          companyLogo={companyLogo}
-          companyName={companyName}
-          class={"-ml-3 -mt-3"}
-        />
+      pb-8">
+		<!-- ── Main columns ───────────────────────────────────────────── -->
+		<div class="lg:grid lg:grid-cols-[minmax(24rem,1fr)_1fr] lg:gap-12">
+			<!-- ── Left col: brand, address, CTAs ─────────────────────── -->
+			<div class="flex flex-col gap-8 min-w-0">
+				<Brand companyLogo={companyLogo} companyName={companyName} class={"-ml-3 -mt-3"} />
 
-        <!-- Address -->
-        <address class="not-italic text-text-muted-on-dark text-sm/6">
-          {address.line1}<br />
-          {address.city}<br />
-          {address.eircode}<br />
-          {address.country}
-        </address>
+				<!-- Address -->
+				<address class="not-italic text-text-muted-on-dark text-sm/6">
+					{address.line1}<br />
+					{address.city}<br />
+					{address.eircode}<br />
+					{address.country}
+				</address>
 
-        <!-- Opening hours -->
-        <p class="text-text-muted-on-dark text-sm">
-          Opening hours: {officeHours.display}
-        </p>
+				<!-- Opening hours -->
+				<p class="text-text-muted-on-dark text-sm">
+					Opening hours: {officeHours.display}
+				</p>
 
-        <!-- Directions and Call buttons -->
-        <div
-          class="flex flex-col gap-4
-          sm:flex-row sm:items-center sm:gap-6"
-        >
-          <a
-            href={address.googleMapDirectionsHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex justify-center
-              w-full sm:w-fit
-              px-4 py-2
-              text-sm font-semibold text-text-on-accent
-              bg-accent hover:bg-accent-hover
-              border border-accent hover:border-accent-hover rounded-md
-              transition-colors duration-200
-              focus-ring"
-            >Get directions</a
-          >
-          <PhoneNumber
-            phoneHref={phone.phoneHref}
-            phoneIcon={phoneIcon}
-            phoneDisplay={phone.display}
-            size={"sm"}
-            class=`
+				<!-- Directions and Call buttons -->
+				<div class="flex flex-col gap-4
+          sm:flex-row sm:items-center sm:gap-6">
+					<ButtonLink
+						href={address.googleMapDirectionsHref}
+						variant="solid-accent"
+						size="md"
+						block={true}>Get directions</ButtonLink
+					>
+					<PhoneNumber
+						phoneHref={phone.phoneHref}
+						phoneIcon={phoneIcon}
+						phoneDisplay={phone.display}
+						size={"md"}
+						class=`
               inline-flex justify-center w-full sm:w-fit
               px-4 py-2
               bg-white text-text
               rounded-md border border-white
               transition-colors duration-200
-              hover:bg-accent hover:text-text-on-accent hover:border-accent`
-          />
-        </div>
-      </div>
+              hover:bg-accent-hover hover:text-text-on-accent hover:border-accent-hover`
+					/>
+				</div>
+			</div>
 
-      <!-- ── Right col: nav and legal links ─────────────────────── -->
-      <div class="min-w-0 mt-16 grid grid-cols-2 gap-4 lg:mt-0">
-        <!-- Navigation links (sourced from config/nav.ts) -->
-        <div>
-          <h3 class="text-sm/6 font-semibold text-text-on-dark">Navigation</h3>
-          <ul role="list" class="mt-6 space-y-4">
-            {
-              nav.map(({ navLabel, href }) => (
-                <li>
-                  <a
-                    href={href}
-                    class="text-sm/6 text-text-muted-on-dark hover:text-accent
+			<!-- ── Right col: nav and legal links ─────────────────────── -->
+			<div class="min-w-0 mt-16 grid grid-cols-2 gap-4 lg:mt-0">
+				<!-- Navigation links (sourced from config/nav.ts) -->
+				<div>
+					<h3 class="text-sm/6 font-semibold text-text-on-dark">Navigation</h3>
+					<ul role="list" class="mt-6 space-y-4">
+						{
+							nav.map(({ navLabel, href }) => (
+								<li>
+									<a
+										href={href}
+										class="text-sm/6 text-text-muted-on-dark hover:text-accent
                     rounded-sm transition-colors duration-200
                     focus-ring"
-                  >
-                    {navLabel}
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
+									>
+										{navLabel}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 
-        <!-- Legal links (sourced from config/nav.ts) -->
-        <div>
-          <h3 class="text-sm/6 font-semibold text-text-on-dark">Legal</h3>
-          <ul role="list" class="mt-6 space-y-4">
-            {
-              legalNav.map(({ label, href }) => (
-                <li>
-                  <a
-                    href={href}
-                    class="text-sm/6 text-text-muted-on-dark hover:text-accent
+				<!-- Legal links (sourced from config/nav.ts) -->
+				<div>
+					<h3 class="text-sm/6 font-semibold text-text-on-dark">Legal</h3>
+					<ul role="list" class="mt-6 space-y-4">
+						{
+							legalNav.map(({ label, href }) => (
+								<li>
+									<a
+										href={href}
+										class="text-sm/6 text-text-muted-on-dark hover:text-accent
                     rounded-sm transition-colors duration-200
                     focus-ring"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-    </div>
+									>
+										{label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
 
-    <!-- ── Bottom bar: regulation note and copyright ───────────── -->
-    <div
-      class="flex flex-col gap-6
+		<!-- ── Bottom bar: regulation note and copyright ───────────── -->
+		<div
+			class="flex flex-col gap-6
         md:flex-row md:justify-between
         mt-16 sm:mt-20 lg:mt-24
         pt-8
         border-t border-border"
-    >
-      <a
-        href="https://www.lawsociety.ie/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm/6 text-text-on-dark
+		>
+			<a
+				href="https://www.lawsociety.ie/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-sm/6 text-text-on-dark
             underline underline-offset-4
             rounded-sm transition-colors duration-200
             hover:text-accent
             focus-ring"
-        >Regulated by the Law Society of Ireland</a
-      >
+				>Regulated by the Law Society of Ireland</a
+			>
 
-      <p class="text-sm/6 text-text-on-dark">
-        &copy; {new Date().getFullYear()}
-        {companyName}. All rights reserved.
-      </p>
-    </div>
-  </div>
+			<p class="text-sm/6 text-text-on-dark">
+				&copy; {new Date().getFullYear()}
+				{companyName}. All rights reserved.
+			</p>
+		</div>
+	</div>
 </footer>
