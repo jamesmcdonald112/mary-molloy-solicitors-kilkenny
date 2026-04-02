@@ -7,76 +7,78 @@
 	/*
 	 * ── GREY SCALE ───────────────────────────────────────────────
 	 */
-	--grey-50:  hsl(240 4.8% 97.8%);
+	--grey-50: hsl(240 4.8% 97.8%);
 	--grey-100: hsl(240 4.8% 95.9%);
 	--grey-200: hsl(240 5.9% 90%);
 	--grey-300: hsl(240 5.9% 82%);
-	--grey-400: hsl(240 5%   65%);
+	--grey-400: hsl(240 5% 65%);
 	--grey-500: hsl(240 3.8% 52%);
 	--grey-600: hsl(240 3.8% 46%);
-	--grey-700: hsl(240 5%   34%);
-	--grey-800: hsl(240 7%   20%);
-	--grey-900: hsl(240 10%  10%);
+	--grey-700: hsl(240 5% 34%);
+	--grey-800: hsl(240 7% 20%);
+	--grey-900: hsl(240 10% 10%);
 
 	/*
-	 * ── NAVY SCALE ───────────────────────────────────────────────
-	 * Base: #1e4b82 — warm navy, modern professional
+	 * ── BRAND SCALE ──────────────────────────────────────────────
+	 * Currently: warm navy — modern professional
+	 * To rebrand: swap the hsl values here only.
 	 */
-	--navy-50:  hsl(213 60%  97%);
-	--navy-100: hsl(213 55%  92%);
-	--navy-200: hsl(213 50%  82%);
-	--navy-300: hsl(213 48%  68%);
-	--navy-400: hsl(213 50%  54%);
-	--navy-500: hsl(213 62%  31%);
-	--navy-600: hsl(213 65%  25%);
-	--navy-700: hsl(213 68%  20%);
-	--navy-800: hsl(213 72%  15%);
-	--navy-900: hsl(213 76%  10%);
+	--brand-50: hsl(213 60% 97%);
+	--brand-100: hsl(213 55% 92%);
+	--brand-200: hsl(213 50% 82%);
+	--brand-300: hsl(213 48% 68%);
+	--brand-400: hsl(213 50% 54%);
+	--brand-500: hsl(213 62% 31%);
+	--brand-600: hsl(213 65% 25%);
+	--brand-700: hsl(213 68% 20%);
+	--brand-800: hsl(213 72% 15%);
+	--brand-900: hsl(213 76% 10%);
 
 	/*
-	 * ── GOLD SCALE ───────────────────────────────────────────────
-	 * Base: hsl(40 55% 58%) — champagne gold, refined and classy
+	 * ── ACCENT SCALE ─────────────────────────────────────────────
+	 * Currently: champagne gold — refined and classy
 	 * Deliberately lower saturation than classic gold — reads as
 	 * sophisticated rather than flashy against dark navy.
+	 * To rebrand: swap the hsl values here only.
 	 */
-	--gold-50:  hsl(40 55%  97%);
-	--gold-100: hsl(40 52%  92%);
-	--gold-200: hsl(40 50%  82%);
-	--gold-300: hsl(40 52%  72%);
-	--gold-400: hsl(40 54%  64%);
-	--gold-500: hsl(40 55%  58%);   /* champagne gold — base */
-	--gold-600: hsl(40 52%  46%);
-	--gold-700: hsl(40 50%  35%);
-	--gold-800: hsl(40 48%  24%);
-	--gold-900: hsl(40 46%  15%);
+	--accent-50: hsl(40 55% 97%);
+	--accent-100: hsl(40 52% 92%);
+	--accent-200: hsl(40 50% 82%);
+	--accent-300: hsl(40 52% 72%);
+	--accent-400: hsl(40 54% 64%);
+	--accent-500: hsl(40 55% 58%);
+	--accent-600: hsl(40 52% 46%);
+	--accent-700: hsl(40 50% 35%);
+	--accent-800: hsl(40 48% 24%);
+	--accent-900: hsl(40 46% 15%);
 
 	/*
-	 * ── BURGUNDY SCALE ───────────────────────────────────────────
-	 * Base: #8b1a2f — errors, destructive states
+	 * ── DANGER SCALE ─────────────────────────────────────────────
+	 * Currently: deep burgundy — errors, destructive states
 	 */
-	--burgundy-50:  hsl(348 70%  97%);
-	--burgundy-100: hsl(348 65%  92%);
-	--burgundy-200: hsl(348 60%  82%);
-	--burgundy-300: hsl(348 55%  68%);
-	--burgundy-400: hsl(348 52%  54%);
-	--burgundy-500: hsl(348 68%  32%);
-	--burgundy-600: hsl(348 70%  26%);
-	--burgundy-700: hsl(348 72%  20%);
-	--burgundy-800: hsl(348 74%  14%);
-	--burgundy-900: hsl(348 76%   9%);
+	--danger-50: hsl(348 70% 97%);
+	--danger-100: hsl(348 65% 92%);
+	--danger-200: hsl(348 60% 82%);
+	--danger-300: hsl(348 55% 68%);
+	--danger-400: hsl(348 52% 54%);
+	--danger-500: hsl(348 68% 32%);
+	--danger-600: hsl(348 70% 26%);
+	--danger-700: hsl(348 72% 20%);
+	--danger-800: hsl(348 74% 14%);
+	--danger-900: hsl(348 76% 9%);
 
 	/*
-	 * ── TEAL SCALE ───────────────────────────────────────────────
-	 * Base: #0f7b7b — success states, secondary accents
+	 * ── SUCCESS SCALE ────────────────────────────────────────────
+	 * Currently: deep teal — success states, checkmarks, step numbers
 	 */
-	--teal-50:  hsl(180 55%  97%);
-	--teal-100: hsl(180 50%  90%);
-	--teal-200: hsl(180 48%  78%);
-	--teal-300: hsl(180 46%  62%);
-	--teal-400: hsl(180 48%  48%);
-	--teal-500: hsl(180 80%  27%);
-	--teal-600: hsl(180 82%  22%);
-	--teal-700: hsl(180 84%  17%);
-	--teal-800: hsl(180 86%  12%);
-	--teal-900: hsl(180 88%   8%);
+	--success-50: hsl(180 55% 97%);
+	--success-100: hsl(180 50% 90%);
+	--success-200: hsl(180 48% 78%);
+	--success-300: hsl(180 46% 62%);
+	--success-400: hsl(180 48% 48%);
+	--success-500: hsl(180 80% 27%);
+	--success-600: hsl(180 82% 22%);
+	--success-700: hsl(180 84% 17%);
+	--success-800: hsl(180 86% 12%);
+	--success-900: hsl(180 88% 8%);
 }
