@@ -24,9 +24,9 @@ const {
 } = Astro.props as PhoneNumberProps;
 
 const sizeMap = {
-	sm: { text: "text-sm", iconSize: "h-5" },
-	md: { text: "text-sm", iconSize: "h-6" },
-	lg: { text: "text-sm sm:text-base", iconSize: "h-8" },
+	sm: { text: "text-sm",  iconSize: "h-4" },
+	md: { text: "text-base", iconSize: "h-5" },
+	lg: { text: "text-lg",  iconSize: "h-6" },
 } as const;
 
 const { text, iconSize } = sizeMap[size];
