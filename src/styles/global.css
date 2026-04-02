@@ -6,3 +6,34 @@
 
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/* ── UTILITIES ───────────────────────────────────────────────── */
+
+/* Focus ring — keyboard navigation outline for buttons and links */
+@utility focus-ring {
+	@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}
+
+/* Focus ring for form inputs */
+@utility focus-ring-input {
+	@apply outline-1 -outline-offset-1 outline-input
+	       hover:outline-accent
+	       focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
+}
+
+/* Page container — centred, max-width, responsive side padding */
+@utility container-page {
+	@apply mx-auto max-w-7xl px-6 lg:px-8;
+}
+
+/* Eyebrow — small caps label above section headings */
+@utility eyebrow {
+	@apply text-sm font-semibold uppercase tracking-widest;
+}
+
+/* Section heading — large responsive heading */
+@utility section-heading {
+	@apply text-4xl sm:text-5xl 
+		font-semibold tracking-tight text-pretty 
+		text-text;
+}
