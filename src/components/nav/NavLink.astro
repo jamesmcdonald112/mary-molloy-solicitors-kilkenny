@@ -26,7 +26,9 @@ const isExternal =
 	href.startsWith("#");
 
 const shouldPrefetch = isInternal && !isExternal && prefetch;
-const isActive = Astro.url.pathname === href;
+const isActive = href === "/"
+	? Astro.url.pathname === "/"
+	: Astro.url.pathname === href || Astro.url.pathname.startsWith(`${href}/`);
 const classes = [className, isActive ? activeClass : inactiveClass].filter(Boolean).join(" ");
 ---
 
