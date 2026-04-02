@@ -15,9 +15,70 @@ npm run test:watch # run tests in watch mode
 
 ---
 
+## Adding New Pages
+
+When creating a new content page (e.g. a new service, a landing page), add structured data so Google can index the business correctly:
+
+```astro
+import { getLawFirmStructuredData } from "../config/structured-data";
+const structuredData = getLawFirmStructuredData();
+```
+
+Then pass it to `BaseLayout`:
+
+```astro
+<BaseLayout ... structuredData={structuredData}>
+```
+
+You don't need this on legal/policy pages (privacy, terms, cookie policy, etc.) — only on real content pages.
+
+---
+
 ## TODO — Before Launch
 
-- [ ] **OG images** — create and add real Open Graph images for each page. Currently using placeholder/default values. Update `src/config/seo/pages.ts` with the correct image paths and ensure images are placed in `public/`.
+- [ ] **Delete `src/sections/`** — this folder was used for the mock/placeholder layout only and will likely not be needed once the real homepage is built.
+
+- [ ] **Firm email address** — replace the placeholder `email` value in `src/config/firm.ts` with the real firm email address.
+- [ ] **OG images** — create and add a default Open Graph image. Currently using placeholder/default values. The default image is set in `firm.seo.defaultOgImage` (`src/config/firm.ts`) and should be placed in `public/images/open-graph/`. A single good default image is fine for all pages — per-page OG images are optional and can be passed via the `ogImage` and `ogImageAlt` props on `BaseLayout` if you ever want a specific image for a particular page (e.g. a services page).
+
+---
+
+## Going Live — Cookie Consent & Tracking Setup
+
+The site will need cookie consent management for GDPR compliance if running Google or Facebook ads.
+
+### What you need
+
+Two tools working together:
+
+- **Google Tag Manager (GTM)** — fires tracking scripts (Google Analytics, Facebook Pixel etc.). Free, no limits.
+- **Cookiebot** — shows the consent banner, stores whether the user consented. Free up to 100 pages (more than enough for this site).
+
+They work as a pair: Cookiebot captures consent, GTM only fires tags when Cookiebot confirms the user has agreed. You cannot use one without the other — GTM alone would fire tracking immediately (GDPR violation), Cookiebot alone has nothing to manage.
+
+### Cookies this site will likely need consent for
+
+- `_ga`, `_gid`, `_gcl_au` — Google Analytics / Google Ads
+- `_fbp`, `_fbc` — Facebook Pixel
+- Session/functional cookies — these are usually exempt from consent
+
+### Account setup
+
+Both services require their own account per domain. The recommended handoff process:
+
+1. Client creates a **Google account** (or uses an existing one)
+2. Client signs up for **Cookiebot** at [cookiebot.com](https://www.cookiebot.com)
+3. Developer logs in to both accounts to configure everything
+4. Client adds developer as a **GTM/GA4 user** with admin access (cleaner than sharing passwords — developer uses their own Google account)
+5. Once setup is complete, developer is removed as a user; Cookiebot credentials are handed back and password changed
+
+### Setup steps
+
+1. **Cookiebot** — add the domain, copy the script tag it provides
+2. **GTM** — create a container, add the Cookiebot tag via the built-in GTM template (no code needed), then add Google Analytics and Facebook Pixel as tags set to fire on Cookiebot consent
+3. Add the **GTM snippet** to the site's `<head>` — this is the only code change required
+
+Once GTM is in place, all future tracking changes are made in the GTM dashboard, not in the codebase.
 
 ---
 
@@ -92,6 +153,19 @@ The form currently has two layers of protection:
 - **Zod validation** — all fields are validated server-side before the email is sent
 
 This is sufficient for a low-traffic site. If the client reports a spam problem in the future, the recommended next step is **rate limiting** via [Upstash Redis](https://upstash.com) (free tier covers thousands of requests per day, works with Vercel). This would limit submissions per IP to e.g. 3 per hour.
+
+---
+
+## Testing Structured Data
+
+After adding or changing structured data, validate it with Google's Rich Results Test:
+
+1. Run the site locally: `npm run dev`
+2. Go to [search.google.com/test/rich-results](https://search.google.com/test/rich-results)
+3. Enter your local URL or paste the page HTML directly
+4. Google will validate the JSON-LD and highlight any errors
+
+Alternatively, use the [Schema.org Validator](https://validator.schema.org) to paste the raw JSON output directly.
 
 ---
 
