@@ -37,8 +37,8 @@ const base = `
 
 const sizes: Record<Size, string> = {
 	sm: "px-3 py-2 text-sm",
-	md: "px-3.5 py-2.5 text-sm",
-	lg: "px-3.5 py-2.5 text-sm sm:text-base",
+	md: "px-3.5 py-2.5 text-base",
+	lg: "px-4 py-3 text-lg",
 };
 
 const width = block ? "w-full sm:w-auto" : "max-w-fit";
@@ -48,29 +48,29 @@ const variants: Record<Variant, string> = {
 	// ── Light surface variants ──────────────────────────────────────
 
 	solid: `
-		bg-(--brand-500)   hover:bg-accent
+		bg-(--brand-500)   hover:bg-accent-hover
 		text-white         hover:text-text-on-accent
-		border-(--brand-500) hover:border-accent
+		border-(--brand-500) hover:border-accent-hover
 	`,
 
 	outline: `
-		bg-transparent       hover:bg-accent
+		bg-transparent       hover:bg-accent-hover
 		text-text            hover:text-text-on-accent
-		border-(--brand-500) hover:border-accent
+		border-(--brand-500) hover:border-accent-hover
 	`,
 
 	// ── Dark/inverse surface variants ──────────────────────────────
 
 	"solid-accent": `
-		bg-accent           hover:bg-accent-hover
+		bg-accent-dark       hover:bg-accent-dark-hover
 		text-text-on-accent
-		border-accent       hover:border-accent-hover
+		border-accent-dark   hover:border-accent-dark-hover
 	`,
 
 	"solid-inverse": `
-		bg-white             hover:bg-accent
+		bg-white             hover:bg-accent-hover
 		text-(--brand-500)   hover:text-text-on-accent
-		border-white         hover:border-accent
+		border-white         hover:border-accent-hover
 	`,
 
 	"ghost-dark": `
