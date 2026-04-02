@@ -41,7 +41,7 @@ const { title, columns, stats } = Astro.props as Props;
 					grid-cols-1 lg:grid-cols-2
 					lg:items-stretch
 					gap-8
-					text-base/7 text-text-muted"
+					text-base/7 text-text"
 			>
 				{
 					columns.map((col) => (
@@ -74,7 +74,7 @@ const { title, columns, stats } = Astro.props as Props;
 							border-l-2 border-accent"
 						>
 							<dd class="text-3xl font-semibold tracking-tight text-text">{stat.value}</dd>
-							<dt class="text-base/7 text-text-muted">{stat.label}</dt>
+							<dt class="text-base/7 text-text">{stat.label}</dt>
 						</div>
 					))
 				}

@@ -36,7 +36,7 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
 			{title}
 		</h2>
 
-		{intro && <p class="mt-6 text-xl/8 text-text-muted">{intro}</p>}
+		{intro && <p class="mt-6 text-xl/8 text-text">{intro}</p>}
 
 		{/* --- Blocks --- renders each block in order based on its type */}
 		<div class="mt-10 max-w-2xl space-y-6">
@@ -44,7 +44,7 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
 				blocks.map((block) => {
 					// Plain paragraph
 					if (block.type === "paragraph") {
-						return <p class="text-base/7 text-text-muted">{block.text}</p>;
+						return <p class="text-base/7 text-text">{block.text}</p>;
 					}
 
 					// Section heading (h3)
@@ -70,7 +70,7 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
                         text-success"
 											set:html={checkCircleIcon}
 										/>
-										<span class="text-base/7 text-text-muted">
+										<span class="text-base/7 text-text">
 											{item.label && (
 												<strong class="font-semibold text-text">{item.label}. </strong>
 											)}
@@ -90,7 +90,7 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
 									<p>"{block.quote}"</p>
 								</blockquote>
 								{block.attribution && (
-									<figcaption class="mt-4 text-sm/6 text-text-muted">
+									<figcaption class="mt-4 text-sm/6 text-text">
 										{block.attribution}
 									</figcaption>
 								)}
