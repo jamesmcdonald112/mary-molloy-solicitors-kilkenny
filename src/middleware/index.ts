@@ -15,7 +15,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	// No middleware state handling is needed when rendering prerendered routes.
 	if (context.isPrerendered) {
 		return next();
-
 	}
 
 	// Action context gives access to incoming form action calls and helpers

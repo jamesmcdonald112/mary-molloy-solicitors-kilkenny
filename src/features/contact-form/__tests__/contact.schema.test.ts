@@ -141,9 +141,7 @@ describe("contactSchema", () => {
 				service: "Rocket Science",
 			});
 			expect(result.success).toBe(false);
-			expect(result.error?.issues[0].message).toBe(
-				"Please choose a service.",
-			);
+			expect(result.error?.issues[0].message).toBe("Please choose a service.");
 		});
 	});
 
@@ -169,7 +167,9 @@ describe("contactSchema", () => {
 				message: "A".repeat(2001),
 			});
 			expect(result.success).toBe(false);
-			expect(result.error?.issues[0].message).toBe("Message must be 2000 characters or fewer.");
+			expect(result.error?.issues[0].message).toBe(
+				"Message must be 2000 characters or fewer.",
+			);
 		});
 	});
 

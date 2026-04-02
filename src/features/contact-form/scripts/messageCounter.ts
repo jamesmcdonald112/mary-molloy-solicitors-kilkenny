@@ -3,7 +3,9 @@ import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
 const max = CONTACT_FIELD_LIMITS.message.max;
 
 function initCounter() {
-	const textarea = document.getElementById("message") as HTMLTextAreaElement | null;
+	const textarea = document.getElementById(
+		"message",
+	) as HTMLTextAreaElement | null;
 	const counter = document.getElementById("message-count");
 
 	if (!textarea || !counter) return;

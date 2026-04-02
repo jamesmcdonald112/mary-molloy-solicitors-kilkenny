@@ -21,7 +21,10 @@ export const leasesAndTenancyAgreements = {
 			"A well-drafted lease protects both landlord and tenant and helps prevent disputes from arising. We advise on residential and commercial tenancy matters, ensuring that your agreement reflects your intentions and complies with current Irish law.",
 	},
 	// --- Mid-page CTA (two lines rendered as <p> elements) ---
-	midCta: ["Questions about a lease or tenancy dispute?", "Get advice before you act."],
+	midCta: [
+		"Questions about a lease or tenancy dispute?",
+		"Get advice before you act.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: "Need advice on a lease or tenancy dispute?",

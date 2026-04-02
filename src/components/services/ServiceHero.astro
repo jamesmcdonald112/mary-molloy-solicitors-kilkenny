@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import { globalCtas } from "../../config/ctas";
 import ButtonLink from "../ui/ButtonLink.astro";
-import type { ImageMetadata } from "astro";
 
 interface Props {
 	title: string;
@@ -12,7 +12,13 @@ interface Props {
 	imageClass?: string;
 }
 
-const { title, subtitle, image, imageAlt = "", imageClass = "" } = Astro.props as Props;
+const {
+	title,
+	subtitle,
+	image,
+	imageAlt = "",
+	imageClass = "",
+} = Astro.props as Props;
 ---
 
 <div class="relative overflow-hidden">

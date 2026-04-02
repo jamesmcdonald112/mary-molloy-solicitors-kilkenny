@@ -1,5 +1,10 @@
 ---
-type Variant = "solid" | "solid-accent" | "solid-inverse" | "outline" | "ghost-dark";
+type Variant =
+	| "solid"
+	| "solid-accent"
+	| "solid-inverse"
+	| "outline"
+	| "ghost-dark";
 type Size = "sm" | "md" | "lg";
 
 interface ButtonLinkProps {
@@ -44,7 +49,6 @@ const sizes: Record<Size, string> = {
 const width = block ? "w-full sm:w-auto" : "max-w-fit";
 
 const variants: Record<Variant, string> = {
-
 	// ── Light surface variants ──────────────────────────────────────
 
 	solid: `
@@ -78,7 +82,6 @@ const variants: Record<Variant, string> = {
 		text-text-on-dark hover:text-accent
 		border-transparent
 	`,
-
 };
 
 const classes = [group, base, sizes[size], width, variants[variant], className]

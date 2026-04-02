@@ -21,7 +21,10 @@ export const roadTrafficAccidents = {
 			"Being involved in a road traffic accident can be a stressful and disorienting experience. We help injured parties understand their rights, deal with insurers, and secure appropriate compensation for their injuries and losses.",
 	},
 	// --- Mid-page CTA (two lines rendered as <p> elements) ---
-	midCta: ["Injured in a road traffic accident?", "Don't deal with insurers alone."],
+	midCta: [
+		"Injured in a road traffic accident?",
+		"Don't deal with insurers alone.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: "Injured in a road traffic accident? Call us today",
@@ -136,7 +139,8 @@ export const roadTrafficAccidents = {
 				"The timeline depends on the severity of your injuries, the complexity of the liability issues, and whether the matter is resolved through PIAB or progresses to court. Many claims are settled within twelve to eighteen months. Claims involving serious or long-term injuries may take longer as it is important not to settle before the full extent of your injuries is known.",
 		},
 		{
-			question: "Can I claim for damage to my vehicle as well as personal injury?",
+			question:
+				"Can I claim for damage to my vehicle as well as personal injury?",
 			answer:
 				"Yes. A personal injury claim covers your injuries and related losses, while a separate property damage claim can be made against the other driver's insurer for the cost of repairing or replacing your vehicle. We can advise on both aspects of your claim.",
 		},

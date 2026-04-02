@@ -16,9 +16,7 @@
 
 /* Focus ring for form inputs */
 @utility focus-ring-input {
-	@apply outline-1 -outline-offset-1 outline-input
-	       hover:outline-accent
-	       focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
+	@apply outline-1 -outline-offset-1 outline-input hover:outline-accent focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
 }
 
 /* Page container — centred, max-width, responsive side padding */
@@ -33,7 +31,5 @@
 
 /* Section heading — large responsive heading */
 @utility section-heading {
-	@apply text-4xl sm:text-5xl 
-		font-semibold tracking-tight text-pretty 
-		text-text;
+	@apply text-4xl sm:text-5xl font-semibold tracking-tight text-pretty text-text;
 }

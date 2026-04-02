@@ -1,7 +1,10 @@
 import { z } from "astro/zod";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
-import { CONTACT_SERVICES, type ContactService } from "../config/contact-services";
+import {
+	CONTACT_SERVICES,
+	type ContactService,
+} from "../config/contact-services";
 
 const IE_DEFAULT_REGION = "IE";
 const PHONE_PARSE_OPTIONS = {
@@ -84,9 +87,12 @@ export const contactSchema = z.object({
 					return phone?.number ?? value; // E.164 e.g. +353567765829
 				}),
 		),
-	service: z.enum(CONTACT_SERVICES as unknown as [ContactService, ...ContactService[]], {
-		message: "Please choose a service.",
-	}),
+	service: z.enum(
+		CONTACT_SERVICES as unknown as [ContactService, ...ContactService[]],
+		{
+			message: "Please choose a service.",
+		},
+	),
 	message: z
 		.string()
 		.nullable()

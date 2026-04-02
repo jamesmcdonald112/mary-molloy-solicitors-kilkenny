@@ -21,7 +21,10 @@ export const employmentLaw = {
 			"Whether you have been dismissed from your job, are facing redundancy, or have concerns about your employment contract or workplace rights, we can advise you clearly on your options and represent your interests in any proceedings.",
 	},
 	// --- Mid-page CTA (two lines rendered as <p> elements) ---
-	midCta: ["Dismissed or treated unfairly at work?", "Time limits apply — act now."],
+	midCta: [
+		"Dismissed or treated unfairly at work?",
+		"Time limits apply — act now.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: "Facing a workplace dispute? Get advice now",

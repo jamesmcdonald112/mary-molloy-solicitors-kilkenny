@@ -1,18 +1,18 @@
 ---
 interface BrandProps {
-  companyLogo: string;
-  companyName?: string;
-  county?: string;
-  href?: string;
-  class?: string;
+	companyLogo: string;
+	companyName?: string;
+	county?: string;
+	href?: string;
+	class?: string;
 }
 
 const {
-  companyLogo,
-  companyName,
-  county,
-  href = "/",
-  class: className = "",
+	companyLogo,
+	companyName,
+	county,
+	href = "/",
+	class: className = "",
 } = Astro.props as BrandProps;
 ---
 

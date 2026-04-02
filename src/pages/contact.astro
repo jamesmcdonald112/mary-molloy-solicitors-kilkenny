@@ -13,7 +13,7 @@ const structuredData = getLawFirmStructuredData();
 
 const result = Astro.getActionResult(actions.contact);
 if (result && !result.error) {
-  return Astro.redirect("/thank-you");
+	return Astro.redirect("/thank-you");
 }
 ---
 

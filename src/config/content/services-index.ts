@@ -1,12 +1,12 @@
-import { firm } from "../firm";
-import homeIcon from "../../assets/icons/homeIcon.svg?raw";
+import banknotesIcon from "../../assets/icons/banknotesIcon.svg?raw";
+import briefcaseIcon from "../../assets/icons/briefcaseIcon.svg?raw";
+import buildingIcon from "../../assets/icons/buildingIcon.svg?raw";
 import documentTextIcon from "../../assets/icons/documentTextIcon.svg?raw";
-import userGroupIcon from "../../assets/icons/userGroupIcon.svg?raw";
+import homeIcon from "../../assets/icons/homeIcon.svg?raw";
 import shieldExclamationIcon from "../../assets/icons/shieldExclamationIcon.svg?raw";
 import truckIcon from "../../assets/icons/truckIcon.svg?raw";
-import buildingIcon from "../../assets/icons/buildingIcon.svg?raw";
-import briefcaseIcon from "../../assets/icons/briefcaseIcon.svg?raw";
-import banknotesIcon from "../../assets/icons/banknotesIcon.svg?raw";
+import userGroupIcon from "../../assets/icons/userGroupIcon.svg?raw";
+import { firm } from "../firm";
 
 // --- Services index page content (hero, cta) ---
 export const servicesIndexContent = {

@@ -1,9 +1,9 @@
 ---
 import { actions, isInputError } from "astro:actions";
 import { ClientRouter } from "astro:transitions";
+import chevronDownIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
 import FieldError from "../../../components/ui/FieldError.astro";
 import FormField from "../../../components/ui/FormField.astro";
-import chevronDownIcon from "../../../assets/icons/chevronDownIcon.svg?raw";
 import { CONTACT_FIELD_LIMITS } from "../config/contact-field-limits";
 import { CONTACT_SERVICES } from "../config/contact-services";
 
@@ -14,18 +14,18 @@ const fieldErrors = isInputError(error) ? error.fields : {};
 
 // Shared base styles for select and textarea (inputs use FormField component)
 const selectClass = [
-  "block w-full rounded-md appearance-none",
-  "px-3.5 py-2 pr-11",
-  "text-base text-text bg-input-bg",
-  "focus-ring-input",
+	"block w-full rounded-md appearance-none",
+	"px-3.5 py-2 pr-11",
+	"text-base text-text bg-input-bg",
+	"focus-ring-input",
 ].join(" ");
 
 const textareaClass = [
-  "block w-full rounded-md",
-  "px-3.5 py-2",
-  "text-base text-text bg-input-bg",
-  "placeholder:text-text-muted",
-  "focus-ring-input",
+	"block w-full rounded-md",
+	"px-3.5 py-2",
+	"text-base text-text bg-input-bg",
+	"placeholder:text-text-muted",
+	"focus-ring-input",
 ].join(" ");
 ---
 

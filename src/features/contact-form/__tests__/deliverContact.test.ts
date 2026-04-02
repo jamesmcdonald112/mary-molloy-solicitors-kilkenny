@@ -44,7 +44,10 @@ describe("deliverContact", () => {
 	});
 
 	it("includes the service in the subject line", async () => {
-		await deliverContact({ ...validInput, service: "Family & Childcare Law" as const });
+		await deliverContact({
+			...validInput,
+			service: "Family & Childcare Law" as const,
+		});
 
 		const [call] = mockSend.mock.calls;
 		expect(call[0].subject).toBe(

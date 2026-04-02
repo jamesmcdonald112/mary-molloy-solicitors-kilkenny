@@ -1,5 +1,5 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ActionError } from "astro:actions";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { ContactInput } from "../schema/contact.schema";
 
 // Mock deliverContact before importing the action
@@ -13,7 +13,9 @@ const { contact } = await import("../../../actions/contact");
 // Cast to any to call .handler directly — Astro's defineAction type doesn't
 // expose .handler externally, but our mock and the runtime object both have it.
 // biome-ignore lint/suspicious/noExplicitAny: test-only cast
-const handler = (contact as any).handler as (input: ContactInput) => Promise<{ ok: boolean }>;
+const handler = (contact as any).handler as (
+	input: ContactInput,
+) => Promise<{ ok: boolean }>;
 
 const validInput: ContactInput = {
 	name: "Jane Doe",

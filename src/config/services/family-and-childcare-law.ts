@@ -21,7 +21,10 @@ export const familyAndChildcareLaw = {
 			"Family law matters are often the most personal and emotionally difficult legal issues a person can face. We approach each case with discretion, empathy, and a clear focus on achieving the best outcome for you and your family.",
 	},
 	// --- Mid-page CTA (two lines rendered as <p> elements) ---
-	midCta: ["Going through a separation or family law matter?", "Get confidential advice today."],
+	midCta: [
+		"Going through a separation or family law matter?",
+		"Get confidential advice today.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: "Talk to a family law solicitor in Kilkenny",
@@ -125,7 +128,8 @@ export const familyAndChildcareLaw = {
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "What is the difference between judicial separation and divorce?",
+			question:
+				"What is the difference between judicial separation and divorce?",
 			answer:
 				"A judicial separation legally recognises that a couple is living apart and resolves issues such as maintenance, property, and custody, but the parties remain legally married. A divorce ends the marriage entirely, allowing both parties to remarry. In Ireland, you must be living apart for at least two of the previous three years before applying for a divorce.",
 		},

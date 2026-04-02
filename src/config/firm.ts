@@ -22,11 +22,11 @@ export const firm = {
 	officeHours: {
 		display: "Mon-Fri 9:00-17:30",
 		weekly: [
-			{ day: "Monday",    opens: "09:00", closes: "17:30" },
-			{ day: "Tuesday",   opens: "09:00", closes: "17:30" },
+			{ day: "Monday", opens: "09:00", closes: "17:30" },
+			{ day: "Tuesday", opens: "09:00", closes: "17:30" },
 			{ day: "Wednesday", opens: "09:00", closes: "17:30" },
-			{ day: "Thursday",  opens: "09:00", closes: "17:30" },
-			{ day: "Friday",    opens: "09:00", closes: "17:30" },
+			{ day: "Thursday", opens: "09:00", closes: "17:30" },
+			{ day: "Friday", opens: "09:00", closes: "17:30" },
 		],
 	},
 
