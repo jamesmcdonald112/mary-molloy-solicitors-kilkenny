@@ -41,16 +41,16 @@
 	 * sophisticated rather than flashy against dark navy.
 	 * To rebrand: swap the hsl values here only.
 	 */
-	--accent-50: hsl(40 55% 97%);
-	--accent-100: hsl(40 52% 92%);
-	--accent-200: hsl(40 50% 82%);
-	--accent-300: hsl(40 52% 72%);
-	--accent-400: hsl(40 54% 64%);
-	--accent-500: hsl(40 55% 58%);
-	--accent-600: hsl(40 52% 46%);
-	--accent-700: hsl(40 50% 35%);
-	--accent-800: hsl(40 48% 24%);
-	--accent-900: hsl(40 46% 15%);
+	--accent-50: hsl(20 70% 97%);
+	--accent-100: hsl(20 70% 92%);
+	--accent-200: hsl(20 70% 82%);
+	--accent-300: hsl(20 70% 68%);
+	--accent-400: hsl(20 70% 56%);
+	--accent-500: hsl(20 70% 46%);
+	--accent-600: hsl(20 68% 37%);
+	--accent-700: hsl(20 66% 28%);
+	--accent-800: hsl(20 64% 18%);
+	--accent-900: hsl(20 62% 11%);
 
 	/*
 	 * ── DANGER SCALE ─────────────────────────────────────────────
