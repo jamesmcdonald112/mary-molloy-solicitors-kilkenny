@@ -10,121 +10,123 @@ interface Props {
 const { services = allServices } = Astro.props;
 ---
 
-<dl class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+<ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
 	{
 		services.map((service, i) => (
-			<a
-				href={service.href}
-				class="
-					group relative overflow-hidden
-					flex flex-col
-					p-10
-					bg-white
-					border-border hover:border-accent border-2 border-t-heading hover:rounded-2xl
-					shadow-md hover:shadow-xl
-					hover:-translate-y-2
-					focus-ring
-					transition-all duration-200"
-			>
-				{/* Background image — revealed on hover */}
-				<img
-					src={service.hoverImage}
-					alt=""
-					aria-hidden="true"
+			<li class="flex">
+				<a
+					href={service.href}
 					class="
-						absolute inset-0 size-full 
-						object-cover 
-						opacity-0 group-hover:opacity-100 
+						group relative overflow-hidden
+						flex flex-col w-full
+						p-10
+						bg-white
+						border-border hover:border-accent border-2 border-t-heading hover:rounded-2xl
+						shadow-md hover:shadow-xl
+						hover:-translate-y-2
+						focus-ring
+						transition-all duration-200"
+				>
+					{/* Background image — revealed on hover */}
+					<img
+						src={service.hoverImage}
+						alt=""
+						aria-hidden="true"
+						class="
+							absolute inset-0 size-full
+							object-cover
+							opacity-0 group-hover:opacity-100
+							transition-opacity duration-300"
+					/>
+
+					{/* Dark overlay — fades in on hover to improve text contrast over the image */}
+					<div
+						class="
+						absolute inset-0
+						bg-black/60
+						opacity-0 group-hover:opacity-100
 						transition-opacity duration-300"
-				/>
+					/>
 
-				{/* Dark overlay — fades in on hover to improve text contrast over the image */}
-				<div
-					class="
-					absolute inset-0 
-					bg-black/60 
-					opacity-0 group-hover:opacity-100 
-					transition-opacity duration-300"
-				/>
+					{/* Card header — number + icon  + tag + title*/}
+					<div class="relative">
+						<div class="flex items-center justify-between">
+							{/* Number */}
+							<span
+								class="
+								text-sm font-semibold text-text-muted group-hover:text-white
+								transition-colors duration-200"
+							>
+								{String(i + 1).padStart(2, "0")}
+							</span>
 
-				{/* Card header — number + icon  + tag + title*/}
-				<dt class="relative">
-					<div class="flex items-center justify-between">
-						{/* Number */}
-						<span
+							{/* Icon */}
+							<span
+								aria-hidden="true"
+								class="
+									inline-flex items-center justify-center
+									text-text-accent group-hover:text-white
+									[&_svg]:size-6
+									group-hover:scale-105
+									transition-transform duration-200"
+								set:html={service.icon}
+							/>
+						</div>
+
+						{/* Tag */}
+						<p
 							class="
-							text-sm font-semibold text-text-muted group-hover:text-white 
+							mt-4 text-xs
+							font-semibold uppercase tracking-widest text-text-accent group-hover:text-white/60
 							transition-colors duration-200"
 						>
-							{String(i + 1).padStart(2, "0")}
-						</span>
+							{service.tag}
+						</p>
 
-						{/* Icon */}
-						<span
-							aria-hidden="true"
+						{/* Title */}
+						<p
 							class="
-								inline-flex items-center justify-center 
-								text-accent group-hover:text-white
-								[&_svg]:size-6 
-								group-hover:scale-105
-								transition-transform duration-200"
-							set:html={service.icon}
-						/>
+							mt-1
+							text-xl font-semibold text-heading group-hover:text-accent
+							transition-colors duration-200"
+						>
+							{service.title}
+						</p>
 					</div>
 
-					{/* Tag */}
-					<p
-						class="
-						mt-4 text-xs 
-						font-semibold uppercase tracking-widest text-accent group-hover:text-white/60 
-						transition-colors duration-200"
-					>
-						{service.tag}
-					</p>
-
-					{/* Title */}
-					<p
-						class="
-						mt-1 
-						text-xl font-semibold text-heading group-hover:text-accent 
-						transition-colors duration-200"
-					>
-						{service.title}
-					</p>
-				</dt>
-
-				{/* Card body — description + link */}
-				<dd class="relative mt-3 flex flex-1 flex-col">
-					{/* Description */}
-					<p
-						class="
-						flex-1
-						text-sm/6 text-text-muted  group-hover:text-white/80 
-						transition-colors duration-200"
-					>
-						{service.description}
-					</p>
-
-					{/* Link */}
-					<p
-						class="
-						mt-6 
-						text-sm font-semibold text-heading group-hover:text-accent 
-						transition-colors duration-200"
-					>
-						Learn more{" "}
-						<span
-							aria-hidden="true"
+					{/* Card body — description + link */}
+					<div class="relative mt-3 flex flex-1 flex-col">
+						{/* Description */}
+						<p
 							class="
-								inline-block 
-								group-hover:translate-x-1
-								transition-transform duration-200 "
+							flex-1
+							text-sm/6 text-text-muted  group-hover:text-white/80
+							transition-colors duration-200"
 						>
-							&rarr;
-						</span>
-					</p>
-				</dd>
-			</a>
+							{service.description}
+						</p>
+
+						{/* Link */}
+						<p
+							class="
+							mt-6
+							text-sm font-semibold text-heading group-hover:text-accent
+							transition-colors duration-200"
+						>
+							Learn more{" "}
+							<span
+								aria-hidden="true"
+								class="
+									inline-block
+									group-hover:translate-x-1
+									transition-transform duration-200 "
+							>
+								&rarr;
+							</span>
+						</p>
+					</div>
+				</a>
+			</li>
 		))
 	}
-</dl>
+</ul>
