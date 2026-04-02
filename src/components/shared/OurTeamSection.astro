@@ -10,12 +10,12 @@ const { teamSection = defaultTeamSectionContent } = Astro.props as {
 };
 ---
 
-<div class="bg-section-base py-24 sm:py-32">
+<div class="bg-bg py-24 sm:py-32">
 	<div class="container-page">
 		<div class="mx-auto max-w-2xl text-center">
 			<h2
 				class="text-4xl sm:text-5xl
-        text-primary
+        text-heading
         font-semibold tracking-tight text-balance"
 			>
 				{teamSection.title}
@@ -35,12 +35,12 @@ const { teamSection = defaultTeamSectionContent } = Astro.props as {
 						<Image
 							src={member.photo}
 							alt={member.name}
-							class="size-40 md:size-48 
-                rounded-full object-cover 
-                ring-2 ring-border-strong "
+							class="size-40 md:size-48
+                rounded-full object-cover
+                ring-2 ring-border shadow-2xl"
 						/>
 						<div class="mt-6">
-							<h3 class="text-base font-semibold tracking-tight text-primary">{member.name}</h3>
+							<h3 class="text-base font-semibold tracking-tight text-heading">{member.name}</h3>
 							<p class="text-sm font-semibold text-accent">{member.role}</p>
 							<p class="mt-3 text-sm/6 text-text-muted">{member.bio}</p>
 						</div>

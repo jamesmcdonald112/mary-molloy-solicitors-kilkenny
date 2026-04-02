@@ -20,7 +20,7 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
 
 <div class="px-6 lg:px-8
   py-16 sm:py-24
-  bg-section-primary-light">
+  bg-bg-brand-light">
 	<div class="mx-auto max-w-3xl">
 		{
 			eyebrow && (
@@ -90,7 +90,7 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
 									<p>"{block.quote}"</p>
 								</blockquote>
 								{block.attribution && (
-									<figcaption class="mt-4 text-sm/6 text-text-subtle">
+									<figcaption class="mt-4 text-sm/6 text-text-muted">
 										{block.attribution}
 									</figcaption>
 								)}

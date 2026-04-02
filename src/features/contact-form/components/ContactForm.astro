@@ -16,20 +16,16 @@ const fieldErrors = isInputError(error) ? error.fields : {};
 const selectClass = [
   "block w-full rounded-md appearance-none",
   "px-3.5 py-2 pr-11",
-  "text-base text-text bg-(--color-surface)",
-  "outline-1 -outline-offset-1 outline-(--color-input)",
-  "hover:outline-(--color-input-hover)",
-  "focus:outline-2 focus:-outline-offset-2 focus:outline-(--color-input-focus)",
+  "text-base text-text bg-input-bg",
+  "focus-ring-input",
 ].join(" ");
 
 const textareaClass = [
   "block w-full rounded-md",
   "px-3.5 py-2",
-  "text-base text-text bg-(--color-surface)",
-  "placeholder:text-text-subtle",
-  "outline-1 -outline-offset-1 outline-(--color-input)",
-  "hover:outline-(--color-input-hover)",
-  "focus:outline-2 focus:-outline-offset-2 focus:outline-(--color-input-focus)",
+  "text-base text-text bg-input-bg",
+  "placeholder:text-text-muted",
+  "focus-ring-input",
 ].join(" ");
 ---
 
@@ -102,7 +98,7 @@ const textareaClass = [
             <span
               aria-hidden="true"
               class="absolute right-4 top-1/2 size-4 -translate-y-1/2
-                text-text-subtle
+                text-text-muted
                 pointer-events-none "
               set:html={chevronDownIcon}
             />
@@ -114,9 +110,9 @@ const textareaClass = [
         <div>
           <div class="flex items-baseline justify-between">
             <label for="message" class="block text-sm/6 font-semibold text-text">
-              Message <span class="ml-1 text-xs font-normal text-text-subtle">(optional)</span>
+              Message <span class="ml-1 text-xs font-normal text-text-muted">(optional)</span>
             </label>
-            <span id="message-count" class="text-xs text-text-subtle">
+            <span id="message-count" class="text-xs text-text-muted">
               0 / {CONTACT_FIELD_LIMITS.message.max}
             </span>
           </div>
@@ -145,7 +141,7 @@ const textareaClass = [
       </div>
 
       <!-- Required field note -->
-      <p class="mt-4 text-sm text-text-subtle">
+      <p class="mt-4 text-sm text-text-muted">
         Fields marked <span class="text-accent">*</span> are required.
       </p>
 
@@ -172,7 +168,7 @@ const textareaClass = [
             rounded-md
             px-3.5 py-2.5
             text-center text-sm font-semibold
-            bg-primary text-(--color-on-primary)
+            bg-(--brand-500) text-white
             shadow-xs transition-colors duration-200
             hover:bg-accent hover:text-text-on-accent
             focus-ring

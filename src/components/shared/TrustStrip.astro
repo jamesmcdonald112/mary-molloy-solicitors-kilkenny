@@ -17,7 +17,7 @@ const { title, columns, stats } = Astro.props as Props;
 
 <!-- bg -->
 <div class="py-16 sm:py-24
-  bg-section-primary-light">
+  bg-bg-brand-light">
 	<div class="mx-auto
     max-w-7xl
     px-6 lg:px-8">
@@ -74,7 +74,7 @@ const { title, columns, stats } = Astro.props as Props;
 							border-l-2 border-accent"
 						>
 							<dd class="text-3xl font-semibold tracking-tight text-text">{stat.value}</dd>
-							<dt class="text-base/7 text-text-subtle">{stat.label}</dt>
+							<dt class="text-base/7 text-text-muted">{stat.label}</dt>
 						</div>
 					))
 				}
