@@ -32,13 +32,14 @@ const { heading } = Astro.props as Props;
 		<!-- Right: CTAs — shrink-0 prevents this group compressing when heading is long -->
 		<div class="mt-8 lg:mt-0
 			lg:shrink-0
-			flex items-center gap-x-4">
+			flex flex-col sm:flex-row items-center gap-4">
 			<ButtonLink
 				href={globalCtas.call.href}
 				variant="solid-accent"
 				size="lg"
 				label={globalCtas.call.label}
 				icon={globalCtas.call.icon}
+				block={true}
 			/>
 			<ButtonLink
 				href={globalCtas.email.href}
@@ -46,6 +47,7 @@ const { heading } = Astro.props as Props;
 				size="lg"
 				label={globalCtas.email.label}
 				endArrow={true}
+				block={true}
 			/>
 		</div>
 	</div>
