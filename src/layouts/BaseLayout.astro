@@ -61,6 +61,11 @@ const isArticle = ogType === "article";
     <meta name="description" content={description} />
     <link rel="icon" href="/images/favicon/favicon.svg" type="image/svg+xml" />
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+
     <!-- Canonical & crawling -->
     {canonical && <link rel="canonical" href={canonical} />}
     {noIndex && <meta name="robots" content="noindex, nofollow" />}

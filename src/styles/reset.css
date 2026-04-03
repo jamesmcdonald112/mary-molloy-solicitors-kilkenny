@@ -1,6 +1,10 @@
 body {
 	min-height: 100vh;
-	/* prevents short pages looking broken */
+	font-family: var(--font-sans);
+}
+
+h1, h2, h3 {
+	font-family: var(--font-serif);
 }
 
 /* Optional: smooth scroll (some teams avoid this globally) */

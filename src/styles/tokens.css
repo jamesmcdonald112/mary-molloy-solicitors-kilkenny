@@ -5,6 +5,12 @@
 	--white: hsl(0 0% 100%);
 
 	/*
+	 * ── FONTS ────────────────────────────────────────────────────
+	 */
+	--font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+	--font-serif: "Merriweather", ui-serif, Georgia, serif;
+
+	/*
 	 * ── GREY SCALE ───────────────────────────────────────────────
 	 */
 	--grey-50: hsl(240 4.8% 97.8%);

@@ -1,10 +1,14 @@
+import truckIcon from "../../assets/icons/truckIcon.svg?raw";
 import { firm } from "../firm";
 
 export const roadTrafficAccidents = {
 	// --- Identity ---
 	title: "Road Traffic Accidents",
+	tag: "Personal Injury",
 	slug: "road-traffic-accidents",
 	href: "/services/road-traffic-accidents",
+	icon: truckIcon,
+	hoverImage: "/images/lady-justice4.webp",
 	description:
 		"We represent individuals injured in road traffic accidents, advising on liability, insurance claims, and compensation. From minor collisions to serious accidents, we work to ensure you receive what you are entitled to.",
 	// --- SEO ---

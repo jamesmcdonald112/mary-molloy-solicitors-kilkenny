@@ -1,10 +1,14 @@
+import buildingIcon from "../../assets/icons/buildingIcon.svg?raw";
 import { firm } from "../firm";
 
 export const leasesAndTenancyAgreements = {
 	// --- Identity ---
-	title: "Leases and Tenancy Agreements",
+	title: "Leases & Tenancy Agreements",
+	tag: "Conveyancing",
 	slug: "leases-and-tenancy-agreements",
 	href: "/services/leases-and-tenancy-agreements",
+	icon: buildingIcon,
+	hoverImage: "/images/johns-bridge.webp",
 	description:
 		"We advise landlords and tenants on residential and commercial leases, reviewing and drafting agreements to protect your position. Whether you are entering a new tenancy or facing a dispute, we can help.",
 	// --- SEO ---
@@ -16,7 +20,7 @@ export const leasesAndTenancyAgreements = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Leases and Tenancy Agreements",
+		title: "Leases & Tenancy Agreements",
 		subtitle:
 			"A well-drafted lease protects both landlord and tenant and helps prevent disputes from arising. We advise on residential and commercial tenancy matters, ensuring that your agreement reflects your intentions and complies with current Irish law.",
 	},

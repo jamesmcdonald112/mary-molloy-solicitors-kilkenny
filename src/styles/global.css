@@ -31,5 +31,5 @@
 
 /* Section heading — large responsive heading */
 @utility section-heading {
-	@apply text-4xl sm:text-5xl font-semibold tracking-tight text-pretty text-text;
+	@apply font-serif text-4xl sm:text-5xl font-semibold tracking-tight text-pretty text-text;
 }

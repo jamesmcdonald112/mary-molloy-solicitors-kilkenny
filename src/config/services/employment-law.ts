@@ -1,10 +1,14 @@
+import briefcaseIcon from "../../assets/icons/briefcaseIcon.svg?raw";
 import { firm } from "../firm";
 
 export const employmentLaw = {
 	// --- Identity ---
 	title: "Employment Law",
+	tag: "Employment & Equality",
 	slug: "employment-law",
 	href: "/services/employment-law",
+	icon: briefcaseIcon,
+	hoverImage: "/images/leather.webp",
 	description:
 		"We advise employees and employers on a wide range of employment law matters, including unfair dismissal, redundancy, workplace rights, and employment contracts. We help you understand your position and take the right steps.",
 	// --- SEO ---

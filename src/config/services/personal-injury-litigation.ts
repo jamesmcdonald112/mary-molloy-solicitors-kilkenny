@@ -1,10 +1,14 @@
+import shieldExclamationIcon from "../../assets/icons/shieldExclamationIcon.svg?raw";
 import { firm } from "../firm";
 
 export const personalInjuryLitigation = {
 	// --- Identity ---
 	title: "Personal Injury / Litigation",
+	tag: "Personal Injury",
 	slug: "personal-injury-litigation",
 	href: "/services/personal-injury-litigation",
+	icon: shieldExclamationIcon,
+	hoverImage: "/images/lady-justice3.webp",
 	description:
 		"If you have suffered an injury as a result of another person's negligence, we can advise you on your rights and pursue a claim on your behalf. We handle personal injury litigation from initial assessment through to settlement or trial.",
 	// --- SEO ---

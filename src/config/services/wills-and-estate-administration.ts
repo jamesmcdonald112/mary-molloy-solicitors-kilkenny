@@ -1,10 +1,14 @@
+import documentTextIcon from "../../assets/icons/documentTextIcon.svg?raw";
 import { firm } from "../firm";
 
 export const willsAndEstateAdministration = {
 	// --- Identity ---
-	title: "Wills and Estate Administration",
+	title: "Wills & Estate Administration",
+	tag: "Wills & Probate",
 	slug: "wills-and-estate-administration",
 	href: "/services/wills-and-estate-administration",
+	icon: documentTextIcon,
+	hoverImage: "/images/lady-justice.webp",
 	description:
 		"We advise on making a valid will, lasting powers of attorney, and the full administration of estates following bereavement. Our team guides executors and beneficiaries through the probate process with clarity and sensitivity.",
 	// --- SEO ---
@@ -16,7 +20,7 @@ export const willsAndEstateAdministration = {
 	},
 	// --- Hero ---
 	hero: {
-		title: "Wills and Estate Administration",
+		title: "Wills & Estate Administration",
 		subtitle:
 			"Making a will is one of the most important steps you can take to protect your family's future. We also assist executors and beneficiaries with the full administration of estates, ensuring the process is handled carefully and efficiently.",
 	},

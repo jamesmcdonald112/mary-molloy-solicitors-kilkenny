@@ -2,6 +2,16 @@ import documentIcon from "../../assets/icons/documentTextIcon.svg?raw";
 import homeIcon from "../../assets/icons/homeIcon.svg?raw";
 import { firm } from "../firm";
 
+export const propertyCard = {
+	title: "Buying & Selling Property",
+	tag: "Conveyancing",
+	href: "/buying-and-selling-property",
+	icon: homeIcon,
+	hoverImage: "/images/kilkenny-castle.webp",
+	description:
+		"Our conveyancing service guides you through every step of buying or selling property in Ireland, from reviewing contracts to managing completion. We work to protect your interests and keep your transaction on track from start to finish.",
+} as const;
+
 export const propertyPageContent = {
 	seo: {
 		title: `Buying & Selling Property in Kilkenny | ${firm.companyName}`,
