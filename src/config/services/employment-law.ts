@@ -1,4 +1,5 @@
 import briefcaseIcon from "../../assets/icons/briefcaseIcon.svg?raw";
+import image from "../../assets/images/new/employment-law.webp";
 import { firm } from "../firm";
 
 export const employmentLaw = {
@@ -8,7 +9,8 @@ export const employmentLaw = {
 	slug: "employment-law",
 	href: "/services/employment-law",
 	icon: briefcaseIcon,
-	hoverImage: "/images/leather.webp",
+	image,
+	imageClass: "object-bottom",
 	description:
 		"We advise employees and employers on a wide range of employment law matters, including unfair dismissal, redundancy, workplace rights, and employment contracts. We help you understand your position and take the right steps.",
 	// --- SEO ---

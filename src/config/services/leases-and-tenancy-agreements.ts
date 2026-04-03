@@ -1,4 +1,5 @@
 import buildingIcon from "../../assets/icons/buildingIcon.svg?raw";
+import image from "../../assets/images/new/lease-and-tenancy-agreements.webp";
 import { firm } from "../firm";
 
 export const leasesAndTenancyAgreements = {
@@ -8,7 +9,8 @@ export const leasesAndTenancyAgreements = {
 	slug: "leases-and-tenancy-agreements",
 	href: "/services/leases-and-tenancy-agreements",
 	icon: buildingIcon,
-	hoverImage: "/images/johns-bridge.webp",
+	image,
+	imageClass: "object-right-bottom",
 	description:
 		"We advise landlords and tenants on residential and commercial leases, reviewing and drafting agreements to protect your position. Whether you are entering a new tenancy or facing a dispute, we can help.",
 	// --- SEO ---

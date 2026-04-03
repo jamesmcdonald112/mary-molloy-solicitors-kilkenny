@@ -1,4 +1,5 @@
 import documentTextIcon from "../../assets/icons/documentTextIcon.svg?raw";
+import image from "../../assets/images/new/wills-and-estate-administration.webp";
 import { firm } from "../firm";
 
 export const willsAndEstateAdministration = {
@@ -8,7 +9,8 @@ export const willsAndEstateAdministration = {
 	slug: "wills-and-estate-administration",
 	href: "/services/wills-and-estate-administration",
 	icon: documentTextIcon,
-	hoverImage: "/images/lady-justice.webp",
+	image,
+	imageClass: "",
 	description:
 		"We advise on making a valid will, lasting powers of attorney, and the full administration of estates following bereavement. Our team guides executors and beneficiaries through the probate process with clarity and sensitivity.",
 	// --- SEO ---

@@ -1,4 +1,5 @@
 import userGroupIcon from "../../assets/icons/userGroupIcon.svg?raw";
+import image from "../../assets/images/new/family-and-childcare-law.webp";
 import { firm } from "../firm";
 
 export const familyAndChildcareLaw = {
@@ -8,7 +9,8 @@ export const familyAndChildcareLaw = {
 	slug: "family-and-childcare-law",
 	href: "/services/family-and-childcare-law",
 	icon: userGroupIcon,
-	hoverImage: "/images/lady-justice2.webp",
+	image,
+	imageClass: "",
 	description:
 		"We provide sensitive and experienced legal representation in family law matters, including separation, divorce, guardianship, and childcare proceedings. Our aim is to resolve disputes with as little conflict as possible.",
 	// --- SEO ---

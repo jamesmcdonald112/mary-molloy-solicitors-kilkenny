@@ -1,4 +1,5 @@
 import banknotesIcon from "../../assets/icons/banknotesIcon.svg?raw";
+import image from "../../assets/images/new/debt-collection.webp";
 import { firm } from "../firm";
 
 export const debtCollection = {
@@ -8,7 +9,8 @@ export const debtCollection = {
 	slug: "debt-collection",
 	href: "/services/debt-collection",
 	icon: banknotesIcon,
-	hoverImage: "/images/marble-texture.webp",
+	image,
+	imageClass: "object-[80%_60%]",
 	description:
 		"We assist businesses and individuals in recovering money owed to them, from initial demand letters through to court proceedings. We pursue debts efficiently and work to minimise the cost and time involved in recovery.",
 

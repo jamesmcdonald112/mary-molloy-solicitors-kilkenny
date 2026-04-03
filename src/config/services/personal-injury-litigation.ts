@@ -1,4 +1,5 @@
 import shieldExclamationIcon from "../../assets/icons/shieldExclamationIcon.svg?raw";
+import image from "../../assets/images/new/personal-injury.webp";
 import { firm } from "../firm";
 
 export const personalInjuryLitigation = {
@@ -8,7 +9,8 @@ export const personalInjuryLitigation = {
 	slug: "personal-injury-litigation",
 	href: "/services/personal-injury-litigation",
 	icon: shieldExclamationIcon,
-	hoverImage: "/images/lady-justice3.webp",
+	image,
+	imageClass: "",
 	description:
 		"If you have suffered an injury as a result of another person's negligence, we can advise you on your rights and pursue a claim on your behalf. We handle personal injury litigation from initial assessment through to settlement or trial.",
 	// --- SEO ---

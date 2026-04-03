@@ -1,4 +1,5 @@
 import truckIcon from "../../assets/icons/truckIcon.svg?raw";
+import image from "../../assets/images/new/road-traffic-accident.webp";
 import { firm } from "../firm";
 
 export const roadTrafficAccidents = {
@@ -8,7 +9,8 @@ export const roadTrafficAccidents = {
 	slug: "road-traffic-accidents",
 	href: "/services/road-traffic-accidents",
 	icon: truckIcon,
-	hoverImage: "/images/lady-justice4.webp",
+	image,
+	imageClass: "",
 	description:
 		"We represent individuals injured in road traffic accidents, advising on liability, insurance claims, and compensation. From minor collisions to serious accidents, we work to ensure you receive what you are entitled to.",
 	// --- SEO ---
