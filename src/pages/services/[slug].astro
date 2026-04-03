@@ -1,5 +1,4 @@
 ---
-import heroImage from "../../assets/images/pages/property/property-hero.webp";
 import ServiceArticle from "../../components/services/ServiceArticle.astro";
 import ServiceHero from "../../components/services/ServiceHero.astro";
 import ServiceMidCta from "../../components/services/ServiceMidCta.astro";
@@ -29,7 +28,7 @@ const structuredData = getLawFirmStructuredData();
 	ogType="website"
 	structuredData={structuredData}
 >
-	<ServiceHero title={service.hero.title} subtitle={service.hero.subtitle} image={heroImage} />
+	<ServiceHero title={service.hero.title} subtitle={service.hero.subtitle} image={service.image} imageClass={service.imageClass} />
 	<ServiceArticle
 		eyebrow={service.article.eyebrow}
 		title={service.article.title}
