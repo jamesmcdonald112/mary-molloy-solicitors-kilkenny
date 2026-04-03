@@ -25,6 +25,7 @@ const { title, subtitle, image, imageAlt = "", imageClass = "" } = Astro.props a
 		src={image}
 		alt={imageAlt}
 		aria-hidden="true"
+		fetchpriority="high"
 		widths={[768, 1280, 1920]}
 		sizes="100vw"
 		class={`absolute inset-0 size-full object-cover ${imageClass}`}
