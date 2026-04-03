@@ -24,9 +24,9 @@ const {
 } = Astro.props as PhoneNumberProps;
 
 const sizeMap = {
-	sm: { text: "text-sm", iconSize: "h-4" },
-	md: { text: "text-base", iconSize: "h-5" },
-	lg: { text: "text-lg", iconSize: "h-6" },
+	sm: { text: "text-sm", iconSize: "h-4 w-4" },
+	md: { text: "text-base", iconSize: "h-5 w-5" },
+	lg: { text: "text-lg", iconSize: "h-6 w-6" },
 } as const;
 
 const { text, iconSize } = sizeMap[size];
@@ -41,6 +41,7 @@ const iconVariantClass =
 <a
 	class={`
 		flex items-center gap-2
+		whitespace-nowrap
 		rounded-md
 		transition duration-200
 		focus-ring

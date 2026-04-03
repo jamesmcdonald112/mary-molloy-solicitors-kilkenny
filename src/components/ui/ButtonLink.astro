@@ -9,17 +9,19 @@ type Size = "sm" | "md" | "lg";
 
 interface ButtonLinkProps {
 	href: string;
+	tel?: boolean;
 	variant?: Variant;
 	size?: Size;
 	block?: boolean;
 	icon?: string;
-	label?: string; // optional convenience
+	label?: string;
 	endArrow?: boolean;
 	class?: string;
 }
 
 const {
 	href,
+	tel = false,
 	variant = "solid",
 	size = "md",
 	block = false,
@@ -28,6 +30,8 @@ const {
 	endArrow = false,
 	class: className = "",
 } = Astro.props as ButtonLinkProps;
+
+const resolvedHref = tel ? `tel:${href}` : href;
 
 const group = endArrow ? "group" : "";
 
@@ -44,6 +48,12 @@ const sizes: Record<Size, string> = {
 	sm: "px-3 py-2 text-sm",
 	md: "px-3.5 py-2.5 text-base",
 	lg: "px-4 py-3 text-lg",
+};
+
+const iconSizes: Record<Size, string> = {
+	sm: "h-4 w-4",
+	md: "h-5 w-5",
+	lg: "h-6 w-6",
 };
 
 const width = block ? "w-full sm:w-auto" : "max-w-fit";
@@ -89,8 +99,8 @@ const classes = [group, base, sizes[size], width, variants[variant], className]
 	.join(" ");
 ---
 
-<a href={href} class={classes}>
-	{icon && <span class="h-4 w-4 [&_svg]:h-full [&_svg]:w-full" set:html={icon} />}
+<a href={resolvedHref} class={classes}>
+	{icon && <span class={`${iconSizes[size]} [&_svg]:h-full [&_svg]:w-full`} set:html={icon} />}
 	<slot>{label}</slot>
 	{
 		endArrow && (

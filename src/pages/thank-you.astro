@@ -1,7 +1,6 @@
 ---
 import phoneIcon from "../assets/ctas/phoneIcon.svg?raw";
 import checkCircleIcon from "../assets/icons/checkCircleIcon.svg?raw";
-import PhoneNumber from "../components/shared/PhoneNumber.astro";
 import ButtonLink from "../components/ui/ButtonLink.astro";
 import { thankYouContent } from "../config/content/thank-you";
 import { firm } from "../config/firm";
@@ -31,18 +30,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 					<ButtonLink href={thankYouContent.href} variant="solid" size="md" block={true}>
 						Back to home
 					</ButtonLink>
-					<PhoneNumber
-						phoneHref={firm.phone.phoneHref}
-						phoneIcon={phoneIcon}
-						phoneDisplay={firm.phone.display}
+					<ButtonLink
+						href={firm.phone.phoneHref}
+						tel={true}
+						variant="outline"
 						size="md"
-						iconHeight="h-4"
-						class="inline-flex justify-center w-full sm:w-fit
-              px-3.5 py-2.5
-              bg-transparent hover:bg-accent-hover
-              text-text hover:text-text-on-accent
-              rounded-md border border-btn-border hover:border-accent-hover
-              transition-colors duration-200"
+						label={firm.phone.display}
+						icon={phoneIcon}
+						block={true}
 					/>
 				</div>
 			</div>
