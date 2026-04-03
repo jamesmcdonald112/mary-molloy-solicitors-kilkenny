@@ -7,8 +7,10 @@
 
 ## Assets
 - [ ] Find a better icon for Family & Childcare Law — current one is generic
-- [ ] Source appropriate images for all service card hover images (currently using lady justice / texture placeholders)
-- [ ] Source a hero image for the homepage
+- [ ] Source appropriate images for all services — portrait (3:4 or 2:3) for slug page heroes, same image used for card hover
+- [ ] Once all 8 service images are in place, wire up per-service hero images in `src/pages/services/[slug].astro` — currently hardcoded to one image for all services
+- [ ] Source a landscape (16:9) hero image for the homepage
+- [ ] Credit photo artists on the site (check each image source for attribution requirements — Unsplash/Pexels don't require it but it is good practice)
 
 ## Content & Config
 - [ ] Replace placeholder email in `src/config/firm.ts` — currently `info@YOURDOMAIN.ie`
@@ -16,6 +18,9 @@
 
 ## Font experiment
 - [ ] Settle on final heading/body font pairing (currently Merriweather + Open Sans)
+
+## Accessibility
+- [ ] Check alt text for service hero images — currently `alt=""` (decorative) on card hover images and hero backgrounds; confirm this is correct or add descriptive alt where needed
 
 ## Cleanup
 - [ ] Delete `src/sections/` — contains the old placeholder hero layout (`HeroTailwind.astro`), not part of the real site
