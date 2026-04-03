@@ -9,19 +9,18 @@ interface Props {
 	subtitle: string;
 	image: ImageMetadata;
 	imageAlt?: string;
+	// Optional Tailwind class to control image focal point e.g. "object-bottom", "object-[80%_60%]"
 	imageClass?: string;
 }
 
-const {
-	title,
-	subtitle,
-	image,
-	imageAlt = "",
-	imageClass = "",
-} = Astro.props as Props;
+const { title, subtitle, image, imageAlt = "", imageClass = "" } = Astro.props as Props;
 ---
 
-<div class="flex flex-col justify-end relative isolate overflow-hidden min-h-[480px] lg:min-h-[540px]">
+{/* Full-bleed hero: image fills the container, text sits at the bottom over a dark overlay */}
+<div
+	class="flex flex-col justify-end relative isolate overflow-hidden min-h-[480px] lg:min-h-[540px]"
+>
+	{/* Background image — covers the full hero, focal point controlled by imageClass */}
 	<Image
 		src={image}
 		alt={imageAlt}
@@ -31,10 +30,13 @@ const {
 		class={`absolute inset-0 size-full object-cover ${imageClass}`}
 	/>
 
-	<div class="absolute inset-0 bg-black/55" />
+	{/* Dark overlay to ensure text is legible over the image */}
+	<div class="absolute inset-0 bg-black/55"></div>
 
+	{/* Text content — sits above the overlay */}
 	<div class="relative container-page w-full py-16 lg:py-24">
 		<div class="max-w-2xl">
+			{/* "Our services" breadcrumb link */}
 			<a
 				href="/services"
 				class="group
@@ -43,17 +45,26 @@ const {
 					rounded-sm transition-colors duration-200 focus-ring"
 			>
 				<span>Our services</span>
-				<span aria-hidden="true" class="inline-block group-hover:translate-x-0.5 transition-transform duration-200">&rarr;</span>
+				<span
+					aria-hidden="true"
+					class="inline-block group-hover:translate-x-0.5 transition-transform duration-200"
+					>&rarr;</span
+				>
 			</a>
 
-			<h1 class="mt-4 text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-pretty text-white">
+			{/* Page title — passed in from the service config */}
+			<h1
+				class="mt-4 text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-pretty text-white"
+			>
 				{title}
 			</h1>
 
+			{/* Subtitle — passed in from the service config */}
 			<p class="mt-6 text-lg lg:text-xl/8 font-normal text-pretty text-white/80">
 				{subtitle}
 			</p>
 
+			{/* CTAs: call (primary solid) + contact us (solid white) */}
 			<div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-x-4">
 				<ButtonLink
 					href={globalCtas.call.href}
@@ -64,11 +75,12 @@ const {
 				/>
 				<ButtonLink
 					href={globalCtas.email.href}
-					variant="ghost-dark"
+					variant="solid-inverse"
 					size="lg"
 					block={true}
 					label={globalCtas.email.label}
 					endArrow={true}
+					class="text-black hover:text-text-on-accent"
 				/>
 			</div>
 		</div>
