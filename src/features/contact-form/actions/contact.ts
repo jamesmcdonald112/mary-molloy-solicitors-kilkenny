@@ -1,6 +1,6 @@
 import { ActionError, defineAction } from "astro:actions";
-import { contactSchema } from "../features/contact-form/schema/contact.schema";
-import { deliverContact } from "../features/contact-form/service/deliverContact";
+import { contactSchema } from "../schema/contact.schema";
+import { deliverContact } from "../service/deliverContact";
 
 export const contact = defineAction({
 	accept: "form",

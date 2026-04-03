@@ -92,6 +92,10 @@ Adjust the allowed sources to match whatever is actually on the page. Test thoro
 
 ## TODO — Before Launch
 
+> When the project is finished, delete `TODO.md` from the root.
+
+
+
 - [ ] **Delete `src/sections/`** — this folder was used for the mock/placeholder layout only and will likely not be needed once the real homepage is built.
 
 - [ ] **Firm email address** — replace the placeholder `email` value in `src/config/firm.ts` with the real firm email address.
