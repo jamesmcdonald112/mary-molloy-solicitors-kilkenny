@@ -1,5 +1,6 @@
 import documentIcon from "../../assets/icons/documentTextIcon.svg?raw";
 import homeIcon from "../../assets/icons/homeIcon.svg?raw";
+import propertyImage from "../../assets/images/new/buying-and-selling-property.webp";
 import { firm } from "../firm";
 
 export const propertyCard = {
@@ -7,7 +8,7 @@ export const propertyCard = {
 	tag: "Conveyancing",
 	href: "/buying-and-selling-property",
 	icon: homeIcon,
-	hoverImage: "/images/kilkenny-castle.webp",
+	image: propertyImage,
 	description:
 		"Our conveyancing service guides you through every step of buying or selling property in Ireland, from reviewing contracts to managing completion. We work to protect your interests and keep your transaction on track from start to finish.",
 } as const;
@@ -37,7 +38,7 @@ export const propertyPageContent = {
 		subtitle:
 			"If you are buying or selling property in Kilkenny, we provide clear, practical legal advice from contract to completion. Our experienced property solicitors manage residential and commercial conveyancing, protect your interests, avoid delays and ensure your transaction progresses smoothly at every stage",
 		image: {
-			src: "src/assets/images/pages/property/property-hero.webp",
+			src: "src/assets/images/new/buying-and-selling-property.webp",
 			alt: "A client signing a property contract with a solicitor, with a house model on the table.",
 		},
 	},
