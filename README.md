@@ -34,6 +34,29 @@ You don't need this on legal/policy pages (privacy, terms, cookie policy, etc.) 
 
 ---
 
+## Google Reviews (reusable for any client)
+
+The testimonials section fetches reviews from the Google Places API (New) and caches them server-side so the API is only called once per day regardless of traffic.
+
+### What you need per client
+
+1. **Google Cloud project** — create one per client at console.cloud.google.com (use your own Google account, not the client's). Enable the **Places API (New)**.
+2. **API key** — create under APIs & Services → Credentials. Restrict it to Places API only.
+3. **Place ID** — find it at developers.google.com/maps/documentation/places/web-service/place-id by searching the business name. No login required.
+4. **Environment variable** — add `GOOGLE_PLACES_API_KEY` to Netlify/Vercel environment variables. Never commit it to the repo.
+
+### Pricing
+Free up to 10,000 requests/month. With 24hr caching, a typical client site uses ~30 requests/month — well within the free tier.
+
+### Reusing for a new client
+1. Create a new Google Cloud project for the client
+2. Enable Places API (New) and generate a new API key
+3. Find the client's Place ID
+4. Set `GOOGLE_PLACES_API_KEY` in the new site's environment variables
+5. Set the Place ID in the site config (see `src/config/firm.ts`)
+
+---
+
 ## Going Live — Security Headers
 
 Browsers support a set of HTTP response headers that protect users from common attacks. These should be added to `netlify.toml` before the site goes live. They are free, require no code changes, and Lighthouse will flag their absence.

@@ -30,6 +30,8 @@ export const firm = {
 		],
 	},
 
+	googlePlaceId: "ChIJeTRDMZ4wXUgRwZoAUIYc-30",
+
 	socialLinks: [],
 
 	seo: {

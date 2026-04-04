@@ -1,5 +1,30 @@
 # TODO
 
+## Pages — remaining work
+- [ ] Testimonials — add a section to the homepage and consider a standalone page; source reviews from Google Business Profile (see note below)
+
+> **Business Place ID:** `ChIJeTRDMZ4wXUgRwZoAUIYc-30`
+>
+> **Google Reviews setup — what you need and why:**
+>
+> **What you need:**
+> 1. **A Google Cloud account (yours, not Nick's)** — you're building and maintaining this, and you may do it for other clients too. One account, one project per client. Go to console.cloud.google.com and sign in with your Google account.
+> 2. **A Places API key** — this is what lets the site talk to Google and fetch the reviews. Without it Google won't return anything. Free up to 150 requests/day, which is fine.
+> 3. **The business Place ID** — a unique ID Google uses to identify the business. You can find it yourself without logging in — go to Google Maps, search for the business, and use Google's Place ID finder tool (search "Google Place ID finder").
+>
+> **What to do:**
+> 1. Go to console.cloud.google.com → create a new project (e.g. "Mary Molloy Solicitors")
+> 2. Enable the **Places API** on that project
+> 3. Create an **API key** and restrict it to the Places API (so it can't be misused if leaked)
+> 4. Find the **Place ID** for the business on Google Maps
+> 5. Add the API key to **Netlify environment variables** (never put it in the code/repo — it would be public)
+> 6. Build the fetch + cache logic in the site (cache for 24hrs so the API is only hit once a day regardless of traffic)
+
+- [ ] About Us page — needs building
+- [ ] Homepage — needs building (also needs a hero image)
+- [ ] Review all service slug pages — make sure content and layout are complete
+- [ ] Property page — decide whether to fold into `/services/[slug]` pattern or keep as standalone
+
 ## Design & Layout
 - [ ] Experiment with the team section — try centering the image
 - [ ] Decide on the buying and selling property page structure — move under `/services/[slug]` or keep as a standalone route
