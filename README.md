@@ -48,12 +48,26 @@ The testimonials section fetches reviews from the Google Places API (New) and ca
 ### Pricing
 Free up to 10,000 requests/month. With 24hr caching, a typical client site uses ~30 requests/month — well within the free tier.
 
+### Legal note — testimonials on solicitor sites
+
+Before launching the reviews section, the solicitor should verify this is permitted under current Law Society of Ireland advertising guidelines. Key concerns:
+
+- **Consent** — Google reviews are public but reproducing them on your own site is a grey area. The reviewer owns their words.
+- **Law Society guidelines** — solicitor advertising is regulated. Testimonials are not explicitly banned but are not straightforwardly permitted either. The concern is that they could create unrealistic expectations or constitute improper marketing.
+- **GDPR** — displaying a person's name alongside their words is processing personal data and requires a lawful basis.
+
+Most Irish solicitor websites display Google reviews without issue in practice, but the solicitor should confirm with the Law Society's practice support team before going live. If in any doubt, remove the testimonials section or add a disclaimer such as *"Reviews sourced from Google."*
+
+### Review filtering
+Reviews can be excluded by author name via `googleReviews.excludeAuthors` in `src/config/firm.ts`. **When reusing for a new client, check this array is empty (`[]`) or remove it entirely** — filters set for one client should never carry over to another.
+
 ### Reusing for a new client
 1. Create a new Google Cloud project for the client
 2. Enable Places API (New) and generate a new API key
 3. Find the client's Place ID
 4. Set `GOOGLE_PLACES_API_KEY` in the new site's environment variables
 5. Set the Place ID in the site config (see `src/config/firm.ts`)
+6. Update `address.googleMapsProfileHref` in `src/config/firm.ts` — this is the direct Google Maps listing URL used by the "See all reviews" link. Find it by searching the firm name on Google Maps, opening their profile, and copying the URL from the browser address bar.
 
 ---
 
@@ -164,6 +178,19 @@ Both services require their own account per domain. The recommended handoff proc
 3. Add the **GTM snippet** to the site's `<head>` — this is the only code change required
 
 Once GTM is in place, all future tracking changes are made in the GTM dashboard, not in the codebase.
+
+---
+
+## Environment Variables (Vercel)
+
+Add these in Vercel → Project Settings → Environment Variables before deploying:
+
+| Variable | Required | Description |
+|---|---|---|
+| `RESEND_API_KEY` | Yes | API key from resend.com — used by the contact form to send emails |
+| `GOOGLE_PLACES_API_KEY` | Yes (for reviews) | API key from Google Cloud Console — used to fetch Google reviews |
+
+Never commit these to the repo. Both keys must be set for their respective features to work in production.
 
 ---
 

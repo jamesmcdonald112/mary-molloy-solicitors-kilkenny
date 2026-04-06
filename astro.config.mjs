@@ -9,6 +9,7 @@ export default defineConfig({
 	env: {
 		schema: {
 			RESEND_API_KEY: envField.string({ context: "server", access: "secret" }),
+			GOOGLE_PLACES_API_KEY: envField.string({ context: "server", access: "secret" }),
 		},
 	},
 	session: {
