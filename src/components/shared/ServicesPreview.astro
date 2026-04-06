@@ -1,0 +1,44 @@
+---
+import { allServices } from "../../config/content/services-index";
+import ServiceCardsGrid from "./ServiceCardsGrid.astro";
+
+type Service = (typeof allServices)[number];
+
+interface Props {
+	eyebrow: string;
+	title: string;
+	services?: readonly Service[];
+	bgClass?: string;
+}
+
+const { eyebrow, title, services = allServices, bgClass = "" } = Astro.props;
+---
+
+<section class={`py-16 lg:py-24 ${bgClass}`}>
+	<div class="container-page">
+		<div class="mx-auto max-w-2xl text-center mb-12">
+			<p class="eyebrow text-accent">{eyebrow}</p>
+			<h2 class="mt-2 section-heading">{title}</h2>
+		</div>
+		<ServiceCardsGrid services={services} />
+		<div class="mt-10 text-center">
+			<a
+				href="/services"
+				class="group
+					text-sm font-semibold text-accent
+					rounded-sm
+					focus-ring
+					hover:opacity-70 transition-opacity duration-200"
+			>
+				See all services
+				<span
+					aria-hidden="true"
+					class="inline-block
+						group-hover:translate-x-1
+						transition-transform duration-200"
+					>&rarr;</span
+				>
+			</a>
+		</div>
+	</div>
+</section>
