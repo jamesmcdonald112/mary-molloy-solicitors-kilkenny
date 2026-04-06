@@ -6,15 +6,16 @@ type Service = (typeof allServices)[number];
 
 interface Props {
 	services?: readonly Service[];
+	itemClass?: string;
 }
 
-const { services = allServices } = Astro.props;
+const { services = allServices, itemClass = "" } = Astro.props;
 ---
 
 <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
 	{
 		services.map((service) => (
-			<li class="flex">
+			<li class={`flex ${itemClass}`}>
 				<a
 					href={service.href}
 					class="
