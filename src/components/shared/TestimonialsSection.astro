@@ -1,0 +1,102 @@
+---
+import { firm } from "../../config/firm";
+import { fetchReviews } from "../../features/reviews/service/fetchReviews";
+import starIcon from "../../assets/icons/starIcon.svg?raw";
+
+const reviews = await fetchReviews();
+---
+
+{
+	reviews.length > 0 && (
+		<section class="py-16 lg:py-24">
+			<div class="container-page">
+				{/* Section header */}
+				<div class="mx-auto max-w-2xl text-center">
+					<p class="eyebrow text-accent">Client Reviews</p>
+					<h2 class="mt-2 section-heading">What Our Clients Say</h2>
+				</div>
+
+				{/* Reviews grid */}
+				<ul
+					class="
+					mt-12 
+					grid 
+					grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+					gap-6"
+					role="list"
+				>
+					{reviews.map((review) => (
+						<li
+							class="
+							flex flex-col justify-between 
+							p-8 
+							rounded-2xl 
+							ring-1 ring-border
+							shadow-sm"
+						>
+							{/* Quote + text */}
+							<div>
+								<span
+									class="
+										font-serif 
+										text-6xl leading-none text-heading 
+										select-none"
+									aria-hidden="true"
+								>
+									&ldquo;
+								</span>
+								<p class="mt-2 text-sm/6 text-text">{review.text}</p>
+							</div>
+
+							{/* Stars + author */}
+							<div>
+								<div
+									class="mt-6 flex gap-0.5 text-accent"
+									aria-label={`${review.rating} out of 5 stars`}
+								>
+									{Array.from({ length: review.rating }).map(() => (
+										<span
+											class="size-5 text-accent [&_svg]:size-full"
+											aria-hidden="true"
+											set:html={starIcon}
+										/>
+									))}
+								</div>
+								<div class="mt-4 border-t border-border pt-4">
+									<p class="text-sm font-semibold text-heading">{review.author}</p>
+									{review.date && <p class="text-xs text-text-muted">{review.date}</p>}
+								</div>
+							</div>
+						</li>
+					))}
+				</ul>
+
+				{/* Link to Google reviews */}
+				<div class="mt-10 text-center">
+					<a
+						href={firm.address.googleMapsProfileHref}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group
+							text-base font-semibold
+							text-accent
+							rounded-sm
+							hover:opacity-70
+							focus-ring
+							transition-opacity duration-200"
+					>
+						See all reviews on Google
+						<span
+							aria-hidden="true"
+							class="inline-block 
+							group-hover:translate-x-1 
+							transition-transform duration-200"
+						>
+							&rarr;
+						</span>
+					</a>
+				</div>
+			</div>
+		</section>
+	)
+}
