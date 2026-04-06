@@ -1,0 +1,78 @@
+---
+import { globalCtas } from "../../config/ctas";
+import { homePageContent } from "../../config/content/home";
+import ButtonLink from "../ui/ButtonLink.astro";
+
+const { eyebrow, title, subtitle } = homePageContent.hero;
+---
+
+<div
+	class="relative isolate overflow-hidden
+	flex flex-col justify-center
+	min-h-[560px] lg:min-h-[680px]"
+>
+	{/* Poster image — shown instantly and while video loads */}
+	<img
+		src="/video/hero-poster.jpg"
+		alt=""
+		aria-hidden="true"
+		fetchpriority="high"
+		class="absolute inset-0 size-full object-cover object-center"
+	/>
+
+	{/* Video — autoplay, muted, looping, hidden when prefers-reduced-motion */}
+	<video
+		autoplay
+		muted
+		loop
+		playsinline
+		aria-hidden="true"
+		poster="/video/hero-poster.jpg"
+		class="absolute inset-0 size-full object-cover object-center motion-reduce:hidden"
+	>
+		<source src="/video/hero.mp4" type="video/mp4" />
+	</video>
+
+	{/* Dark overlay */}
+	<div class="absolute inset-0 bg-black/55"></div>
+
+	{/* Text content */}
+	<div class="relative container-page w-full py-16 lg:py-24">
+		<div class="max-w-2xl">
+			<p class="eyebrow text-accent">{eyebrow}</p>
+
+			<h1
+				class="mt-4
+					text-4xl lg:text-5xl xl:text-6xl
+					font-semibold tracking-tight text-pretty text-white"
+			>
+				{title}
+			</h1>
+
+			<p class="mt-6
+				text-lg lg:text-xl/8
+				font-normal text-pretty text-white">
+				{subtitle}
+			</p>
+
+			<div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-x-4">
+				<ButtonLink
+					href={globalCtas.call.href}
+					size="lg"
+					block={true}
+					label={globalCtas.call.label}
+					icon={globalCtas.call.icon}
+				/>
+				<ButtonLink
+					href="/services"
+					variant="solid-inverse"
+					size="lg"
+					block={true}
+					label="Our services"
+					endArrow={true}
+					class="text-black hover:text-text-on-accent"
+				/>
+			</div>
+		</div>
+	</div>
+</div>
