@@ -80,7 +80,7 @@ const { eyebrow, card, aside } = Astro.props as Props;
 					shadow-lg hover:shadow-xl
 					hover:-translate-y-2
 					focus-ring
-					transition-all duration-200"
+					transition-all duration-500"
 			>
 				{/* Background image — whisper at rest, full on hover */}
 				<Image
@@ -91,7 +91,7 @@ const { eyebrow, card, aside } = Astro.props as Props;
 						object-cover object-bottom
 						opacity-40 group-hover:opacity-100
 						group-hover:animate-card-pan
-						transition-opacity duration-300"
+						transition-opacity duration-500"
 					widths={[600, 900, 1200]}
 					sizes="(min-width: 1024px) 50vw, 100vw"
 					loading="eager"
@@ -102,7 +102,7 @@ const { eyebrow, card, aside } = Astro.props as Props;
 					class="absolute inset-0
 						card-bloom
 						opacity-90 group-hover:opacity-0
-						transition-opacity duration-300"
+						transition-opacity duration-500"
 				>
 				</div>
 				{/* Dark overlay — fades in on hover for text contrast */}
@@ -110,25 +110,30 @@ const { eyebrow, card, aside } = Astro.props as Props;
 					class="absolute inset-0
 						bg-black/60
 						opacity-0 group-hover:opacity-100
-						transition-opacity duration-300"
+						transition-opacity duration-500"
 				>
 				</div>
 
 				<div class="relative p-8 flex flex-col flex-1">
-					{/* Header row — number + icon */}
-					<div class="flex items-center justify-between">
+					{/* Header row — number fades out, icon slides from right to centre */}
+					<div class="relative h-7">
 						<span
-							class="text-sm font-semibold
-								text-text-muted group-hover:text-white
-								transition-colors duration-200"
+							class="absolute left-0 top-1/2 -translate-y-1/2
+								text-sm font-semibold text-text-muted
+								opacity-100 group-hover:opacity-0
+								transition-opacity duration-500"
 							>01</span
 						>
 						<span
 							aria-hidden="true"
-							class="inline-flex items-center justify-center
+							class="absolute right-0
+								top-1/2
+								-translate-y-1/2
+								group-hover:translate-x-1/2
+								group-hover:right-1/2
 								text-accent group-hover:text-white
 								[&_svg]:size-7
-								transition-colors duration-200"
+								transition-all duration-500"
 							set:html={card.icon}
 						/>
 					</div>
@@ -137,22 +142,20 @@ const { eyebrow, card, aside } = Astro.props as Props;
 					<p
 						class="mt-4
 							text-xs font-semibold uppercase tracking-widest
-							text-accent group-hover:text-white/60
-							transition-colors duration-200"
+							text-accent group-hover:text-white/80
+							transition-colors duration-500"
 					>
 						{card.tag}
 					</p>
 					<h3
 						class="mt-1
 							text-2xl font-semibold tracking-tight
-							text-heading group-hover:text-white
-							transition-colors duration-200"
+							text-heading group-hover:text-accent
+							transition-colors duration-500"
 					>
 						{card.title}
 					</h3>
-					<p
-						class="mt-4 text-sm/6 text-text group-hover:text-white/80 transition-colors duration-200"
-					>
+					<p class="mt-4 text-sm/6 text-text group-hover:text-white transition-colors duration-500">
 						{card.body}
 					</p>
 
@@ -166,15 +169,15 @@ const { eyebrow, card, aside } = Astro.props as Props;
 											shrink-0 
 											size-4  [&_svg]:size-full 
 											text-accent group-hover:text-white 
-											transition-colors duration-200"
+											transition-colors duration-500"
 										aria-hidden="true"
 										set:html={checkIcon}
 									/>
 									<span
 										class="
 										text-sm/6 
-										text-text group-hover:text-white/80 
-										transition-colors duration-200"
+										text-text group-hover:text-white 
+										transition-colors duration-500"
 									>
 										{point}
 									</span>
@@ -189,14 +192,14 @@ const { eyebrow, card, aside } = Astro.props as Props;
 							pt-8
 							text-sm font-semibold
 							text-heading group-hover:text-accent
-							transition-colors duration-200"
+							transition-colors duration-500"
 					>
 						{card.cta.label}
 						<span
 							aria-hidden="true"
 							class="inline-block
 								group-hover:translate-x-1
-								transition-transform duration-200"
+								transition-transform duration-500"
 							>&rarr;</span
 						>
 					</p>
