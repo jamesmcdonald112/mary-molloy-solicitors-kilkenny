@@ -115,15 +115,8 @@ const { eyebrow, card, aside } = Astro.props as Props;
 				</div>
 
 				<div class="relative p-8 flex flex-col flex-1">
-					{/* Header row — number fades out, icon slides from right to centre */}
+					{/* Header row — icon slides from right to centre on hover */}
 					<div class="relative h-7">
-						<span
-							class="absolute left-0 top-1/2 -translate-y-1/2
-								text-sm font-semibold text-text-muted
-								opacity-100 group-hover:opacity-0
-								transition-opacity duration-500"
-							>01</span
-						>
 						<span
 							aria-hidden="true"
 							class="absolute right-0
