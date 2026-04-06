@@ -1,0 +1,207 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import checkIcon from "../../assets/icons/checkIcon.svg?raw";
+
+// A heading + body pair used in the aside key points list
+interface KeyPoint {
+	heading: string;
+	body: string;
+}
+
+interface Props {
+	eyebrow: string;
+	// Left column — introductory text and key points
+	aside: {
+		title: string;
+		intro: string;
+		keyPoints: readonly KeyPoint[];
+	};
+	// Right column — the featured service card
+	card: {
+		tag: string;
+		title: string;
+		body: string;
+		// Simple tick-list items
+		points: readonly string[];
+		cta: { label: string; href: string };
+		icon: string;
+		image: ImageMetadata;
+	};
+}
+
+const { eyebrow, card, aside } = Astro.props as Props;
+---
+
+<section class="py-16 lg:py-24">
+	<div class="container-page">
+		<div class="grid
+			grid-cols-1 lg:grid-cols-2
+			gap-12 lg:gap-16
+			items-stretch">
+			{/* ── Left: aside panel ───────────────────────────────── */}
+			<div>
+				<p class="eyebrow text-accent">{eyebrow}</p>
+				<h2 class="mt-2 section-heading">{aside.title}</h2>
+				<p class="mt-4 text-base/7 text-text-muted">{aside.intro}</p>
+
+				{/* Key points — heading + body pairs with accent dot */}
+				<dl class="mt-8 space-y-6">
+					{
+						aside.keyPoints.map((keyPoint) => (
+							<div class="flex gap-4">
+								{/* Bullet Point */}
+								<div
+									class="
+									mt-2 
+									shrink-0 
+									size-1.5 
+									rounded-full 
+									bg-accent"
+									aria-hidden="true"
+								/>
+								<div>
+									<dt class="text-sm font-semibold text-heading">{keyPoint.heading}</dt>
+									<dd class="mt-0.5 text-sm/6 text-text-muted">{keyPoint.body}</dd>
+								</div>
+							</div>
+						))
+					}
+				</dl>
+			</div>
+
+			{/* ── Right: featured service card ────────────────────── */}
+			<a
+				href={card.cta.href}
+				class="group relative overflow-hidden
+					flex flex-col
+					max-h-[520px]
+					border border-border hover:border-accent hover:rounded-2xl
+					shadow-lg hover:shadow-xl
+					hover:-translate-y-2
+					focus-ring
+					transition-all duration-200"
+			>
+				{/* Background image — whisper at rest, full on hover */}
+				<Image
+					src={card.image}
+					alt=""
+					aria-hidden="true"
+					class="absolute inset-0 size-full
+						object-cover object-bottom
+						opacity-40 group-hover:opacity-100
+						group-hover:animate-card-pan
+						transition-opacity duration-300"
+					widths={[600, 900, 1200]}
+					sizes="(min-width: 1024px) 50vw, 100vw"
+					loading="eager"
+					fetchpriority="high"
+				/>
+				{/* Bloom overlay — white radial gradient, fades out on hover */}
+				<div
+					class="absolute inset-0
+						card-bloom
+						opacity-90 group-hover:opacity-0
+						transition-opacity duration-300"
+				>
+				</div>
+				{/* Dark overlay — fades in on hover for text contrast */}
+				<div
+					class="absolute inset-0
+						bg-black/60
+						opacity-0 group-hover:opacity-100
+						transition-opacity duration-300"
+				>
+				</div>
+
+				<div class="relative p-8 flex flex-col flex-1">
+					{/* Header row — number + icon */}
+					<div class="flex items-center justify-between">
+						<span
+							class="text-sm font-semibold
+								text-text-muted group-hover:text-white
+								transition-colors duration-200"
+							>01</span
+						>
+						<span
+							aria-hidden="true"
+							class="inline-flex items-center justify-center
+								text-accent group-hover:text-white
+								[&_svg]:size-7
+								transition-colors duration-200"
+							set:html={card.icon}
+						/>
+					</div>
+
+					{/* Tag + title */}
+					<p
+						class="mt-4
+							text-xs font-semibold uppercase tracking-widest
+							text-accent group-hover:text-white/60
+							transition-colors duration-200"
+					>
+						{card.tag}
+					</p>
+					<h3
+						class="mt-1
+							text-2xl font-semibold tracking-tight
+							text-heading group-hover:text-white
+							transition-colors duration-200"
+					>
+						{card.title}
+					</h3>
+					<p
+						class="mt-4 text-sm/6 text-text group-hover:text-white/80 transition-colors duration-200"
+					>
+						{card.body}
+					</p>
+
+					{/* Tick list — simple string points */}
+					<ul class="mt-6 space-y-2.5">
+						{
+							card.points.map((point) => (
+								<li class="flex items-center gap-3">
+									<span
+										class="
+											shrink-0 
+											size-4  [&_svg]:size-full 
+											text-accent group-hover:text-white 
+											transition-colors duration-200"
+										aria-hidden="true"
+										set:html={checkIcon}
+									/>
+									<span
+										class="
+										text-sm/6 
+										text-text group-hover:text-white/80 
+										transition-colors duration-200"
+									>
+										{point}
+									</span>
+								</li>
+							))
+						}
+					</ul>
+
+					{/* CTA link — anchored to bottom */}
+					<p
+						class="mt-auto
+							pt-8
+							text-sm font-semibold
+							text-heading group-hover:text-accent
+							transition-colors duration-200"
+					>
+						{card.cta.label}
+						<span
+							aria-hidden="true"
+							class="inline-block
+								group-hover:translate-x-1
+								transition-transform duration-200"
+							>&rarr;</span
+						>
+					</p>
+				</div>
+			</a>
+		</div>
+	</div>
+</section>
