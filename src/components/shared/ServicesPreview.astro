@@ -20,7 +20,14 @@ const { eyebrow, title, services = allServices, bgClass = "" } = Astro.props;
 			<p class="eyebrow text-accent">{eyebrow}</p>
 			<h2 class="mt-2 section-heading">{title}</h2>
 		</div>
-		<ServiceCardsGrid services={services} />
+		{/* Show 3 on mobile, 4 at sm (2-col), 6 at lg (3-col) */}
+		<ServiceCardsGrid
+			services={services}
+			itemClass="
+			nth-[n+4]:hidden 
+			sm:nth-[n+4]:flex sm:nth-[n+5]:hidden 
+			lg:nth-[n+5]:flex"
+		/>
 		<div class="mt-10 text-center">
 			<a
 				href="/services"
