@@ -1,0 +1,72 @@
+---
+import { defaultCtaPanel, globalCtas } from "../../config/ctas";
+import ButtonLink from "../ui/ButtonLink.astro";
+
+interface Props {
+	title?: string;
+	body?: string;
+	variant?: "light" | "subtle" | "dark";
+}
+
+const {
+	title = defaultCtaPanel.title,
+	body = defaultCtaPanel.body,
+	variant = "light",
+} = Astro.props as Props;
+
+const sectionClass = {
+	light: "bg-white",
+	subtle: "bg-bg-brand-light",
+	dark: "bg-bg-brand-dark",
+}[variant];
+
+const headingClass = {
+	light: "text-heading",
+	subtle: "text-heading",
+	dark: "text-text-on-dark",
+}[variant];
+
+const bodyClass = {
+	light: "text-text-muted",
+	subtle: "text-text-muted",
+	dark: "text-text-muted-on-dark",
+}[variant];
+
+const primaryVariant = variant === "dark" ? "solid-inverse" : "solid";
+---
+
+<section class={`${sectionClass} py-24 sm:py-32`}>
+	<div class="px-6 lg:px-8">
+		<div class="mx-auto max-w-2xl text-center">
+			<h2 class={`text-4xl sm:text-5xl font-semibold tracking-tight text-balance ${headingClass}`}>
+				{title}
+			</h2>
+			<p class={`mx-auto mt-6 max-w-xl text-lg/8 text-pretty ${bodyClass}`}>
+				{body}
+			</p>
+			<div
+				class="mt-10
+        flex flex-col sm:flex-row
+        gap-4 sm:gap-x-6
+        sm:items-center sm:justify-center"
+			>
+				<ButtonLink
+					href={globalCtas.call.href}
+					variant="outline"
+					size="lg"
+					label={globalCtas.call.label}
+					icon={globalCtas.call.icon}
+					block={true}
+				/>
+				<ButtonLink
+					href={globalCtas.email.href}
+					variant={primaryVariant}
+					size="lg"
+					label={globalCtas.email.label}
+					endArrow={true}
+					block={true}
+				/>
+			</div>
+		</div>
+	</div>
+</section>
