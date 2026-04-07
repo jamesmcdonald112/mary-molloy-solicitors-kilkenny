@@ -3,7 +3,6 @@ export const nav = [
 	{ navLabel: "Services", href: "/services" },
 	{ navLabel: "About", href: "/about" },
 	{ navLabel: "Contact", href: "/contact" },
-	{ navLabel: "Test", href: "/test" },
 ];
 
 export const legalNav = [
