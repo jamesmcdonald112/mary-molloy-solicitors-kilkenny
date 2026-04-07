@@ -11,7 +11,7 @@ export const buyingAndSellingProperty = {
 	href: "/services/buying-and-selling-property",
 	icon: homeModernIcon,
 	image,
-	imageClass: "object-center",
+	imageClass: "object-[center_80%]",
 	description:
 		"Our property solicitors in Kilkenny guide you through every step of buying or selling a home — from reviewing contracts to managing completion. We protect your interests and keep your transaction moving at every stage.",
 	// --- SEO ---
@@ -28,7 +28,10 @@ export const buyingAndSellingProperty = {
 			"Buying or selling a home is one of the biggest decisions you will ever make. Our property solicitors in Kilkenny manage the full conveyancing process — from reviewing contracts and raising enquiries to handling completion and registration. We keep you informed at every step and make sure nothing is left to chance.",
 	},
 	// --- Mid-page CTA ---
-	midCta: ["Ready to move your property matter forward?", "Get in touch today."],
+	midCta: [
+		"Ready to move your property matter forward?",
+		"Get in touch today.",
+	],
 	// --- Bottom CTA ---
 	cta: {
 		title: "Ready to move your property matter forward?",
@@ -78,12 +81,30 @@ export const buyingAndSellingProperty = {
 			{
 				type: "list" as const,
 				items: [
-					{ label: "Contract review", text: "We read the contract in full, explain what it says, and raise any issues with the seller's solicitor before you sign anything." },
-					{ label: "Title investigation", text: "We investigate the title to the property — checking that the seller owns it outright, that there are no judgments or mortgages outstanding, and that the boundaries match what is on the ground." },
-					{ label: "Planning and compliance", text: "We check that any extensions, conversions, or structures on the property have the necessary planning permissions and certificates of compliance." },
-					{ label: "Mortgage and lender requirements", text: "We liaise with your lender, review the loan offer, and manage the drawdown of mortgage funds in time for completion." },
-					{ label: "Stamp duty", text: "We calculate and file your stamp duty return with Revenue and ensure payment is made on time — currently 1% on the first €1 million of residential property, 2% on the balance." },
-					{ label: "Land Registry registration", text: "We register your ownership with the Property Registration Authority so that your title is fully protected and recorded." },
+					{
+						label: "Contract review",
+						text: "We read the contract in full, explain what it says, and raise any issues with the seller's solicitor before you sign anything.",
+					},
+					{
+						label: "Title investigation",
+						text: "We investigate the title to the property — checking that the seller owns it outright, that there are no judgments or mortgages outstanding, and that the boundaries match what is on the ground.",
+					},
+					{
+						label: "Planning and compliance",
+						text: "We check that any extensions, conversions, or structures on the property have the necessary planning permissions and certificates of compliance.",
+					},
+					{
+						label: "Mortgage and lender requirements",
+						text: "We liaise with your lender, review the loan offer, and manage the drawdown of mortgage funds in time for completion.",
+					},
+					{
+						label: "Stamp duty",
+						text: "We calculate and file your stamp duty return with Revenue and ensure payment is made on time — currently 1% on the first €1 million of residential property, 2% on the balance.",
+					},
+					{
+						label: "Land Registry registration",
+						text: "We register your ownership with the Property Registration Authority so that your title is fully protected and recorded.",
+					},
 				],
 			},
 			{
@@ -101,11 +122,26 @@ export const buyingAndSellingProperty = {
 			{
 				type: "list" as const,
 				items: [
-					{ label: "Contracts and documentation", text: "We prepare the contracts for sale and all supporting documentation, including copies of the title, planning documents, and relevant certificates." },
-					{ label: "Responding to enquiries", text: "We deal with the buyer's solicitor's pre-contract and requisition queries promptly and professionally." },
-					{ label: "Mortgage discharge", text: "We obtain a redemption figure, arrange for the mortgage to be paid off on completion, and ensure the title deeds are released to the buyer's solicitor." },
-					{ label: "Completion and closing", text: "We manage the transfer of ownership documents and the release of sale proceeds, and confirm that the transaction has been properly closed." },
-					{ label: "Capital Gains Tax advice", text: "If you are selling a property that is not your principal private residence, a Capital Gains Tax liability may arise. We flag this issue early and can signpost you to appropriate tax advice." },
+					{
+						label: "Contracts and documentation",
+						text: "We prepare the contracts for sale and all supporting documentation, including copies of the title, planning documents, and relevant certificates.",
+					},
+					{
+						label: "Responding to enquiries",
+						text: "We deal with the buyer's solicitor's pre-contract and requisition queries promptly and professionally.",
+					},
+					{
+						label: "Mortgage discharge",
+						text: "We obtain a redemption figure, arrange for the mortgage to be paid off on completion, and ensure the title deeds are released to the buyer's solicitor.",
+					},
+					{
+						label: "Completion and closing",
+						text: "We manage the transfer of ownership documents and the release of sale proceeds, and confirm that the transaction has been properly closed.",
+					},
+					{
+						label: "Capital Gains Tax advice",
+						text: "If you are selling a property that is not your principal private residence, a Capital Gains Tax liability may arise. We flag this issue early and can signpost you to appropriate tax advice.",
+					},
 				],
 			},
 			{
@@ -127,8 +163,14 @@ export const buyingAndSellingProperty = {
 			{
 				type: "list" as const,
 				items: [
-					{ label: "Buyers", text: "Photo ID and proof of address (passport or driving licence), mortgage approval in principle, details of your deposit and its source (required for anti-money laundering purposes), your PPS number, and the name and contact details of the estate agent." },
-					{ label: "Sellers", text: "Photo ID and proof of address, your title deeds or folio number if you have it, details of your mortgage lender and account number, any planning permissions or certificates of compliance for works carried out, and a valid BER certificate (required by law before marketing a property for sale)." },
+					{
+						label: "Buyers",
+						text: "Photo ID and proof of address (passport or driving licence), mortgage approval in principle, details of your deposit and its source (required for anti-money laundering purposes), your PPS number, and the name and contact details of the estate agent.",
+					},
+					{
+						label: "Sellers",
+						text: "Photo ID and proof of address, your title deeds or folio number if you have it, details of your mortgage lender and account number, any planning permissions or certificates of compliance for works carried out, and a valid BER certificate (required by law before marketing a property for sale).",
+					},
 				],
 			},
 		],
@@ -209,7 +251,8 @@ export const buyingAndSellingProperty = {
 				"Yes. A Building Energy Rating (BER) certificate is required by law before you can market a property for sale or rent in Ireland. You must have one in place before we can include it in the contracts for sale. If you do not have one, you will need to arrange for a BER assessor to carry out an assessment of the property.",
 		},
 		{
-			question: "What is the difference between registered and unregistered title?",
+			question:
+				"What is the difference between registered and unregistered title?",
 			answer:
 				"Most properties in Ireland are now registered with the Property Registration Authority (PRA), which maintains a central register of ownership. Older properties may still have unregistered title, where ownership is proved by a chain of title deeds. Both are legally valid, but unregistered title requires a more detailed investigation and, where possible, we would recommend that it is converted to registered title as part of the transaction.",
 		},
