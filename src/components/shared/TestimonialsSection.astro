@@ -28,11 +28,14 @@ const reviews = await fetchReviews();
 					{reviews.map((review) => (
 						<li
 							class="
-							flex flex-col justify-between 
-							p-8 
-							rounded-2xl 
+							flex flex-col justify-between
+							p-8
+							rounded-2xl
 							ring-1 ring-border
-							shadow-sm"
+							shadow-sm
+							nth-[n+4]:hidden
+							sm:nth-[n+4]:flex sm:nth-[n+5]:hidden
+							lg:nth-[n+5]:flex lg:nth-[n+6]:hidden"
 						>
 							{/* Quote + text */}
 							<div>
