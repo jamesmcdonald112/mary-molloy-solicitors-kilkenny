@@ -1,9 +1,12 @@
 ---
-import CtaSection from "../components/shared/CtaSection.astro";
+import CtaPanel from "../components/shared/CtaPanel.astro";
 import OurTeamSection from "../components/shared/OurTeamSection.astro";
+import PageHero from "../components/shared/PageHero.astro";
+import ServicesPreview from "../components/shared/ServicesPreview.astro";
+import TestimonialsSection from "../components/shared/TestimonialsSection.astro";
 import TrustStrip from "../components/shared/TrustStrip.astro";
 import { aboutPageContent } from "../config/content/about";
-import { propertyPageContent } from "../config/content/property";
+import { allServices } from "../config/content/services-index";
 import { teamSectionContent } from "../config/content/team";
 import { firm } from "../config/firm";
 import { getLawFirmStructuredData } from "../config/structured-data";
@@ -13,17 +16,36 @@ const structuredData = getLawFirmStructuredData();
 ---
 
 <BaseLayout
-  title={`${aboutPageContent.seo.title} | ${firm.companyName}`}
-  description={aboutPageContent.seo.description}
-  canonicalPath={aboutPageContent.seo.canonicalPath}
-  ogType="website"
-  structuredData={structuredData}
+	title={`${aboutPageContent.seo.title} | ${firm.companyName}`}
+	description={aboutPageContent.seo.description}
+	canonicalPath={aboutPageContent.seo.canonicalPath}
+	ogType="website"
+	structuredData={structuredData}
 >
-  <TrustStrip
-    title={propertyPageContent.trustStrip.title}
-    columns={propertyPageContent.trustStrip.columns}
-    stats={propertyPageContent.trustStrip.stats}
-  />
-  <OurTeamSection teamSection={teamSectionContent} />
-  <CtaSection />
+	<PageHero
+		eyebrow={aboutPageContent.hero.eyebrow}
+		title={aboutPageContent.hero.title}
+		subtitle={aboutPageContent.hero.subtitle}
+		image={aboutPageContent.hero.image}
+		imageClass="object-[center_30%]"
+		overlayClass="bg-black/65"
+	/>
+
+	<TrustStrip
+		title={aboutPageContent.trustStrip.title}
+		paragraphs={aboutPageContent.trustStrip.paragraphs}
+		stats={aboutPageContent.trustStrip.stats}
+	/>
+
+	<OurTeamSection teamSection={teamSectionContent} />
+
+	<TestimonialsSection />
+
+	<ServicesPreview
+		eyebrow="What We Do"
+		title="Our Core Services"
+		services={allServices.slice(0, 6)}
+	/>
+
+	<CtaPanel variant="subtle" />
 </BaseLayout>
