@@ -17,6 +17,8 @@ export const firm = {
 		country: "Ireland",
 		googleMapDirectionsHref:
 			"https://www.google.com/maps/dir/?api=1&destination=2+Rose+Inn+St,+Kilkenny,+R95+W58D",
+		googleMapsProfileHref:
+			"https://www.google.com/maps/place/Mary+Molloy+Solicitors/@52.6515721,-7.2510081,17z/data=!3m1!4b1!4m6!3m5!1s0x485d309e31433479:0x7dfb1c8650009ac1!8m2!3d52.6515721!4d-7.2510081!16s%2Fg%2F1q62dzkxm?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D",
 	},
 
 	officeHours: {
