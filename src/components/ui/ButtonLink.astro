@@ -3,8 +3,7 @@ type Variant =
 	| "solid"
 	| "solid-accent"
 	| "solid-inverse"
-	| "outline"
-	| "ghost-dark";
+	| "outline";
 type Size = "sm" | "md" | "lg";
 
 interface ButtonLinkProps {
@@ -87,11 +86,6 @@ const variants: Record<Variant, string> = {
 		border-white         hover:border-accent-hover
 	`,
 
-	"ghost-dark": `
-		bg-transparent
-		text-text-on-dark hover:text-accent
-		border-transparent
-	`,
 };
 
 const classes = [group, base, sizes[size], width, variants[variant], className]
