@@ -47,7 +47,7 @@
 
 /* Large responsive serif heading */
 @utility section-heading {
-	@apply font-serif text-4xl sm:text-5xl font-semibold tracking-tight text-pretty text-heading;
+	@apply font-serif text-4xl sm:text-5xl leading-tight font-semibold tracking-tight text-pretty text-heading;
 }
 
 

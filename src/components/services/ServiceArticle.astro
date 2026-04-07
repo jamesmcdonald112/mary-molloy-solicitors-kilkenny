@@ -1,8 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
 import checkCircleIcon from "../../assets/icons/checkCircleIcon.svg?raw";
-import QuoteMark from "../ui/QuoteMark.astro";
+import QuoteFigure from "../ui/QuoteFigure.astro";
 
 type Block =
 	| { type: "paragraph"; text: string }
@@ -28,101 +27,50 @@ const { eyebrow, title, intro, blocks, quote } = Astro.props as Props;
 
 <div class="py-16 sm:py-24">
 	<div class="container-page">
-		{/* ── Header: eyebrow, title, intro ───────────────────────── */}
+		{/* ── Header: eyebrow and title ───────────────────────────── */}
 		{eyebrow && <p class="eyebrow text-text-accent">{eyebrow}</p>}
 		<h2 class="mt-3 section-heading">{title}</h2>
-		{intro && <p class="mt-6 text-base/7 text-text max-w-3xl">{intro}</p>}
 
-		{/* ── Body: two-column grid (quote sidebar + content blocks) ─ */}
-		{/* On mobile: quote appears first (after intro), then content  */}
-		{/* On desktop (lg): content left col-8, quote right col-4     */}
+		{/* ── Body: two-column grid ────────────────────────────────── */}
+		{/* Desktop: content left col-7, quote right col-5             */}
+		{/* Mobile: intro → quote → blocks                             */}
 		<div
 			class={`
-				mx-auto
-				mt-10 lg:mt-0
+				mt-10
 				grid
 				grid-cols-1 ${quote ? "lg:grid-cols-12" : ""}
 				gap-x-12 gap-y-10`}
 		>
-			{/* ── Quote sidebar (optional) ─────────────────────────── */}
-			{/* Comes first in markup so it sits under the intro on mobile */}
-			{/* lg:order-2 pushes it to the right column on desktop      */}
-			{
-				quote && (
-					// Sticky sidebar — right column on desktop, stacked under intro on mobile
-					<aside
-						class="
-							lg:order-2 lg:self-start
-							lg:col-span-4
-							lg:sticky
-							lg:top-24
-							lg:pt-16"
-					>
-						<figure class="border-l-2 border-accent pl-8">
-							{/* Large decorative opening quote mark */}
-							<QuoteMark />
-							{/* Quote text */}
-							<blockquote
-								class="
-								mt-2
-								text-xl/8 font-semibold tracking-tight
-								text-text-muted text-pretty italic"
-							>
-								<p>{quote.text}</p>
-							</blockquote>
-							{/* Attribution — only renders if name or image is provided */}
-							{(quote.attribution || quote.image) && (
-								<figcaption class="mt-6 flex items-center gap-3">
-									{/* Person image */}
-									{quote.image && (
-										<Image
-											src={quote.image}
-											alt={quote.attribution ?? ""}
-											class="size-10 rounded-full object-cover flex-none"
-										/>
-									)}
-									{/* Person name / title */}
-									{quote.attribution && (
-										<span class="text-sm/6 text-text-muted">{quote.attribution}</span>
-									)}
-								</figcaption>
-							)}
-						</figure>
-					</aside>
-				)
-			}
-
-			{/* ── Content blocks ───────────────────────────────────── */}
-			{/* lg:order-1 keeps this left on desktop regardless of markup order */}
+			{/* ── Content column ───────────────────────────────────── */}
 			<div
 				class={`
-					lg:order-1 
-					${quote ? "lg:col-span-8" : "max-w-2xl"}
-					space-y-6 
+					${quote ? "lg:col-span-7" : "max-w-2xl"}
+					space-y-8
 					text-base/7 text-text`}
 			>
+				{intro && <p class="text-base/7 text-text">{intro}</p>}
+
+				{/* Quote — mobile only, inline after intro */}
+				{
+					quote && (
+						<aside class="lg:hidden">
+							<QuoteFigure text={quote.text} attribution={quote.attribution} image={quote.image} />
+						</aside>
+					)
+				}
+
 				{
 					blocks.map((block) => {
-						// Plain paragraph
 						if (block.type === "paragraph") {
 							return <p class="text-text">{block.text}</p>;
 						}
 
-						// Section subheading
 						if (block.type === "heading") {
 							return (
-								<h3
-									class="
-									mt-10
-									text-2xl
-									font-semibold tracking-tight text-heading"
-								>
-									{block.text}
-								</h3>
+								<h3 class="text-2xl font-semibold tracking-tight text-heading">{block.text}</h3>
 							);
 						}
 
-						// Bulleted list — items can have an optional bold label
 						if (block.type === "list") {
 							return (
 								<ul role="list" class="mt-2 space-y-4">
@@ -130,12 +78,7 @@ const { eyebrow, title, intro, blocks, quote } = Astro.props as Props;
 										<li class="flex gap-x-3">
 											<span
 												aria-hidden="true"
-												class="
-													mt-1 
-													shrink-0 
-													size-5 [&>svg]:size-5 
-													[&>svg]:fill-current 
-													text-success"
+												class="mt-1 shrink-0 size-5 [&>svg]:size-5 [&>svg]:fill-current text-success"
 												set:html={checkCircleIcon}
 											/>
 											<span>
@@ -152,6 +95,15 @@ const { eyebrow, title, intro, blocks, quote } = Astro.props as Props;
 					})
 				}
 			</div>
+
+			{/* ── Quote sidebar — desktop only, right column ───────── */}
+			{
+				quote && (
+					<aside class="hidden lg:block lg:col-span-5 lg:self-start lg:sticky lg:top-24">
+						<QuoteFigure text={quote.text} attribution={quote.attribution} image={quote.image} />
+					</aside>
+				)
+			}
 		</div>
 	</div>
 </div>
