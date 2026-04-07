@@ -17,7 +17,7 @@ const { faqs } = Astro.props as Props;
 <section class="py-16 sm:py-24">
 	<div class="container-page">
 		<div class="mx-auto max-w-4xl">
-			<h2 class="text-4xl font-semibold tracking-tight text-text sm:text-5xl">
+			<h2 class="section-heading">
 				Frequently asked questions
 			</h2>
 			<div class="mt-12 divide-y divide-border">
@@ -34,7 +34,7 @@ const { faqs } = Astro.props as Props;
 								cursor-pointer
 								focus-ring"
 							>
-								<span class="text-base/7 font-semibold text-text">{faq.question}</span>
+								<span class="text-base/7 font-semibold text-text group-hover:text-accent transition-colors duration-200">{faq.question}</span>
 								<span class="ml-6 flex h-7 items-center text-accent">
 									<span
 										aria-hidden="true"
