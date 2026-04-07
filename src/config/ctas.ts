@@ -1,7 +1,7 @@
 import phoneIcon from "../assets/ctas/phoneIcon.svg?raw";
 import { firm } from "./firm";
 
-export const defaultCtaSection = {
+export const defaultCtaPanel = {
 	title: "Need legal guidance you can rely on?",
 	body: "Speak with our team for clear, practical support tailored to your matter.",
 } as const;
