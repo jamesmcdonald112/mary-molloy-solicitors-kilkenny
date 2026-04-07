@@ -1,7 +1,9 @@
 # TODO
 
 ## Pages — remaining work
+- [ ] **Google Maps (embedded)** — the footer already has a "Get directions" link which covers basic UX and local SEO signals. Optionally, embed a map on the Contact page for a richer experience — but only once cookie consent is set up, as embedded Google Maps set tracking cookies and require explicit user consent under GDPR. OpenStreetMap is a GDPR-safe alternative that needs no consent banner.
 - [ ] Testimonials — add a section to the homepage and consider a standalone page; source reviews from Google Business Profile (see note below)
+- [ ] Add review filtering to `firm.ts` — allow excluding specific reviews by author name (e.g. `googleReviews: { excludeAuthors: ["John Smith"] }`) and update `fetchReviews.ts` to apply the filter
 
 > **Business Place ID:** `ChIJeTRDMZ4wXUgRwZoAUIYc-30`
 >
@@ -22,6 +24,7 @@
 
 - [ ] About Us page — needs building
 - [ ] Homepage — needs building (also needs a hero image)
+- [ ] **Conveyancing fee structure** — confirm with Mary whether the firm offers fixed-fee conveyancing (single set price per transaction) or variable fees (depend on complexity). This is the single biggest conversion driver for property solicitors in Ireland. If fixed fee is offered, add it prominently to the homepage hero and property page. If variable, use language like "transparent fees, explained upfront." Currently the homepage uses placeholder language — update `src/config/content/home.ts` hero subtitle and the `FeaturedService` section copy once confirmed.
 - [ ] Review all service slug pages — make sure content and layout are complete
 - [ ] Property page — decide whether to fold into `/services/[slug]` pattern or keep as standalone
 
@@ -40,12 +43,19 @@
 ## Content & Config
 - [ ] Replace placeholder email in `src/config/firm.ts` — currently `info@YOURDOMAIN.ie`
 - [ ] Update `siteUrl` in `src/config/firm.ts` — currently points to the Netlify test URL
+- [ ] **Content audit — all config files** — go through every content config file (`src/config/content/`, `src/config/services/`) and:
+  - Fix `capitalize` CSS on `CtaBanner` headings — remove the class and write strings in correct title case (short words like "a", "or", "and", "the", "to", "of" should not be capitalised)
+  - Convert all copy to British English spelling (e.g. "analyse" not "analyze", "licence" not "license", "practise" not "practice" for the verb)
+  - Verify all claims comply with Irish advertising law and the Law Society of Ireland's advertising guidelines — no "best", "leading", "specialist" (unless accredited), "guaranteed outcomes", or testimonials that imply a specific result
+  - Review copy against best practices for converting legal service clients — clear outcomes, plain English, empathy-led, action-oriented CTAs
+  - Review and optimise for Irish legal SEO keywords — location + service combinations (e.g. "solicitor Kilkenny", "personal injury claims Ireland"), and long-tail terms clients actually search
 
 ## Font experiment
 - [ ] Settle on final heading/body font pairing (currently Merriweather + Open Sans)
 
 ## Accessibility
 - [ ] Check alt text for service hero images — currently `alt=""` (decorative) on card hover images and hero backgrounds; confirm this is correct or add descriptive alt where needed
+- [ ] Consider triggering the card hover state on focus — so keyboard users see the same image/overlay reveal as mouse users (use `focus-within:` variants alongside `group-hover:` in `ServiceCardsGrid.astro` and `FeaturedService.astro`)
 
 ## Cleanup
 - [ ] Delete `src/sections/` — contains the old placeholder hero layout (`HeroTailwind.astro`), not part of the real site
