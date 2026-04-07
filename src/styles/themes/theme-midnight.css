@@ -8,7 +8,7 @@
 @theme {
 	/* --- Backgrounds --- */
 	--color-bg: var(--white);
-	--color-bg-alt: var(--grey-100);
+	--color-bg-alt: var(--grey-50);
 	--color-bg-brand-light: var(--brand-50);
 	--color-bg-header: var(--brand-800);
 	--color-bg-brand-dark: var(--brand-600);
