@@ -2,6 +2,7 @@
 import { firm } from "../../config/firm";
 import { fetchReviews } from "../../features/reviews/service/fetchReviews";
 import starIcon from "../../assets/icons/starIcon.svg?raw";
+import QuoteMark from "../ui/QuoteMark.astro";
 
 const reviews = await fetchReviews();
 ---
@@ -39,16 +40,8 @@ const reviews = await fetchReviews();
 						>
 							{/* Quote + text */}
 							<div>
-								<span
-									class="
-										font-serif 
-										text-6xl leading-none text-heading 
-										select-none"
-									aria-hidden="true"
-								>
-									&ldquo;
-								</span>
-								<p class="mt-2 text-sm/6 text-text">{review.text}</p>
+								<QuoteMark />
+								<p class="mt-2 text-sm/6 text-text italic">{review.text}</p>
 							</div>
 
 							{/* Stars + author */}
