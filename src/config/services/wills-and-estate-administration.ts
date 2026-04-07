@@ -1,5 +1,6 @@
 import documentTextIcon from "../../assets/icons/documentTextIcon.svg?raw";
 import image from "../../assets/images/new/envelope-with-wax-seal.webp";
+import maryImage from "../../assets/team/maryCropped.webp";
 import { firm } from "../firm";
 
 export const willsAndEstateAdministration = {
@@ -56,7 +57,11 @@ export const willsAndEstateAdministration = {
 		title: "Protecting your family's future",
 		intro:
 			"A valid, clearly drafted will is the single most effective step you can take to ensure your assets go to the right people and your wishes are respected. Without one, Irish law decides who inherits — and the outcome may not reflect what you would have chosen. Our Kilkenny solicitors advise on all aspects of wills, enduring powers of attorney, and the administration of estates.",
-		quote: undefined,
+		quote: {
+			text: "People often put off making a will because it feels like a difficult thing to face. But getting it done gives you real peace of mind — you know your family is protected and your wishes will be respected.",
+			attribution: "Mary Molloy, Principal Solicitor",
+			image: maryImage,
+		},
 		blocks: [
 			{
 				type: "paragraph" as const,

@@ -1,5 +1,6 @@
 import banknotesIcon from "../../assets/icons/banknotesIcon.svg?raw";
 import image from "../../assets/images/new/calculator-and-finances.webp";
+import richardImage from "../../assets/team/richard.webp";
 import { firm } from "../firm";
 
 export const debtCollection = {
@@ -56,7 +57,11 @@ export const debtCollection = {
 		title: "Recovering what you are owed",
 		intro:
 			"Unpaid invoices and outstanding debts are a serious problem — financially and operationally — for businesses and individuals alike. Our Kilkenny solicitors take a structured, prompt approach to debt recovery: formal demand letters, court proceedings where necessary, and enforcement of judgments to achieve actual payment.",
-		quote: undefined,
+		quote: {
+			text: "A solicitor's letter changes the dynamic immediately. Most people who have been ignoring invoices take it seriously — and in many cases that is all it takes to get paid without any court involvement.",
+			attribution: "Richard O'Shea, Solicitor",
+			image: richardImage,
+		},
 		blocks: [
 			{
 				type: "paragraph" as const,

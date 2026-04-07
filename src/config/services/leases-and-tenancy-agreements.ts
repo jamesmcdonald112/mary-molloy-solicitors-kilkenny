@@ -1,5 +1,6 @@
 import buildingIcon from "../../assets/icons/buildingIcon.svg?raw";
 import image from "../../assets/images/new/house-key-on-wooden-table.webp";
+import richardImage from "../../assets/team/richard.webp";
 import { firm } from "../firm";
 
 export const leasesAndTenancyAgreements = {
@@ -59,7 +60,11 @@ export const leasesAndTenancyAgreements = {
 		title: "Know your rights before you sign",
 		intro:
 			"Whether you are letting a property for the first time or moving into a new home, getting proper legal advice before signing a lease can prevent serious problems later. Our Kilkenny solicitors advise both landlords and tenants on their rights and obligations under the Residential Tenancies Act, and represent clients in Residential Tenancies Board proceedings when disputes arise.",
-		quote: undefined,
+		quote: {
+			text: "A five-minute review of a lease before you sign can save months of dispute afterwards. Landlord and tenant law in Ireland has changed a lot in recent years — it is worth understanding your rights before you commit.",
+			attribution: "Richard O'Shea, Solicitor",
+			image: richardImage,
+		},
 		blocks: [
 			{
 				type: "paragraph" as const,

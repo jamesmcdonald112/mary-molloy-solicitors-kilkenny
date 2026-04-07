@@ -1,5 +1,6 @@
 import shieldExclamationIcon from "../../assets/icons/shieldExclamationIcon.svg?raw";
 import image from "../../assets/images/new/lady-justice-and-gavel-on-desk.webp";
+import richardImage from "../../assets/team/richard.webp";
 import { firm } from "../firm";
 
 export const personalInjuryLitigation = {
@@ -56,7 +57,11 @@ export const personalInjuryLitigation = {
 		title: "Understanding your right to compensation",
 		intro:
 			"If you have been injured through the negligence of another person or organisation, Irish law entitles you to seek compensation. Understanding what you can claim for, how the process works, and what to expect at each stage makes a real difference to how a claim progresses. Our Kilkenny solicitors handle personal injury claims from initial assessment through to settlement or trial.",
-		quote: undefined,
+		quote: {
+			text: "We always give clients an honest assessment from the start — including if we think a claim is unlikely to succeed. People deserve straight answers, not false hope.",
+			attribution: "Richard O'Shea, Solicitor",
+			image: richardImage,
+		},
 		blocks: [
 			{
 				type: "heading" as const,

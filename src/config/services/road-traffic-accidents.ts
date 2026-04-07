@@ -1,5 +1,6 @@
 import truckIcon from "../../assets/icons/truckIcon.svg?raw";
 import image from "../../assets/images/new/aerial-view-of-country-road.webp";
+import nicholasImage from "../../assets/team/nicholas.webp";
 import { firm } from "../firm";
 
 export const roadTrafficAccidents = {
@@ -59,7 +60,11 @@ export const roadTrafficAccidents = {
 		title: "What to do after a road traffic accident",
 		intro:
 			"The steps you take in the hours and days after a road traffic accident can have a real impact on your ability to bring a successful claim. Our Kilkenny solicitors advise injured road users on their rights and manage the full claims process — from the initial PIAB application through to settlement or court proceedings.",
-		quote: undefined,
+		quote: {
+			text: "Insurance companies deal with claims every day — most people don't. Getting legal advice early levels the playing field and makes a real difference to how a claim progresses.",
+			attribution: "Nicholas O'Shea, Solicitor",
+			image: nicholasImage,
+		},
 		blocks: [
 			{
 				type: "heading" as const,

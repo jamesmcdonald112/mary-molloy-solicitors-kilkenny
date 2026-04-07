@@ -1,5 +1,6 @@
 import briefcaseIcon from "../../assets/icons/briefcaseIcon.svg?raw";
 import image from "../../assets/images/new/person-signing-document-at-desk.webp";
+import nicholasImage from "../../assets/team/nicholas.webp";
 import { firm } from "../firm";
 
 export const employmentLaw = {
@@ -59,7 +60,11 @@ export const employmentLaw = {
 		title: "Your rights in the workplace",
 		intro:
 			"Irish employment law gives employees significant protections — but knowing when those protections apply, how to use them, and how to do so before the time limit runs out is not straightforward. Our Kilkenny employment solicitors advise employees and employers on unfair dismissal, redundancy, discrimination, workplace rights, and WRC proceedings.",
-		quote: undefined,
+		quote: {
+			text: "The six-month deadline for WRC complaints catches a lot of people out. If you think you have been dismissed or treated unfairly at work, the most important thing is to take advice quickly — before the clock runs out.",
+			attribution: "Nicholas O'Shea, Solicitor",
+			image: nicholasImage,
+		},
 		blocks: [
 			{
 				type: "paragraph" as const,

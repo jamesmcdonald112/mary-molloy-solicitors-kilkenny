@@ -1,5 +1,6 @@
 import homeIcon from "../../assets/icons/homeIcon.svg?raw";
 import image from "../../assets/images/new/hands-holding-family-figurines.webp";
+import nicholasImage from "../../assets/team/nicholas.webp";
 import { firm } from "../firm";
 
 export const familyAndChildcareLaw = {
@@ -59,7 +60,11 @@ export const familyAndChildcareLaw = {
 		title: "Legal support through life's most difficult moments",
 		intro:
 			"Family law matters involve decisions that will shape your life and the lives of your children for years to come. Our Kilkenny solicitors provide clear legal advice and steady support throughout separation, divorce, guardianship, and childcare proceedings — always focused on helping you reach a resolution that works.",
-		quote: undefined,
+		quote: {
+			text: "Family law matters are rarely just legal problems — they involve real people going through genuinely hard times. Our job is to give clear advice and steady support so clients can make good decisions, even in difficult circumstances.",
+			attribution: "Nicholas O'Shea, Solicitor",
+			image: nicholasImage,
+		},
 		blocks: [
 			{
 				type: "paragraph" as const,
