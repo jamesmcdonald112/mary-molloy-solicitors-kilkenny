@@ -1,5 +1,4 @@
 ---
-
 import checkCircleIcon from "../../assets/icons/checkCircleIcon.svg?raw";
 
 type Block =
@@ -19,18 +18,9 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
 ---
 
 <div class="px-6 lg:px-8
-  py-16 sm:py-24
-  bg-bg-brand-light">
+  py-16 sm:py-24">
 	<div class="mx-auto max-w-3xl">
-		{
-			eyebrow && (
-				<p
-					class="eyebrow text-text-accent"
-				>
-					{eyebrow}
-				</p>
-			)
-		}
+		{eyebrow && <p class="eyebrow text-text-accent">{eyebrow}</p>}
 
 		<h2 class="mt-3 section-heading">
 			{title}
@@ -90,9 +80,7 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
 									<p>"{block.quote}"</p>
 								</blockquote>
 								{block.attribution && (
-									<figcaption class="mt-4 text-sm/6 text-text">
-										{block.attribution}
-									</figcaption>
+									<figcaption class="mt-4 text-sm/6 text-text">{block.attribution}</figcaption>
 								)}
 							</figure>
 						);
