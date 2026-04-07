@@ -8,16 +8,15 @@ interface Stat {
 
 interface Props {
 	title: string;
-	columns: readonly [readonly [string, string], readonly [string, string]];
+	paragraphs: readonly [string, string, string, string];
 	stats: readonly Stat[];
 }
 
-const { title, columns, stats } = Astro.props as Props;
+const { title, paragraphs, stats } = Astro.props as Props;
 ---
 
 <!-- bg -->
-<div class="py-16 sm:py-24
-  bg-bg-brand-light">
+<div class="py-16 sm:py-24">
 	<div class="mx-auto
     max-w-7xl
     px-6 lg:px-8">
@@ -32,48 +31,40 @@ const { title, columns, stats } = Astro.props as Props;
 				{title}
 			</h2>
 
-			<!-- Two-column prose: columns is a 2x2 tuple [col1para1, col1para2], [col2para1, col2para2] -->
-			<!-- items-stretch + flex flex-col + justify-between keeps both columns the same height -->
+			<!-- Two-column prose laid out as a flat 2x2 grid so row tops align across columns -->
 			<div
 				class="mt-10
 					max-w-xl lg:max-w-none
 					grid
 					grid-cols-1 lg:grid-cols-2
-					lg:items-stretch
-					gap-8
+					gap-x-8 gap-y-6
 					text-base/7 text-text"
 			>
-				{
-					columns.map((col) => (
-						<div
-							class="
-							flex flex-col justify-between gap-8"
-						>
-							{col.map((para) => (
-								<p>{para}</p>
-							))}
-						</div>
-					))
-				}
+				{paragraphs.map((para) => <p>{para}</p>)}
 			</div>
 
 			<!-- Stats: 1 col mobile, 2 col sm, 4 col lg -->
 			<!-- each stat: { value (large), label (small) } with accent left border -->
 			<dl
-				class="mt-16 sm:mt-20 lg:mt-28
+				class="mt-14 sm:mt-16
 					grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
-					gap-x-8
+					gap-x-12
 					gap-y-12 sm:gap-y-16"
 			>
 				{
 					stats.map((stat) => (
 						<div
 							class="
-							flex flex-col gap-y-3 
+							flex flex-col gap-y-3
 							pl-6
 							border-l-2 border-accent"
 						>
-							<dd class="text-3xl font-semibold tracking-tight text-text">{stat.value}</dd>
+							<dd
+								class="
+								text-3xl font-semibold tracking-tight text-heading"
+							>
+								{stat.value}
+							</dd>
 							<dt class="text-base/7 text-text">{stat.label}</dt>
 						</div>
 					))
