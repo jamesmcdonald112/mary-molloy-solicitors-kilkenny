@@ -43,7 +43,7 @@ const { eyebrow, card, aside } = Astro.props as Props;
 			<div>
 				<p class="eyebrow text-accent">{eyebrow}</p>
 				<h2 class="mt-2 section-heading">{aside.title}</h2>
-				<p class="mt-4 text-base/7 text-text-muted">{aside.intro}</p>
+				<p class="mt-4 text-base/7 text-text">{aside.intro}</p>
 
 				{/* Key points — heading + body pairs with accent dot */}
 				<dl class="mt-8 space-y-6">
@@ -62,7 +62,7 @@ const { eyebrow, card, aside } = Astro.props as Props;
 								/>
 								<div>
 									<dt class="text-sm font-semibold text-heading">{keyPoint.heading}</dt>
-									<dd class="mt-0.5 text-sm/6 text-text-muted">{keyPoint.body}</dd>
+									<dd class="mt-0.5 text-sm/6 text-text">{keyPoint.body}</dd>
 								</div>
 							</div>
 						))
