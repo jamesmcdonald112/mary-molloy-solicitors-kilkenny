@@ -26,10 +26,10 @@ const { eyebrow, title, intro, blocks } = Astro.props as Props;
 			{title}
 		</h2>
 
-		{intro && <p class="mt-6 text-xl/8 text-text">{intro}</p>}
+		{intro && <p class="mt-6 text-base/7 text-text">{intro}</p>}
 
 		{/* --- Blocks --- renders each block in order based on its type */}
-		<div class="mt-10 max-w-2xl space-y-6">
+		<div class="mt-6 max-w-2xl space-y-6">
 			{
 				blocks.map((block) => {
 					// Plain paragraph
