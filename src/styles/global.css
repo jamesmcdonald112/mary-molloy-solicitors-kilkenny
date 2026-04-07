@@ -1,4 +1,4 @@
-/* ── FONTS (self-hosted via Fontsource — no Google Fonts network request) ── */
+/* Self-hosted via Fontsource — no Google Fonts network request */
 @import "@fontsource/merriweather/700.css";
 @import "@fontsource/merriweather/400-italic.css";
 @import "@fontsource/open-sans/400.css";
@@ -6,36 +6,70 @@
 
 @import "./reset.css";
 @import "./tokens.css";
-
-/* ── THEME ──────────────────────────────────────────────────── */
 @import "./themes/theme-midnight.css";
 
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* ── UTILITIES ───────────────────────────────────────────────── */
 
-/* Focus ring — keyboard navigation outline for buttons and links */
+/* ─────────────────────────────────────────────────────────────────────────────
+   FOCUS UTILITIES
+   Reusable focus-visible outlines for keyboard navigation
+───────────────────────────────────────────────────────────────────────────── */
+
 @utility focus-ring {
 	@apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
 }
 
-/* Focus ring for form inputs */
 @utility focus-ring-input {
 	@apply outline-1 -outline-offset-1 outline-input hover:outline-accent focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring;
 }
 
-/* Page container — centred, max-width, responsive side padding */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   LAYOUT UTILITIES
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Centred, max-width, responsive side padding */
 @utility container-page {
 	@apply mx-auto max-w-7xl px-6 lg:px-8;
 }
 
-/* Eyebrow — small caps label above section headings */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TYPOGRAPHY UTILITIES
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Small caps label above section headings */
 @utility eyebrow {
 	@apply text-sm font-semibold uppercase tracking-widest;
 }
 
-/* Section heading — large responsive heading */
+/* Large responsive serif heading */
 @utility section-heading {
-	@apply font-serif text-4xl sm:text-5xl font-semibold tracking-tight text-pretty text-text;
+	@apply font-serif text-4xl sm:text-5xl font-semibold tracking-tight text-pretty text-heading;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ANIMATION UTILITIES
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Slow Ken Burns drift used on service card hover images */
+@keyframes card-pan {
+	0%   { transform: scale(1)    translate(0%, 0%); }
+	33%  { transform: scale(1.05) translate(-3%, -2%); }
+	66%  { transform: scale(1.08) translate(2%, -1%); }
+	100% { transform: scale(1.08) translate(0%, 0%); }
+}
+
+@utility animate-card-pan {
+	@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+		animation: card-pan 10s ease-in-out forwards;
+	}
+}
+
+/* Soft white radial gradient from the bottom-right corner of a card */
+@utility card-bloom {
+	background: radial-gradient(ellipse 120% 120% at 100% 100%, transparent 35%, white 62%);
 }
