@@ -1,9 +1,9 @@
 ---
-import { globalCtas } from "../../config/ctas";
 import { homePageContent } from "../../config/content/home";
+import { globalCtas } from "../../config/ctas";
 import ButtonLink from "../ui/ButtonLink.astro";
 
-const { eyebrow, title, subtitle } = homePageContent.hero;
+const { eyebrow, title, subtitle, ctas } = homePageContent.hero;
 ---
 
 <div
@@ -57,18 +57,18 @@ const { eyebrow, title, subtitle } = homePageContent.hero;
 
 			<div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-x-4">
 				<ButtonLink
-					href={globalCtas.call.href}
+					href={ctas.primary.href}
 					size="lg"
 					block={true}
-					label={globalCtas.call.label}
+					label={ctas.primary.label}
 					icon={globalCtas.call.icon}
 				/>
 				<ButtonLink
-					href="/services"
+					href={ctas.secondary.href}
 					variant="solid-inverse"
 					size="lg"
 					block={true}
-					label="Our services"
+					label={ctas.secondary.label}
 					endArrow={true}
 					class="text-black hover:text-text-on-accent"
 				/>
