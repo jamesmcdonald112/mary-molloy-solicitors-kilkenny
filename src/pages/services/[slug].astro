@@ -1,12 +1,12 @@
 ---
 import ServiceArticle from "../../components/services/ServiceArticle.astro";
-import ServiceHero from "../../components/services/ServiceHero.astro";
-import ServiceMidCta from "../../components/services/ServiceMidCta.astro";
+import CtaBanner from "../../components/shared/CtaBanner.astro";
+import PageHero from "../../components/shared/PageHero.astro";
 import ServiceProcess from "../../components/services/ServiceProcess.astro";
-import CtaSection from "../../components/shared/CtaSection.astro";
 import FaqSection from "../../components/shared/FaqSection.astro";
 import TrustStrip from "../../components/shared/TrustStrip.astro";
 import { services } from "../../config/services";
+import { firm } from "../../config/firm";
 import { getLawFirmStructuredData } from "../../config/structured-data";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
@@ -28,20 +28,25 @@ const structuredData = getLawFirmStructuredData();
 	ogType="website"
 	structuredData={structuredData}
 >
-	<ServiceHero title={service.hero.title} subtitle={service.hero.subtitle} image={service.image} imageClass={service.imageClass} />
+	<PageHero
+		title={service.hero.title}
+		subtitle={service.hero.subtitle}
+		image={service.image}
+		imageClass={service.imageClass}
+		eyebrow={`${service.tag} | ${firm.county}`}
+	/>
 	<ServiceArticle
 		eyebrow={service.article.eyebrow}
 		title={service.article.title}
 		intro={service.article.intro}
 		blocks={service.article.blocks}
 	/>
-	<ServiceMidCta heading={service.midCta} />
 	<ServiceProcess steps={service.process} />
 	<TrustStrip
 		title={service.trustStrip.title}
-		columns={service.trustStrip.columns}
+		paragraphs={service.trustStrip.paragraphs}
 		stats={service.trustStrip.stats}
 	/>
-	<CtaSection variant="dark" title={service.cta.title} body={service.cta.description} />
 	<FaqSection faqs={service.faqs} />
+	<CtaBanner heading={service.midCta} />
 </BaseLayout>
