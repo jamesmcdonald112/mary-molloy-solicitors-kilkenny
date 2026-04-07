@@ -1,51 +1,47 @@
 import documentTextIcon from "../../assets/icons/documentTextIcon.svg?raw";
-import image from "../../assets/images/new/wills-and-estate-administration.webp";
+import image from "../../assets/images/new/envelope-with-wax-seal.webp";
 import { firm } from "../firm";
 
 export const willsAndEstateAdministration = {
 	// --- Identity ---
 	title: "Wills & Estate Administration",
-	tag: "Wills & Probate",
+	tag: "Probate & Trusts",
 	slug: "wills-and-estate-administration",
 	href: "/services/wills-and-estate-administration",
 	icon: documentTextIcon,
 	image,
 	imageClass: "",
 	description:
-		"We advise on making a valid will, lasting powers of attorney, and the full administration of estates following bereavement. Our team guides executors and beneficiaries through the probate process with clarity and sensitivity.",
+		"We advise on making a valid will, enduring powers of attorney, and the full administration of estates following bereavement. Our Kilkenny solicitors guide executors and beneficiaries through the probate process with clarity and care.",
 	// --- SEO ---
 	seo: {
-		title: `Wills & Estate Administration Kilkenny | ${firm.companyName}`,
+		title: `Wills & Probate Solicitors Kilkenny | ${firm.companyName}`,
 		description:
-			"Expert advice on wills, probate, and estate administration in Kilkenny. Mary Molloy Solicitor guides you through every step with care and clarity.",
+			"Wills, probate and estate administration solicitors in Kilkenny. We help you make a valid will, advise on powers of attorney, and guide executors through the full probate process. Call (056) 776 5829.",
 		canonicalPath: "/services/wills-and-estate-administration",
 	},
 	// --- Hero ---
 	hero: {
-		title: "Wills & Estate Administration",
+		title: "Wills & Estate Administration in Kilkenny",
 		subtitle:
-			"Making a will is one of the most important steps you can take to protect your family's future. We also assist executors and beneficiaries with the full administration of estates, ensuring the process is handled carefully and efficiently.",
+			"Making a will is one of the most important steps you can take to protect your family and make sure your wishes are carried out. We also support executors and families through the full administration of an estate after bereavement — carefully, clearly, and at a pace that works for you.",
 	},
-	// --- Mid-page CTA (two lines rendered as <p> elements) ---
+	// --- Mid-page CTA ---
 	midCta: ["Questions about a will or estate?", "We're here to help."],
 	// --- Bottom CTA ---
 	cta: {
 		title: "Speak to a wills and probate solicitor today",
 		description:
-			"Whether you need to make or update a will, or you are dealing with the administration of an estate, we are here to help. Contact our Kilkenny team for clear, sensitive advice.",
+			"Whether you need to make or update a will, or you are dealing with the administration of an estate, our Kilkenny team is here to help. Contact us for clear, sensitive advice.",
 	},
-	// --- Trust strip (title, two 2-paragraph columns, stats) ---
+	// --- Trust strip ---
 	trustStrip: {
 		title: "Experienced wills and probate solicitors in Kilkenny",
-		columns: [
-			[
-				"Making a will or administering an estate requires careful attention to detail and a clear understanding of Irish succession law.",
-				"We have handled wills and estates of all sizes and complexities, from straightforward family arrangements to multi-jurisdictional estates with significant assets. Every client receives the same thorough, considered approach.",
-			],
-			[
-				"We understand that dealing with a bereavement is difficult, and we work to make the legal process as simple and stress-free as possible for executors and beneficiaries alike.",
-				"From your first consultation through to the final distribution of the estate, we keep you informed at every stage and deal with all third parties — the Probate Office, Revenue, and financial institutions — on your behalf.",
-			],
+		paragraphs: [
+			"We have been advising families in Kilkenny on wills and estate matters for over 46 years. Wills and probate are an area where getting the details right matters enormously — a poorly drafted will or a misstep in the administration process can cause significant difficulties for the people you leave behind.",
+			"We approach every wills and probate matter with care and thoroughness. Whether you are making your first will, updating an existing one, or dealing with the estate of a deceased family member, we take the time to understand your situation before advising you on the right approach.",
+			"Dealing with a bereavement is hard. We work to make the legal process as straightforward as possible for executors and beneficiaries — taking care of the paperwork, the Revenue filings, and the dealings with financial institutions so that families can focus on what matters.",
+			"We are members of the Law Society of Ireland. All wills and probate work is carried out by qualified solicitors at our office on Rose Inn Street, Kilkenny.",
 		],
 		stats: [
 			{ label: "Years in practice", value: "46+" },
@@ -54,97 +50,157 @@ export const willsAndEstateAdministration = {
 			{ label: "Focus area", value: "Wills & Probate" },
 		],
 	},
-	// --- Article (eyebrow, title, intro, blocks) ---
-	// block types: "paragraph" | "heading" | "list" | "blockquote"
+	// --- Article ---
 	article: {
 		eyebrow: "Wills & Probate",
 		title: "Protecting your family's future",
 		intro:
-			"A valid, clearly drafted will is the single most effective step you can take to ensure your assets reach the right people and your wishes are respected after your death. Our Kilkenny solicitors advise individuals and families across the full range of wills and estate administration matters.",
+			"A valid, clearly drafted will is the single most effective step you can take to ensure your assets go to the right people and your wishes are respected. Without one, Irish law decides who inherits — and the outcome may not reflect what you would have chosen. Our Kilkenny solicitors advise on all aspects of wills, enduring powers of attorney, and the administration of estates.",
+		quote: undefined,
 		blocks: [
 			{
-				type: "paragraph",
-				text: "Without a will, Irish law dictates who inherits your estate under the Succession Act 1965 — and the outcome may be very different from what you would have chosen. A will allows you to decide who benefits, in what shares, and on what terms. It also lets you appoint the executor you trust to carry out those wishes, and — if you have young children — to nominate guardians for them.",
+				type: "paragraph" as const,
+				text: "Without a will, your estate is distributed according to the Succession Act 1965 — a fixed legal formula that may bear little relation to your actual wishes. An unmarried partner has no automatic right to inherit under the intestacy rules. A close friend or a charity you care about receives nothing. Your assets go where the law directs, not where you would choose. A will puts you back in control.",
 			},
 			{
-				type: "paragraph",
-				text: "Our solicitors take the time to understand your full circumstances before drafting anything. We consider the composition of your family, the nature of your assets, and any particular concerns you have — such as providing for a dependant with additional needs or structuring gifts to minimise tax exposure. The result is a will that is precise, legally sound, and built to last.",
+				type: "paragraph" as const,
+				text: "Our solicitors take the time to understand your full circumstances before drafting anything. We consider your family structure, the nature and value of your assets, and any specific concerns you have — such as providing for a child with additional needs, making provision for a partner outside of marriage, or structuring gifts in a way that is tax-efficient. The result is a will that is precise, legally sound, and built to withstand challenge.",
 			},
 			{
-				type: "heading",
-				text: "Estate administration after bereavement",
+				type: "heading" as const,
+				text: "What a well-drafted will covers",
 			},
 			{
-				type: "paragraph",
-				text: "When a person dies, their estate generally cannot be distributed until a grant of probate (where there is a will) or letters of administration (where there is no will) has been obtained from the Probate Office. This process involves lodging the original will, an Inland Revenue Affidavit, and other documentation, and can be complex where the estate includes property, business interests, or assets in multiple jurisdictions.",
-			},
-			{
-				type: "paragraph",
-				text: "We act for executors and administrators throughout this process. We deal with the Revenue Commissioners, financial institutions, and the Probate Office on your behalf, keep beneficiaries informed, and ensure that assets are distributed correctly and in accordance with the will or the rules of intestacy. Where disputes arise between beneficiaries or creditors make claims against the estate, we advise on how to resolve them.",
-			},
-			{
-				type: "list",
+				type: "list" as const,
 				items: [
 					{
-						label: "Succession Act rights",
-						text: "A surviving spouse or civil partner has a legal right share of the estate that cannot be removed by will. Children also have the right to apply to court if they feel inadequately provided for. We advise executors on these obligations and how to manage them.",
+						label: "Who inherits",
+						text: "You decide who receives your assets and in what shares — whether that is a spouse, children, siblings, other family members, friends, or a charity. You can make specific gifts of particular items as well as a residuary gift of whatever remains.",
 					},
 					{
-						label: "Capital Acquisitions Tax",
-						text: "Inheritances above certain thresholds are subject to Capital Acquisitions Tax (CAT). The threshold depends on the relationship between the deceased and the beneficiary. We advise on the tax implications of your estate plan and help structure gifts and inheritances to make use of available reliefs.",
+						label: "Appointment of executor",
+						text: "Your executor is the person responsible for administering your estate — gathering assets, paying debts, and distributing what remains. Choosing the right person and making sure they are willing to act is an important part of making a will.",
 					},
 					{
-						label: "Foreign assets and property",
-						text: "If the deceased owned property abroad or held assets in another jurisdiction, additional steps are often required. We advise on the Irish aspects and liaise with overseas advisers where needed.",
+						label: "Guardianship of children",
+						text: "If you have children under the age of 18, your will is the place to nominate who you would wish to act as their guardian if both parents were to die. Without a nomination, the court decides.",
+					},
+					{
+						label: "Trusts for young beneficiaries",
+						text: "If you are leaving assets to children or grandchildren, a testamentary trust can ensure that the money is managed responsibly until they are old enough to receive it outright.",
+					},
+					{
+						label: "Tax planning",
+						text: "We consider the Capital Acquisitions Tax (CAT) implications of your estate plan and advise on how to structure gifts and inheritances to make the most of available thresholds and reliefs.",
 					},
 				],
 			},
+			{
+				type: "heading" as const,
+				text: "Estate administration after bereavement",
+			},
+			{
+				type: "paragraph" as const,
+				text: "When someone dies, their estate generally cannot be distributed until a grant of probate (where there is a will) or a grant of letters of administration (where there is no will) has been obtained from the Probate Office of the High Court. This is known as the administration of the estate, and it involves a number of steps — gathering information about the assets and liabilities, filing an Inland Revenue Affidavit with Revenue, lodging the application with the Probate Office, and ultimately distributing the estate in accordance with the will or the rules of intestacy.",
+			},
+			{
+				type: "paragraph" as const,
+				text: "We act for executors and administrators throughout this process. We deal with the Probate Office, Revenue, and financial institutions on your behalf, keep beneficiaries informed of progress, and ensure that assets are distributed correctly and in the right order. Where a property is to be sold or transferred as part of the estate, we handle the conveyancing as well.",
+			},
+			{
+				type: "list" as const,
+				items: [
+					{
+						label: "Succession Act rights",
+						text: "A surviving spouse or civil partner has a legal right share of the estate that cannot be removed by will — one half where there are no children, one third where there are. Children who feel inadequately provided for can apply to court under Section 117 of the Succession Act. We advise executors on these obligations and how to manage them correctly.",
+					},
+					{
+						label: "Capital Acquisitions Tax",
+						text: "Inheritances above certain thresholds are subject to Capital Acquisitions Tax (CAT) at 33%. The threshold depends on the relationship between the deceased and the beneficiary — currently €400,000 for children, €40,000 for other close relatives, and €20,000 for others. We advise on the tax position of the estate and of each beneficiary and ensure that the correct returns are filed with Revenue.",
+					},
+					{
+						label: "Insolvent estates",
+						text: "Where the deceased's debts exceed their assets, the estate is insolvent. In this situation, debts must be paid in a specific order of priority before any distribution to beneficiaries. We advise executors on how to manage this correctly and how to protect themselves from personal liability.",
+					},
+					{
+						label: "Contentious estates",
+						text: "Where disputes arise between beneficiaries, or where the validity of the will is challenged, we advise on the options available and, where necessary, represent clients in proceedings before the courts.",
+					},
+				],
+			},
+			{
+				type: "heading" as const,
+				text: "Enduring powers of attorney",
+			},
+			{
+				type: "paragraph" as const,
+				text: "An enduring power of attorney (EPA) allows you to appoint someone you trust to make decisions on your behalf if you ever lose the mental capacity to do so yourself. It is one of the most important legal documents a person can make — and one of the most commonly overlooked. Without one, if you lose capacity through illness, injury, or cognitive decline, your family may have no legal authority to manage your affairs and may need to apply to the courts for a wardship or decision-making representation order, which is a lengthy and expensive process.",
+			},
+			{
+				type: "paragraph" as const,
+				text: "Under the Assisted Decision-Making (Capacity) Act 2015, which came fully into force in April 2023, the previous EPA regime has been replaced by a new framework. New EPAs must now be registered with the Decision Support Service before they can be activated. We advise on the new requirements and can draft and register an EPA on your behalf.",
+			},
 		],
 	},
-	// --- Process steps (rendered as numbered timeline) ---
+	// --- Process steps ---
 	process: [
 		{
 			title: "Initial consultation",
 			description:
-				"We meet with you to understand your family situation, assets, and wishes. We explain your options and what a valid will requires under Irish law.",
+				"We meet with you to understand your family situation, your assets, and your wishes. We explain what a valid will requires under Irish law, discuss your options, and answer any questions you have.",
 		},
 		{
 			title: "Drafting your will",
 			description:
-				"We prepare a draft will that clearly reflects your instructions, including the appointment of executors, guardians if relevant, and the distribution of your estate.",
+				"We prepare a draft will that clearly reflects your instructions — including the appointment of executors, any trusts for younger beneficiaries, specific gifts, and the residuary estate. We also consider the tax implications of the arrangements you have chosen.",
 		},
 		{
 			title: "Review and execution",
 			description:
-				"You review the draft and raise any queries. Once you are satisfied, we arrange for the will to be properly signed and witnessed to make it legally valid.",
+				"You review the draft and raise any queries. Once you are happy with it, we arrange for the will to be properly signed and witnessed — the execution formalities are strict, and a will that is not correctly executed is not valid.",
 		},
 		{
 			title: "Probate and estate administration",
 			description:
-				"Where required, we apply for a grant of probate or letters of administration, deal with all relevant institutions, and guide the executor through the full administration of the estate.",
+				"Where required, we apply to the Probate Office for a grant of probate or letters of administration, gather the relevant financial information, file the Inland Revenue Affidavit with Revenue, and guide the executor through the full administration of the estate from start to finish.",
 		},
 	],
 	// --- FAQs ---
 	faqs: [
 		{
-			question: "Do I need a solicitor to make a will?",
+			question: "Do I need a solicitor to make a will in Ireland?",
 			answer:
-				"You are not legally required to use a solicitor, but having one ensures your will is properly drafted, clearly expressed, and validly executed. A poorly worded or incorrectly signed will can be challenged or declared invalid, which can cause significant difficulties for your family.",
+				"You are not legally required to use a solicitor, but it is strongly advisable. The rules for making a valid will in Ireland are strict — the will must be in writing, signed by the testator in the presence of two witnesses who are both present at the same time, and the witnesses must not be beneficiaries or spouses of beneficiaries. A poorly worded or incorrectly executed will can be challenged or declared invalid, which can cause serious difficulties for your family. A solicitor ensures the will is precisely drafted, legally sound, and properly executed.",
 		},
 		{
 			question: "What happens if I die without a will in Ireland?",
 			answer:
-				"If you die without a will (known as dying intestate), your estate is distributed according to the Succession Act 1965, which sets out a fixed formula. This may not reflect your wishes — for example, an unmarried partner has no automatic entitlement under the intestacy rules.",
+				"If you die without a will, you are said to die intestate and your estate is distributed according to the Succession Act 1965. Under the intestacy rules, your estate goes to your spouse or civil partner and children in fixed shares. An unmarried partner has no entitlement, no matter how long the relationship. Stepchildren who were not legally adopted have no entitlement either. The intestacy rules can produce outcomes that bear no relation to what the deceased would have wanted.",
 		},
 		{
-			question: "How long does probate take?",
+			question: "How long does probate take in Ireland?",
 			answer:
-				"The timeline varies depending on the complexity of the estate and the current workload of the Probate Office. A straightforward estate can take four to six months from the date of instruction. More complex estates, or those involving disputes, can take considerably longer.",
+				"The timeline for obtaining a grant of probate depends on the complexity of the estate, how quickly the required documentation can be gathered, and the current workload of the Probate Office. For a straightforward estate where all the necessary information is available, the process typically takes four to six months from the date of instruction. More complex estates — those involving property, business interests, foreign assets, or disputes — can take considerably longer.",
 		},
 		{
-			question: "Can a will be challenged?",
+			question: "What is the legal right share of a surviving spouse?",
 			answer:
-				"Yes. A will can be challenged on grounds such as lack of testamentary capacity, undue influence, fraud, or improper execution. Certain family members also have statutory rights under the Succession Act that cannot be overridden by a will. We can advise you on how to reduce the risk of a successful challenge.",
+				"Under the Succession Act 1965, a surviving spouse or civil partner has a legal right share that cannot be removed by will. The legal right share is one half of the estate where the deceased left no children, and one third where there are children. A surviving spouse must elect to take the legal right share within six months of the grant of probate. We advise executors and beneficiaries on how this right affects the administration of the estate.",
+		},
+		{
+			question: "Can a will be challenged in Ireland?",
+			answer:
+				"Yes. A will can be challenged on a number of grounds, including that the testator lacked testamentary capacity at the time of making the will, that they were subject to undue influence, or that the will was not properly executed. Children who feel they have not been adequately provided for can also make an application under Section 117 of the Succession Act. Properly drafted wills with contemporaneous evidence of the testator's capacity and intentions are much harder to challenge successfully.",
+		},
+		{
+			question: "What is Capital Acquisitions Tax and when does it apply?",
+			answer:
+				"Capital Acquisitions Tax (CAT) is a tax on gifts and inheritances in Ireland. The rate is 33%, but inheritances below certain thresholds are exempt. The threshold depends on the relationship between the deceased and the beneficiary — children can currently receive up to €400,000 from a parent free of CAT (known as the Group A threshold). Other close relatives have a Group B threshold of €40,000, and all others have a Group C threshold of €20,000. We advise on the tax implications of your estate and of each inheritance when administering an estate.",
+		},
+		{
+			question: "What is an enduring power of attorney?",
+			answer:
+				"An enduring power of attorney (EPA) is a legal document that allows you to appoint someone you trust — known as your attorney — to make decisions about your personal welfare and your property and financial affairs if you lose the mental capacity to do so yourself. Under the new Assisted Decision-Making (Capacity) Act framework, EPAs must be registered with the Decision Support Service. An EPA is an essential planning document — without one, your family may face significant difficulty managing your affairs if you lose capacity.",
 		},
 	],
 } as const;
